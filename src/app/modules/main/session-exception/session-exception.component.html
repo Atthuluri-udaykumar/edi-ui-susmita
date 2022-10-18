@@ -1,0 +1,16 @@
+<h1>Session Exception</h1>
+
+<div *ngIf="!sessionTimeoutFlag">
+    <h2>WARNING: Forced Session Termination</h2>
+    <h3>{{exceptionMessage}}</h3>
+    <h3>Please <a [routerLink]="" (click)="goToLogin()">log in</a> to the EDI Website or <a [routerLink]="" (click)="goToPWS()">return</a> to the RDS Program Website.</h3>
+</div>
+
+
+<div *ngIf="sessionTimeoutFlag">
+
+    <h2>New Web Browser Session Detected</h2>
+    <h3>{{fullName}} accessed the EDI Website at {{sessionTime}} and is currently logged in. A Login ID may be used to access only one web browser session at a time. Because you have started a new web browser session, your previous browser session has been terminated. If you did not initiate multiple browser sessions, or you cannot access the EDI Website, please contact <a [href]="environmentUrl+'/contact/'" target="_blank">CMS' RDS Center</a>.</h3>
+    <p><strong>Note</strong>: A web browser session will timeout due to inactivity.</p>
+    
+</div>

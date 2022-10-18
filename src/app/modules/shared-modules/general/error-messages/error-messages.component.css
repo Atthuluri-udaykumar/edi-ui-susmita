@@ -1,0 +1,40 @@
+.message-label {
+  font-weight: bold;
+  padding-right: 0.5rem;
+}
+
+.message-label-error {
+  color: #981b1e;
+}
+
+.message-label-warning {
+  color: #e39c02;
+}
+
+.message-label-info {
+  color: #046b99;
+}
+
+.message-label-success {
+  color: #2e8540;
+}
+
+.usa-alert__text {
+  margin-top: .5rem;
+}
+
+.message-close {
+  margin-left: auto;
+  overflow: hidden;
+  position: relative;
+  background: transparent;
+  padding: 0;
+  border: none;
+  font-size: x-large;
+  cursor: pointer;
+}
+
+.usa-alert__body {
+  width: 100%;
+  display: block;
+}

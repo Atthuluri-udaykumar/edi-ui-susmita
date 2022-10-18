@@ -1,0 +1,64 @@
+<h2>Security Questions</h2>
+
+<app-error-messages [messages]="warningMsgs" [type]="'warning'"></app-error-messages>
+
+<app-error-messages [messages]="errorMsgs"></app-error-messages>
+
+<form [formGroup]="questionsForm" (ngSubmit)="onSubmit()">
+  <ng-container *ngIf="!questionsLocked">
+    <fieldset class="usa-fieldset">
+      <p>
+        Enter Answers to the Security Questions.
+      </p>
+
+      <p>
+        If you have forgotten your Security Answers, select <a [routerLink]="" (click)="reset_password(apiService)" title="Reset Password">Reset Password</a> to receive an email containing a link to validate your person information and reset your Password.
+      </p>
+
+      <p>
+        An * indicates a required field.
+      </p>
+
+      <div class="row">
+        <label for="securityQuestion1" class="displaylabel">
+          Security Question 1:
+        </label>
+
+        <span id="securityQuestion1">{{question1}}</span>
+      </div>
+
+      <div class="row">
+        <app-rds-input formControlName="answer1" label="* Answer Security Question 1" id="answer1" type="text" maxLength="50" size="44">
+        </app-rds-input>
+      </div>
+      <br>
+      <div class="row">
+        <label for="securityQuestion2" class="displaylabel">
+          Security Question 2:
+        </label>
+
+        <span id="securityQuestion2">{{question2}}</span>
+      </div>
+
+      <div class="row">
+        <app-rds-input formControlName="answer2" label="* Answer Security Question 2" id="answer2" type="text" maxLength="50" size="44">
+        </app-rds-input>
+      </div>
+    </fieldset>
+
+    <p>
+      Select <strong>Continue</strong> to reset your Password. Select <strong>Cancel</strong> to return to the <i>Validate Person Information</i> page.
+    </p>
+  </ng-container>
+
+  <p *ngIf="questionsLocked">
+    Select <strong>Cancel</strong> to return to the <i>Validate Person Information</i> page.
+  </p>
+
+  <div class="sameline-block">
+    <input class="usa-button" name="continue" type="submit" value="Continue" *ngIf="!questionsLocked"/>
+    <input class="usa-button" type="button" value="Cancel" (click)="cancel()"/>
+  </div>
+</form>
+
+<app-success-dialog [showEmailSuccess]="showEmailSuccess" [emailTypeFlow]="emailTypeFlow"></app-success-dialog>

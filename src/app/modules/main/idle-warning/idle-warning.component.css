@@ -1,0 +1,12 @@
+#logout {
+  background-color: #cd2026;
+}
+
+#logout:hover {
+  background-color: #981b1e;
+}
+
+.flex-item{
+  color: black;
+  text-align: justify;
+}

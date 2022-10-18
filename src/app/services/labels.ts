@@ -1,0 +1,47 @@
+export const inputLabels = {
+  'emailId': 'Email Address',
+  'reEmailId': 'Re-enter Email Address',
+  'dobMonth': 'Date of Birth Month',
+  'dobDay': 'Date of Birth Day',
+  'dobYear': 'Date of Birth Year',
+  'dob': 'Date of Birth',
+  'ssn': 'Social Security Number',
+  'firstName': 'First Name',
+  'lastName': 'Last Name',
+  'streetLine1': 'Street Line 1',
+  'streetLine2': 'Street Line 2',
+  'zipCode': 'Zip Code',
+  'city': 'City',
+  'phoneNumber': 'Phone Number',
+  'jobTitle': 'Job Title',
+  'loginId': 'Login ID',
+  'password': 'Password',
+  'rePassword': 'Re enter Password',
+  'answer1': 'Answer Security Question 1',
+  'answer2': 'Answer Security Question 2',
+  'companyName': 'Organization Name',
+  'ein': 'Employer Identification Number',
+  'textEnabledNumber': 'Text-Enabled Number',
+  'verificationCode': 'Verification Code',
+  'employerIdNumber': 'Employer Identification Number',
+  'pin': 'PIN',
+  'vendorId': 'Vendor ID',
+  'vdsaMir': 'VDSA Plan Number or MIR Reporter ID',
+  'signature': 'Signature Name',
+  'dateSignature': 'Signature Date',
+  'vendorIdent': 'Vendor ID',
+  'currPassword': 'Current Password',
+  'terminationDate': 'Termination Date'
+};
+
+export const selectLabels = {
+  'state': 'State',
+  'question1': 'Security Question 1',
+  'question2': 'Security Question 2',
+  'organizationType': 'Organization Type',
+  'topic': 'Topic',
+  'issue': 'Question/Issue',
+  'bankState': 'State',
+  'role': 'Role'
+};
+

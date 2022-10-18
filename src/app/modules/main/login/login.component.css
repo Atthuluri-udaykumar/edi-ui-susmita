@@ -1,0 +1,12 @@
+#mfa {
+  align-items: center;
+  background-color: #3e9027;
+}
+
+#mfa:hover {
+  background-color: #32661c;
+}
+
+#loginButton {
+  margin-left: 0;
+}

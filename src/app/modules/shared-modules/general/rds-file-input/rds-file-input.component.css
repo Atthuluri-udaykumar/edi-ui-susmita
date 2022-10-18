@@ -1,0 +1,124 @@
+[type=file] {
+  border: 0;
+  margin-top: .5rem;
+  padding-left: 0;
+  padding-top: .2rem;
+}
+
+.usa-file-input {
+  display: inherit;
+  max-width: 30rem;
+  width: 100%;
+}
+
+.usa-file-input .usa-file-input__input[type] {
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  margin: 0;
+  max-width: none;
+  position: absolute;
+  padding: .5rem;
+  text-indent: -999em;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.usa-file-input__target {
+  border: 1px dashed #adadad;
+  display: block;
+  font-size: .93rem;
+  margin-top: .5rem;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.usa-file-input__instructions {
+  display: inline-block;
+  padding: 2rem 1rem;
+  pointer-events: none;
+  position: relative;
+  z-index: 3;
+}
+
+.usa-file-input__choose {
+  color: #005ea2;
+  text-decoration: underline;
+  font-weight: 400;
+}
+
+.usa-file-input--disabled {
+  pointer-events: none;
+}
+
+.usa-file-input__box {
+  background: rgb(255, 255, 255);
+  height: 100%;
+  left: 0px;
+  pointer-events: none;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  z-index: 2;
+}
+
+.usa-file-input--disabled .usa-file-input__box {
+  background-color: rgb(230, 230, 230);
+}
+
+.usa-file-input--disabled .usa-file-input__instructions {
+  opacity: 0.5;
+}
+
+.usa-file-input--drag .usa-file-input__target {
+  border-color: rgb(0, 94, 162);
+}
+
+.usa-file-input--drag .usa-file-input__box {
+  background-color: rgb(217, 232, 246) !important;
+}
+
+.usa-file-input--drag .usa-file-input__preview {
+  opacity: 0.1;
+}
+
+.usa-form-group--error .usa-file-input__target {
+  border-color: rgb(181, 9, 9);
+  border-width: 2px;
+}
+
+.usa-file-input__preview {
+  overflow-wrap: anywhere;
+  font-size: 0.87rem;
+  margin-top: 1px;
+  padding: 0.25rem 0.5rem;
+  text-align: left;
+}
+
+.usa-file-input__preview, .usa-file-input__preview-heading {
+  align-items: center;
+  background: rgb(217, 232, 246);
+  display: flex;
+  pointer-events: none;
+  position: relative;
+  z-index: 3;
+}
+
+.usa-file-input__preview-heading {
+  font-weight: 700;
+  justify-content: space-between;
+  padding: 0.5rem;
+}
+
+.inline-icon3 {
+  margin-top: auto;
+}
+
+.upload-button {
+  margin-top: .5rem;
+  margin-left: 1rem;
+  height: fit-content;
+  align-self: center;
+}

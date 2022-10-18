@@ -1,0 +1,13 @@
+<div id="body">
+  <app-header *ngIf="!error500"></app-header>
+
+  <main class="grid-container usa-content usa-layout-docs" id="main-content">
+    <div id="content" class="usa-layout-docs__main">
+      <router-outlet (activate)="onActivate($event)"></router-outlet>
+    </div>
+  </main>
+
+  <app-footer *ngIf="!error500"></app-footer>
+</div>
+
+<app-idle-warning [idleVisible]="showIdleWarning" (extendPressed)="stayLoggedIn()" (logOutPressed)="logOutPressed()"></app-idle-warning>

@@ -1,0 +1,9 @@
+label {
+  max-width: 80%;
+}
+
+.link-error{
+  display: block;
+  margin-top: 1.2rem;
+  position: absolute;
+}

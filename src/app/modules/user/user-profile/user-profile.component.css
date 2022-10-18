@@ -1,0 +1,46 @@
+.labelEx {
+    text-align: right;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    float: left;
+  }
+  
+  td {
+    border: 1px solid #d6d7d9;
+  }
+  
+  .headRow {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  
+  :host ::ng-deep p-inputMask > input {
+    margin-bottom: 1rem;
+  }
+  
+  .extension-number {
+    float: left;
+  }
+  
+  .extension-number input {
+    width: fit-content;
+  }
+  
+  .phone-number {
+    float: left;
+    margin-right: 5%;
+  }
+  
+  .first-name {
+    float: left;
+    margin-right: 5%;
+  }
+  
+  .middle-name {
+    float: left;
+  }
+  
+  .margin-bottom{
+    margin-bottom: 1em;
+  }
+  

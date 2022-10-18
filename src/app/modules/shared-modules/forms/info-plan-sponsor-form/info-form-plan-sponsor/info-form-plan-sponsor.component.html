@@ -1,0 +1,134 @@
+<form [formGroup]="planSponsorForm" (ngSubmit)="onSubmit()" xmlns="http://www.w3.org/1999/html">
+
+  <fieldset class="usa-fieldset">
+
+    <div class="grid-container no-left-margin">
+      <div class="grid-col-12 headRow"><strong>Plan Sponsor Information</strong></div>
+    </div>
+
+    <div class="grid-container no-left-margin">
+      <div class="grid-row grid-gap">
+        <div class="grid-col-6 row">
+          <app-rds-input-wrapper label="* Employer Identification Number" [checkMask]="true">
+            <p-inputMask formControlName="employerIdNumber" inputId="employerIdNumber" mask="99-9999999" styleClass="usa-input"
+                         #inputChild></p-inputMask>
+          </app-rds-input-wrapper>
+        </div>
+        <div class="grid-col-6 row">
+          <app-rds-input label="* Organization Name" formControlName="companyName" id="companyName" type="text" maxLength="50" size="50">
+          </app-rds-input>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-container no-left-margin">
+      <div class="grid-row grid-gap">
+        <div class="grid-col-8 row">
+          <div class="phone-number">
+            <app-rds-input-wrapper label="* Phone Number" [checkMask]="true" componentId="psPhoneNumber">
+              <p-inputMask formControlName="phoneNumber" inputId="psPhoneNumber" mask="(999) 999-9999" styleClass="usa-input"
+                           [unmask]="true" #inputChild></p-inputMask>
+            </app-rds-input-wrapper>
+          </div>
+          <div class="extension-number">
+            <label for="psExtension">Extension</label>
+            <input class="usa-input" type="text" formControlName="extension" id="psExtension" size="5" maxlength="5"/>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="grid-container no-left-margin">
+      <div class="grid-row grid-gap">
+        <div class="grid-col-6 row">
+          <label for="webAddress">Website</label>
+          <input class="usa-input" type="text" maxlength="255" size="50" id="webAddress" formControlName="webAddress">
+        </div>
+
+        <div class="grid-col-6 row">
+          <app-rds-select id="organizationType" label="* Organization Type" [items]="organizationTypes" formControlName="organizationType">
+          </app-rds-select>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-container no-left-margin">
+      <div class="grid-col-12 headRow"><strong>Plan Sponsor Address</strong></div>
+    </div>
+    <div class="grid-container no-left-margin">
+      <div class="grid-row grid-gap">
+        <div class="grid-col-6 row">
+          <app-rds-input formControlName="streetLine1" label="* Street Line 1" type="text" maxLength="40" size="40" id="street1">
+          </app-rds-input>
+        </div>
+
+        <div class="grid-col-6 row">
+          <label for="street2">Street Line 2</label>
+          <input class="usa-input" type="text" maxlength="40" size="40" id="street2" formControlName="streetLine2">
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-container no-left-margin">
+      <div class="grid-row grid-gap">
+        <div class="grid-col-4 row">
+          <app-rds-input formControlName="city" label="* City" id="psCity" type="text" maxLength="30" size="30">
+          </app-rds-input>
+        </div>
+        <div class="grid-col-4 row">
+
+          <app-rds-select id="psState" label="* State" [items]="states" formControlName="state">
+          </app-rds-select>
+
+        </div>
+        <div class="grid-col-4 row">
+          <app-rds-input-wrapper label="* Zip Code" [checkMask]="true" componentId="psZipCode">
+            <p-inputMask trim formControlName="zipCode" inputId="psZipCode" mask="99999?-9999"
+                         styleClass="usa-input" #inputChild></p-inputMask>
+          </app-rds-input-wrapper>
+        </div>
+      </div>
+    </div>
+
+    <ng-container *ngIf="psUpdatable">
+      <br/>
+      <br/>
+      <h3>Composite Vendor Reports</h3>
+      <ng-container *ngIf="psViewable; else notPsViewable">
+        <div class="row">
+          <p *ngIf="planSponsorData.compositeReportsAllowed">Composite Vendor Reports are allowed.</p>
+          <p *ngIf="!planSponsorData.compositeReportsAllowed">Composite Vendor Reports are not allowed.</p>
+        </div>
+      </ng-container>
+      <ng-template #notPsViewable>
+        <p>Vendors may designate a Vendor Composite Report Recipient to receive the Quick Access Cost Reporting reports
+          for all current
+          Applications and Benefit Options assigned to the Vendor, regardless of this recipients assignments in Payment
+          Setup.</p>
+        <p>Select Yes to include the data or select No to exclude the data in these Composite Vendor Reports for this
+          Plan Sponsor.</p>
+        <div class="row">
+          <input class="usa-radio__input" id="compositeYes" type="radio" formControlName="compositeReportsAllowed">
+          <label class="usa-radio__label" for="compositeYes">
+            Yes
+          </label>
+        </div>
+        <div class="row">
+          <input class="usa-radio__input" id="compositeNo" type="radio" formControlName="compositeReportsAllowed">
+          <label class="usa-radio__label" for="compositeNo">
+            No
+          </label>
+        </div>
+      </ng-template>
+    </ng-container>
+
+  </fieldset>
+
+  <ng-content></ng-content>
+
+  <div class="sameline-block">
+    <input class="usa-button" type="submit" [value]="continueButton" *ngIf="!psAuthRep">
+  </div>
+
+</form>

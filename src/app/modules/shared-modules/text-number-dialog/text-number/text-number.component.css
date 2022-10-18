@@ -1,0 +1,48 @@
+a.disabled {
+  color: currentColor;
+  cursor: not-allowed;
+  opacity: 0.5;
+  text-decoration: none;
+}
+
+p-dialog td {
+  border: none;
+}
+
+p-inputMask {
+  display: contents; /* Doesnt work in IE */
+  width: 60%; /* for IE */
+}
+
+.usa-color-primary-alt-lightest {
+  background-color: #e1f3f8;
+}
+
+.usa-color-text {
+  font-weight: 700;
+  margin-bottom: .4rem;
+}
+
+.ted-form-row {
+  display: inline-flex;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.margin-left{
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+}
+
+.margin-top{
+  margin-top: -1.15rem;
+}
+
+.flex-item{
+  color: black;
+  text-align: justify;
+}
+
+.message {
+  width: 80%;
+}

@@ -1,0 +1,6 @@
+<div [ngClass]="{'usa-form-group usa-form-group--error' : evaluateInputError()}">
+  <ng-content></ng-content>
+  <label class="usa-checkbox__label" [for]="componentId" *ngIf="label">{{label}}</label>
+  <span *ngIf="evaluateInputError()" class="usa-error-message" id="rds-input-error-desc">
+      <i class="pi pi-times"></i> {{errorMessage}}</span>
+</div>

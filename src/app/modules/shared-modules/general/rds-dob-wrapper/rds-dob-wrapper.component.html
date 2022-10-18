@@ -1,0 +1,15 @@
+<div class="rds-input"
+     [ngClass]="{'usa-form-group usa-form-group--error' : hasErrors}">
+  <fieldset class="usa-fieldset">
+    <legend [ngClass]="{'usa-label usa-label--error': hasErrors}">{{legend}}</legend>
+
+    <ng-content></ng-content>
+
+    <span *ngIf="hasErrors"
+          class="usa-error-message"
+          id="rds-input-error-desc">
+    <i class="pi pi-times"></i>
+      {{errorMessage}}
+    </span>
+  </fieldset>
+</div>

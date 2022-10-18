@@ -1,0 +1,15 @@
+<div [ngClass]="{'usa-form-group usa-form-group--error' : hasErrors}">
+  <input class="usa-checkbox__input" type="checkbox"
+         [name]="name"
+         [id]="id"
+         [disabled]="disabled"
+         [value]="value"
+         [checked]="value.checked"
+         (input)="onChange($event)"
+         (blur)="onTouched($event)"
+         [ngClass]="{'usa-input--error': hasErrors}"
+         #input>
+  <label class="usa-checkbox__label" [for]="id" *ngIf="label">{{label}}</label>
+  <span *ngIf="hasErrors" class="usa-error-message" id="rds-input-check-error-desc">
+      <i class="pi pi-times"></i> {{errorMessage}}</span>
+</div>

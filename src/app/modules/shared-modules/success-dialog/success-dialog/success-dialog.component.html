@@ -1,0 +1,57 @@
+<p-dialog [header]="headerTitle" [(visible)]="showEmailSuccess" modal="modal" [style]="{width: '60vw'}" [focusOnShow]="false"
+          descriptionId="dialogConfirmId" [baseZIndex]="10000" (onHide)="exit()">
+  <div *ngIf="emailTypeFlow === constants.FORGOT_LOGIN_ID" class="flex-container flex-center wrap">
+    <div class="flex-item">
+      <i class="pi pi-check-circle confirm-check-icon"></i>
+    </div>
+    <div class="flex-item message">
+      An email containing your Login ID has been sent. If you do not receive this email within 15 minutes, check your SPAM filters. To re-send the email, return to the Login page, select Forgot Login
+      ID and follow the instructions on the pages. If you still do not receive an email, contact <a [href]="environmentUrl+'/contact/'" target="_blank">CMS' RDS Center</a>.
+    </div>
+  </div>
+
+  <div *ngIf="emailTypeFlow === constants.FORGOT_PASSWORD_NO_PIN || emailTypeFlow === constants.FORGOT_PASSWORD_WITH_PIN" class="flex-container flex-center wrap">
+    <div class="flex-item">
+      <i class="pi pi-check-circle confirm-check-icon"></i>
+    </div>
+    <div class="flex-item message">
+      An email containing a link to reset your Password has been sent. If you do not receive this email within 15 minutes, check your SPAM filters. To re-send the email, return to the Login page,
+      select
+      Forgot Password and follow the instructions on the pages. If you still do not receive an email, contact <a [href]="environmentUrl+'/contact/'" target="_blank">CMS' RDS Center</a>.
+    </div>
+  </div>
+
+  <div *ngIf="emailTypeFlow === constants.DISABLED_ACCOUNT_NO_TOKEN" class="flex-container flex-center wrap">
+    <div class="flex-item">
+      <i class="pi pi-check-circle confirm-check-icon"></i>
+    </div>
+    <div class="flex-item message">
+      An email containing a link to re-enable your account has been sent. If you do not receive this email within 15 minutes, check your SPAM filters. To re-send the email, attempt to login to the
+      EDI Website again and select the Re-send link in the disabled account error message. If you still do not
+      receive an email, contact <a [href]="environmentUrl+'/contact/'" target="_blank">CMS' RDS Center</a>.
+    </div>
+  </div>
+
+  <div *ngIf="emailTypeFlow === constants.VERIFY_EMAIL_PIN" class="flex-container flex-center wrap">
+    <div class="flex-item">
+      <i class="pi pi-check-circle confirm-check-icon"></i>
+    </div>
+    <div class="flex-item message">
+      You have successfully verified your email address.
+    </div>
+  </div>
+
+  <div *ngIf="emailTypeFlow === constants.DISABLED_ACCOUNT_WITH_TOKEN" class="flex-container flex-center wrap">
+    <div class="flex-item">
+      <i class="pi pi-check-circle confirm-check-icon"></i>
+    </div>
+    <div class="flex-item message">
+      
+      Your account has been enabled. Go to the <a [routerLink]="" (click)="exit()"> EDI Website Login Page</a>.
+    </div>
+  </div>
+
+  <ng-template pTemplate="footer">
+    <button class="usa-button" type="button" pButton (click)="exit()" label="Continue">Exit</button>
+  </ng-template>
+</p-dialog>

@@ -1,0 +1,29 @@
+.usa-navbar {
+  background: linear-gradient(45deg, #000e21, transparent);
+}
+
+ul {
+  margin: 0;
+}
+
+.usa-nav__secondary-links li.headerDate:not(:last-child)::after {
+  content: '';
+}
+
+div.rds-usa-icons-nav ul li {
+  border: none;
+}
+
+ul.usa-nav__primary.usa-accordion {
+  align-items: center;
+}
+
+.usa-banner-button-text {
+  margin-right: 0.5em;
+}
+
+.usa-nav__link:hover span {
+  border-bottom: 0.6rem solid #0071bc;
+  padding-bottom: 0.3rem;
+}
+

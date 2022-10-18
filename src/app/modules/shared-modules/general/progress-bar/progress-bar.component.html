@@ -1,0 +1,16 @@
+<div class="wizard small row" #bar>
+  <a *ngFor="let state of states; let i=index" (click)="setCurrent(state)"
+     [class.current]="state.isCurrent && !state.isComplete && !state.isInvalid"
+     [class.complete]="state.isComplete && !state.isCurrent  && !state.isInvalid"
+     [class.currentComplete]="state.isCurrent && state.isComplete && !state.isInvalid"
+     [class.disabled]="state.isDisabled  && !state.isInvalid"
+     [class.enabled]="!state.isDisabled && !state.isCurrent && !state.isComplete  && !state.isInvalid"
+     [class.error]="state.isInvalid">
+    <div class="badge">
+      <div class="number">{{i + 1}}</div>
+    </div>
+    {{ state.name }}
+  </a>
+</div>
+<div style="height: 40px; width: 100%" *ngIf="dummyActive">
+</div>

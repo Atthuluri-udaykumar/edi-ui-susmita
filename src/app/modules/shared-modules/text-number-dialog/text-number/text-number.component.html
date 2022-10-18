@@ -1,0 +1,59 @@
+<p-dialog header="Text-Enabled Number" [(visible)]="displayNumber" [modal]="true" width="800" [focusOnShow]="false"
+          descriptionId="dialogContentId" (onHide)="closeDialog()" (onShow)="resetForm()" [baseZIndex]="10000">
+  <div id="dialogContentId">
+    <app-error-messages [messages]="errorMsgs"></app-error-messages>
+    <form [formGroup]="textEnabledForm" (submit)="submit()">
+      <p>
+        Enter the Text-Enabled Number you want to register. CMS’ RDS Center will send an SMS with a six-digit Verification Code.
+      </p>
+
+      <app-rds-input-wrapper label="* Text-Enabled Device Number" [checkMask]="true">
+        <div class="ted-form-row">
+          <p-inputMask formControlName="textEnabledNumber" inputId="textEnabledNumber" mask="(999) 999-9999" styleClass="usa-input"
+                       [autoClear]="true" maxlength="10" #inputChild
+                       [unmask]="true"></p-inputMask>
+          <button type="button" class="usa-button margin-left" (click)="send()" [disabled]="codeSent" #tempLastElement>Send Verification Code</button>
+        </div>
+      </app-rds-input-wrapper>
+
+      <p>
+        Enter the six-digit Verification Code that we sent you to confirm registration.
+      </p>
+      <app-rds-input-wrapper label="* Verification Code">
+        <div class="ted-form-row">
+          <input class="usa-input" id="verificationCode" #inputChild
+                 maxlength="6"
+                 size="30"
+                 formControlName="verificationCode"
+                 [disableControl]="!codeSent"
+                 rdsPattern="integer" #verificationField/>
+          <div class="margin-top">
+            <span class="margin-left">Didn't receive a code?</span>
+            <button type="button" class="usa-button margin-left"
+                    [disabled]="!codeSent" (click)="send()">Resend Verification Code
+            </button>
+          </div>
+        </div>
+      </app-rds-input-wrapper>
+      <br>
+      <button class="usa-button" type="submit" [disabled]="!codeSent">Submit</button>
+    </form>
+  </div>
+</p-dialog>
+
+<p-dialog header="Text-Enabled Number Registration Successful" [(visible)]="displayConfirmation" modal="modal" [focusOnShow]="false"
+          descriptionId="dialogConfId" (onHide)="continueToNextPage()" [baseZIndex]="10000" [style]="{width: '40vw'}">
+  <div class="flex-container flex-center wrap">
+    <div class="flex-item">
+      <i class="pi pi-check-circle confirm-check-icon"></i>
+    </div>
+    <div class="flex-item message">
+        <p>
+          Your Text-Enabled Number has been successfully registered.
+        </p>
+    </div>
+  </div>
+  <ng-template pTemplate="footer">
+    <button class="usa-button" type="button" (click)="continueToNextPage()">Continue</button>
+  </ng-template>
+</p-dialog>

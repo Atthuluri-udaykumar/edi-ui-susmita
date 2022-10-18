@@ -1,0 +1,18 @@
+<p-dialog header="E-PHI Agreement" [(visible)]="displayEphi" [style]="{width: '50vw'}" [baseZIndex]="10000"
+          [modal]="true" descriptionId="ephiAgreement" [focusOnShow]="false" (onHide)="cancel()">
+  <div id="ephiAgreement">
+    NOTE: The privileges ("View/Send/Receive Retiree Data" and/or "Report Costs" and/or “Request Payment”) permit the Designee to access certain Electronic Protected Health Information (E-PHI)
+    associated with this Plan Sponsor's RDS application. E-PHI is subject to protection under the federal privacy and security regulations established at 45 CFR Parts 160 and 164 and promulgated
+    pursuant to the Health Insurance Portability and Accountability Act of 1996 ("HIPAA") and is intended for the access and use by individuals only as authorized by the Plan Sponsor. Disclosure of
+    this
+    E-PHI to any other party, unless authorized by the Plan Sponsor or required to do so by law, is prohibited.
+    <br><br>
+    By Selecting on "<strong>I accept</strong>" button below, you hereby authorize the Designee to access or use E-PHI associated with this Plan Sponsor's RDS application. Selecting the "<strong>Cancel</strong>" button will allow you to
+    modify the privileges that you want to assign to this Designee.
+    <br><br>
+  </div>
+  <ng-template pTemplate="footer">
+    <button type="button" class="usa-button" (click)="accept()">I accept</button>
+    <button type="button" class="usa-button" (click)="cancel()">Cancel</button>
+  </ng-template>
+</p-dialog>

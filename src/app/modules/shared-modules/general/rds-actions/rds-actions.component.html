@@ -1,0 +1,4 @@
+<div class="actions" style="display: flex">
+  <app-rds-select [(ngModel)]="selectedAction" emptyItem="- Select Action -" [items]="records" [describedBy]="describedBy" [id]="actionId"></app-rds-select>
+  <input type="button" name="Continue" value="Go" (click)="onGo()" class="usa-button" [attr.aria-describedby]="actionId + ' '+ describedBy"/>
+</div>

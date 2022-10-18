@@ -1,0 +1,33 @@
+<div class="rds-input"
+     [ngClass]="{'usa-form-group usa-form-group--error' : hasErrors}">
+  <label [ngClass]="{'usa-label usa-label--error': hasErrors}" [for]="id"
+         *ngIf="label">
+    {{label}}
+  </label>
+
+  <input #input class="usa-input"
+         [type]="type"
+         [size]="size"
+         [attr.maxlength]="maxLength"
+         [attr.autocomplete]="autocomplete"
+         [attr.aria-describedby]="describedBy"
+         [disabled]="disabled"
+         (input)="onChange($event)"
+         (blur)="onTouched($event)"
+         [ngClass]="{'usa-input--error': hasErrors}"
+         [id]="id"
+         [name]="name"
+         [(ngModel)]="value"/>
+
+  <span *ngIf="hasErrors" class="usa-error-message"
+        id="rds-input-error-desc">
+    <i class="pi pi-times"></i>
+    {{errorMessage}}
+  </span>
+
+  <a *ngIf="toggleView" [routerLink]="" (click)="reveal()" 
+  attr.aria-label="{{showHideButton}} {{label | nostar}}"
+  [ngClass]="{'link-error':hasErrors}">{{showHideButton}}</a>
+</div>
+
+

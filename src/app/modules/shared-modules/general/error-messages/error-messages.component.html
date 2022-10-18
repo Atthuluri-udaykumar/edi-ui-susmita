@@ -1,0 +1,19 @@
+<div class="usa-alert" [ngClass]="messageClass" [style.display]="visible ? 'block' : 'none'"
+  [attr.aria-hidden]="!visible">
+  <div class="usa-alert__body" ngPreserveWhitespaces="true" [tabindex]="focusOnShow&&visible?0:-1" #errorFocus>
+    <div style="display: flex">
+      <h2 class="usa-alert__heading">{{headTitle}}</h2>
+      <!--      <button class="message-close" (click)="close()" *ngIf="visible">-->
+      <!--        <i class="pi pi-times"></i>-->
+      <!--      </button>-->
+    </div>
+    <p class="usa-alert__text" *ngFor="let message of messages; let i=index">
+      <span class="message-label" [ngClass]="messageLabelClass">-</span><span *ngIf="!message?.hasLink"
+        [innerHTML]="message?.detail"></span>
+      <ng-container *ngIf="message?.hasLink">
+        <span [innerHTML]="message?.detailBeforeLink"></span><a
+          (click)="navigateToPage()">{{message?.linkText}}</a><span [innerHTML]="message?.detailAfterLink"></span>
+      </ng-container>
+    </p>
+  </div>
+</div>

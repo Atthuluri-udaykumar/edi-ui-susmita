@@ -1,0 +1,17 @@
+<div class="rds-input" [ngClass]="{'usa-form-group usa-form-group--error' : hasErrors}">
+  <label [ngClass]="{'usa-label usa-label--error': hasErrors}" [for]="id" *ngIf="label">
+    {{label}}
+  </label>
+
+  <select class="usa-select" [name]="name" [id]="id" [size]="size" [disabled]="disabled" (blur)="onTouched($event)"
+    [ngClass]="{'usa-input--error': hasErrors}" [attr.aria-describedby]="describedBy" (change)="onChange($event)"
+    #select>
+    <option [disabled]="true" value="">{{emptyItem ? emptyItem:"- Select one -"}}</option>
+    <option *ngFor="let item of items" [value]="item.id">{{item.value}}</option>
+  </select>
+
+  <span *ngIf="hasErrors" class="usa-error-message" id="rds-input-error-desc">
+    <i class="pi pi-times"></i>
+    {{errorMessage}}
+  </span>
+</div>

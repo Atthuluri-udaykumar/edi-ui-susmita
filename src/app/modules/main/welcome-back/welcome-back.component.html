@@ -1,0 +1,12 @@
+<h2>Welcome</h2>
+
+<p *ngIf="firstTime">{{user.firstName}} {{user.lastName}}, welcome to the EDI Website.</p>
+
+<p *ngIf="!firstTime">{{user.firstName}} {{user.lastName}}, you last accessed the EDI Website on {{securityDetails.lastLoginTimestamp | momentDate:'longDate'}} at {{securityDetails.lastLoginTimestamp | momentDate:'shortTime'}} Eastern Time.</p>
+
+<p *ngIf="failedAttempts && !multipleAttempts"> There has been {{loginAttempts}} unsuccessful login attempt since your last successful login.</p>
+<p *ngIf="failedAttempts && multipleAttempts"> There have been {{loginAttempts}} unsuccessful login attempts since your last successful login.</p>
+
+<p>Select <strong>Continue</strong> to proceed to the <i>Plan Sponsor List With Application Summary</i> page.</p>
+
+<button (click)="continueToPsList()">Continue</button>

@@ -1,0 +1,40 @@
+<ng-container [formGroup]="listForm">
+  <div class="rds-input"
+       [ngClass]="{'usa-form-group usa-form-group--error' : hasErrors}">
+    <label [for]="id" *ngIf="label">{{label}}</label>
+
+    <div class="grid-row grid-gap flex-center" *ngFor="let sItem of selectedItems; let i = index">
+      <div class="grid-col-3">
+        <li>{{sItem.value}}</li>
+      </div>
+      <div class="grid-col-2">
+        <button (click)="remove(sItem)" class="usa-button usa-button--unstyled"
+                [disabled]="disabled" type="button">Remove</button>
+      </div>
+      <div class="grid-col-2">
+          <button (click)="actionMethod(sItem)" class="usa-button usa-button--unstyled"
+                  [disabled]="disabled" type="button">{{action}}</button>
+      </div>
+    </div>
+    <div class="grid-row grid-gap flex-center">
+      <div class="grid-col-3">
+      <app-rds-select [id]="id"
+                      [items]="items"
+                      [name]="name"
+                      [disabled]="disabled"
+                      [describedBy]="describedBy"
+                      formControlName="selectItem"
+                      (blur)="onTouched($event)">
+      </app-rds-select>
+      </div>
+      <div class="grid-col-2">
+        <button (click)="assign()" class="usa-button usa-button--unstyled"
+                [disabled]="disabled" type="button">Assign</button>
+      </div>
+      <div class="grid-col-2">
+        <button (click)="addNew()" class="usa-button usa-button--unstyled"
+                [disabled]="disabled" type="button">Add New</button>
+      </div>
+    </div>
+  </div>
+</ng-container>

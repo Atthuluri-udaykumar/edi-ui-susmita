@@ -1,0 +1,49 @@
+<div class="rds-input"
+     [ngClass]="{'usa-form-group usa-form-group--error' : hasErrors}">
+  <fieldset class="usa-fieldset">
+    <legend [ngClass]="{'usa-label usa-label--error': hasErrors}">{{legend}}</legend>
+
+    <div class="usa-memorable-date">
+      <div class="usa-form-group usa-form-group--month">
+        <label for="iMonth" aria-hidden="true">Month</label>
+        <input class="usa-input usa-input--inline" id="iMonth" type="text"
+               aria-label="Month, two digit number"
+               (input)="onChange($event)"
+               (blur)="onTouched($event)"
+               [attr.aria-describedby]="describedBy"
+               [ngClass]="{'usa-input--error': monthError}"
+               [disabled]="disabled" #crefMonth maxlength="2"
+               rdsPattern="integer"/>
+      </div>
+
+      <div class="usa-form-group usa-form-group--day">
+        <label for="iDay" aria-hidden="true">Day</label>
+        <input class="usa-input usa-input--inline" id="iDay" type="text"
+               aria-label="Day, two digit number"
+               (input)="onChange($event)"
+               (blur)="onTouched($event)"
+               [attr.aria-describedby]="describedBy"
+               [ngClass]="{'usa-input--error': dayError}"
+               [disabled]="disabled" #crefDay maxlength="2" rdsPattern="integer"/>
+      </div>
+
+      <div class="usa-form-group usa-form-group--year">
+        <label for="iYear" aria-hidden="true">Year</label>
+        <input class="usa-input usa-input--inline" id="iYear" type="text"
+               aria-label="Year, four digit number"
+               (input)="onChange($event)"
+               (blur)="onTouched($event)"
+               [attr.aria-describedby]="describedBy"
+               [ngClass]="{'usa-input--error': yearError}"
+               [disabled]="disabled" #crefYear maxlength="4" rdsPattern="integer"/>
+      </div>
+    </div>
+
+    <span *ngIf="hasErrors"
+          class="usa-error-message"
+          id="rds-input-error-desc">
+    <i class="pi pi-times"></i>
+      {{errorMessage}}
+    </span>
+  </fieldset>
+</div>

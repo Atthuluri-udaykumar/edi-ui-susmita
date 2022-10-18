@@ -1,0 +1,4 @@
+{
+  "name": "$DEPLOY_ENV",
+  "version": "$BUILD_NUMBER"
+}

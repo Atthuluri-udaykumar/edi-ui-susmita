@@ -1,0 +1,7 @@
+p.exit {
+  text-align: center;
+}
+
+::ng-deep .usa-prose > ul li {
+  max-width: 100%;
+}

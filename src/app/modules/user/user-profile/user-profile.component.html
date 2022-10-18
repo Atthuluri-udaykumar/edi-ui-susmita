@@ -1,0 +1,131 @@
+<h1>
+    User Profile
+</h1>
+
+<app-error-messages [messages]="errorMsgs">
+</app-error-messages>
+
+<app-error-messages [messages]="successMsgs" [type]="'success'">
+</app-error-messages>
+
+<div id="PersonalInfoId">
+    <p>
+        Review and update your information.
+    </p>
+
+    <p>
+        An * indicates a required field.
+    </p>
+</div>
+
+<h2>
+    User Information
+</h2>
+
+<form [formGroup]="personalInfoForm" (ngSubmit)="onFormSubmit()" *ngIf="renderForm">
+    <div class="grid-container no-left-margin">
+        <div class="grid-col-4">
+            <div class="row">
+                <app-rds-input formControlName="firstName" label="* First Name" id="firstName" type="text" maxLength="30">
+                </app-rds-input>
+            </div>
+
+            <div class="row">
+                <app-rds-input formControlName="middleInitial" label="Middle Initial" id="middleName" type="text" maxLength="1">
+                </app-rds-input>
+            </div>
+      
+            <div class="row">
+                <app-rds-input formControlName="lastName" label="* Last Name" id="lastName" type="text" maxLength="40">
+                </app-rds-input>
+            </div>
+      
+            <div class="row">
+                <app-rds-input formControlName="dob" label="* Date of Birth" id="dob">
+                </app-rds-input>
+            </div>
+
+            <div class="row">
+                <app-rds-input formControlName="ssn" label="* Social Security Number" id="ssn" type="password">
+                </app-rds-input>
+            </div>
+      
+            <div class="row">
+                <app-rds-input formControlName="companyName" label="Company" id="Company" type="text" maxLength="50">
+                </app-rds-input>
+            </div>
+
+            <div class="row">
+                <app-rds-input formControlName="jobTitle" label="* Job Title" id="jobTitle" type="text" maxLength="20">
+                </app-rds-input>
+            </div>
+
+            <div class="row">
+                <app-rds-input-wrapper label="* Phone Number" componentId="phoneNumber" [checkMask]="true">
+                    <p-inputMask formControlName="phoneNumber" inputId="phoneNumber" mask="(999) 999-9999" [unmask]="true" styleClass="usa-input" #inputChild>
+                    </p-inputMask>
+                </app-rds-input-wrapper>
+            </div>
+
+            <div class="row">
+                <app-rds-input formControlName="extension" label="Extension" id="extension" type="text" maxLength="5" rdsPattern="integer">
+                </app-rds-input>
+            </div>
+
+            <div class="row">
+                <app-rds-input formControlName="emailId" label="* Email Address" id="emailId" type="text" maxLength="255">
+                </app-rds-input>
+            </div>
+
+            <div class="row">
+                <app-rds-input formControlName="reEmailId" label="* Re-enter Email Address" id="reEmailId" type="text" maxLength="255">
+                </app-rds-input>
+            </div>
+        </div>
+    </div>
+
+    <h2>
+        Mailing Address
+    </h2>
+
+    <div class="grid-container no-left-margin">
+        <div class="grid-col-4">
+            <div class="row">
+                <app-rds-input formControlName="streetLine1" label="* Street Line 1" id="streetLine1" type="text" maxLength="40">
+                </app-rds-input>
+            </div>
+
+            <div class="row">
+                <app-rds-input formControlName="streetLine2" label="Street Line 2" id="streetLine2" type="text" maxLength="40">
+                </app-rds-input>
+            </div>
+
+            <div class="row">
+                <app-rds-input formControlName="city" label="* City" id="city" type="text" maxLength="30">
+                </app-rds-input>
+            </div>
+
+            <div class="row">
+                <app-rds-select id="state" label="* State" [items]="states" formControlName="state">
+                </app-rds-select>
+            </div>
+
+            <div class="row">
+                <app-rds-input-wrapper label="* Zip Code" [checkMask]="true">
+                    <p-inputMask trim formControlName="zipCode" inputId="zipCode" mask="99999?-9999" styleClass="usa-input" #inputChild>
+                    </p-inputMask>
+                </app-rds-input-wrapper>
+            </div>
+        </div>
+    </div>
+
+    <div class="sameline-block">
+        <ng-container *ngIf="!viewOnly">
+            <button class="usa-button" type="submit" *ngLoaded="!isLoading">Save</button>
+        </ng-container>
+
+        <button class="usa-button usa-button--outline" type="button" (click)="onCancel()">
+            Cancel
+        </button>
+    </div>
+</form>

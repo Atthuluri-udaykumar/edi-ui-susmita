@@ -1,0 +1,18 @@
+.headRow {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.extension-number {
+  float: left;
+}
+
+.extension-number input {
+  width: fit-content;
+}
+
+.phone-number {
+  float: left;
+  margin-right: 5%;
+  width: inherit;
+}

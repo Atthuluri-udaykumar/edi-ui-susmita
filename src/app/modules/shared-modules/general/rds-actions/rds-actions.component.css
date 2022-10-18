@@ -1,0 +1,11 @@
+::ng-deep .actions .usa-select {
+  margin-top: 0;
+}
+
+app-rds-select {
+  margin-right: 0.5rem;
+}
+
+:host ::ng-deep .rds-input {
+  padding-bottom: 0 !important;
+}

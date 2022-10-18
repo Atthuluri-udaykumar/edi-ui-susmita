@@ -1,0 +1,23 @@
+<div class="usa-form-group" [class.usa-form-group--error]="error">
+  <label class="usa-label" for="file-input-single">Input accepts a single file</label>
+  <span class="usa-error-message" id="file-input-error-alert" role="alert" *ngIf="error">Invalid File.</span>
+  <div class="sameline-block" style="width: 100%">
+    <div class="usa-file-input" [class.usa-file-input--disabled]="disabled">
+      <div class="usa-file-input__target" (dragover)="dragOver($event)" (dragleave)="dragLeave($event)" (drop)="drop($event)" #dropTarget>
+        <div class="usa-file-input__preview-heading" *ngIf="fileNameSelected">Selected file <span class="usa-file-input__choose">Change file</span></div>
+        <div class="usa-file-input__instructions" aria-hidden="true" *ngIf="!fileNameSelected">
+          <span class="usa-file-input__drag-text">Drag file here or </span><span class="usa-file-input__choose">choose from folder</span>
+        </div>
+        <div class="usa-file-input__preview" aria-hidden="true" *ngIf="fileNameSelected">
+          <i class="pi pi-file rds-icon"></i>{{fileNameSelected}}
+        </div>
+        <div class="usa-file-input__box"></div>
+
+        <input id="file-input-single" class="usa-file-input__input" type="file" [attr.accept]="accept"
+               name="file-input-single" #fileInput (change)="handleChange($event)"/>
+      </div>
+      <input type="button" class="usa-button upload-button" (click)="triggerUpload()"
+             value="Upload" [disabled]="disabled || !(selectedFiles && selectedFiles.length>0)">
+    </div>
+  </div>
+</div>

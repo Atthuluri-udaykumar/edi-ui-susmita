@@ -1,0 +1,36 @@
+<p-card header="Login Information">
+
+  <div class="grid-container">
+    <div class="grid-row">
+      <div class="tablet:grid-col">
+        <dl>
+          <dt>Name</dt>
+          <dd>{{fullName}}</dd>
+
+          <dt>Role</dt>
+          <dd>{{role}}</dd>
+
+          <dt>Last Login</dt>
+          <dd>{{lastLogin | momentDate:'longDate'}} at {{lastLogin | momentDate:'shortTime'}} ET</dd>
+
+          <dt *ngIf="applicationId">Application Id</dt>
+          <dd *ngIf="applicationId">{{applicationId}}</dd>
+        </dl>
+        <br>
+        <button class="usa-button" (click)="refresh()">Refresh</button>
+      </div>
+      <div class="tablet:grid-col">
+        <p>Role Privileges</p>
+        <ul>
+          <li *ngFor="let privilege of rolePrivileges; let i = index">{{privilege.prvlgTxt}}</li>
+        </ul>
+      </div>
+      <div class="tablet:grid-col"><p>Application Privileges</p>
+        <ul>
+          <li *ngFor="let privilege of applicationPrivileges; let i = index">{{privilege.prvlgTxt}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</p-card>

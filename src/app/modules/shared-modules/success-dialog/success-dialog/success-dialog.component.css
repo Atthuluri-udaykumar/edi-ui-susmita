@@ -1,0 +1,12 @@
+.flex-item{
+  color: black;
+  text-align: justify;
+}
+
+.message {
+  width: 80%;
+}
+
+.small-dialog {
+  width: 500px;
+}

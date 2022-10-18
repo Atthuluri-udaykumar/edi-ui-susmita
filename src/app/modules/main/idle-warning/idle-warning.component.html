@@ -1,0 +1,15 @@
+<p-dialog header="Session Expiration Warning" [(visible)]="idleVisible" modal="true" [focusOnShow]="false"
+          descriptionId="dialogConfirmId" [baseZIndex]="10000" (onHide)="logOut()"
+          [style]="{width: '50vw'}">
+  <div class="flex-container flex-center nowrap">
+    <div class="flex-item">
+      <i class="pi pi-exclamation-triangle warning-exclamation-icon"></i>
+    </div>
+    <div class="flex-item message" id="dialogConfirmId">
+      Your Session is about to expire due to inactivity. Select <a [routerLink]="" (click)="stayLoggedIn()">here</a> to extend your session.
+    </div>
+  </div>
+  <ng-template pTemplate="footer">
+    <button class="usa-button" type="button" pButton (click)="logOut()" label="Log Out Now" id="logout">Close Session</button>
+  </ng-template>
+</p-dialog>
