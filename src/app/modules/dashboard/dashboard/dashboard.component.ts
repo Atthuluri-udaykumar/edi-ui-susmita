@@ -9,7 +9,13 @@ export class DashboardComponent implements OnInit {
 
   constructor() { }
 
+  isContinue: Boolean = false
+
   ngOnInit(): void {
+  }
+
+  onContinue() {
+    this.isContinue = true
   }
 
 }

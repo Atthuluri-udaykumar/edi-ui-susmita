@@ -8,7 +8,7 @@
             <input type="text">
         </div>
         <p>Or</p>
-        <div>
+        <div class="login_field">
             <label for="lname">Login ID</label>
             <br />
             <input type="text">
@@ -16,113 +16,115 @@
 
     </form>
     <div class="form_btn">
-        <button>Continue</button>
-        <button>Reset</button>
+        <button (click)="onContinue()">Continue</button>
+        <button [disabled]="isContinue">Reset</button>
     </div>
 </div>
 
+<div *ngIf="isContinue">
 
-<div class="container">
+    <div class="container" >
+        <div class="right_con">
+            <div class="user_info">
+                <h3>User information</h3>
+                <p>Below is the individual user detailed information</p>
+                <table class="user_info_table">
+                    <tr>
+                        <th>User First Name</th>
+                        <th> Middle Name</th>
+                        <th> Last Name</th>
+                    </tr>
 
-    <div class="right_con">
+                    <tr>
+                        <td>Jack</td>
+                        <td></td>
+                        <td>Test</td>
+                    </tr>
 
-        <div class="user_info">
-            <h3>User information</h3>
-            <p>Below is the individual user detailed information</p>
-            <table class="user_info_table">
-                <tr>
-                    <th>User First Name</th>
-                    <th> Middle Name</th>
-                    <th> Last Name</th>
-                </tr>
-
-                <tr>
-                    <td>Jack</td>
-                    <td></td>
-                    <td>Test</td>
-                </tr>
-
-            </table>
+                </table>
 
 
-            <table class="user_sub_info">
-                <tr>
-                    <th>Status:</th>
-                    <td> Active </td>
-                </tr>
-                <tr>
-                    <th>Login Id:</th>
-                    <td>JA777YA </td>
-                </tr>
-                <tr>
-                    <th>Last Login:</th>
-                    <td>10/15/2022 </td>
-                </tr>
-                <tr>
-                    <th>Phone:</th>
-                    <td>8500920298</td>
-                </tr>
+                <table class="user_sub_info">
+                    <tr>
+                        <th>Status:</th>
+                        <td> Active </td>
+                    </tr>
+                    <tr>
+                        <th>Login Id:</th>
+                        <td>JA777YA </td>
+                    </tr>
+                    <tr>
+                        <th>Last Login:</th>
+                        <td>10/15/2022 </td>
+                    </tr>
+                    <tr>
+                        <th>Phone:</th>
+                        <td>8500920298</td>
+                    </tr>
 
-                <tr>
-                    <th>Email:</th>
-                    <td>Jack@gmail.com</td>
-                </tr>
-                <tr>
-                    <th>Question 1:</th>
-                    <td>Mother's miaden name?</td>
-                </tr>
-                <tr>
-                    <th>Answer 1:</th>
-                    <td>Ans1</td>
-                </tr>
-                <tr>
-                    <th>Question 2:</th>
-                    <td>What city were you born?</td>
-                </tr>
-                <tr>
-                    <th>Answer 2:</th>
-                    <td>Ans2</td>
-                </tr>
-            </table>
+                    <tr>
+                        <th>Email:</th>
+                        <td>Jack@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <th>Question 1:</th>
+                        <td>Mother's miaden name?</td>
+                    </tr>
+                    <tr>
+                        <th>Answer 1:</th>
+                        <td>Ans1</td>
+                    </tr>
+                    <tr>
+                        <th>Question 2:</th>
+                        <td>What city were you born?</td>
+                    </tr>
+                    <tr>
+                        <th>Answer 2:</th>
+                        <td>Ans2</td>
+                    </tr>
+                </table>
+
+            </div>
 
         </div>
 
+        <div class="left_con">
+            <h3 class="left_heading">COBSW ID Proofing</h3>
+            <table class="left_user_sub_info">
+                <tr>
+                    <th>COBSW ID Proofing Reference Number:</th>
+                    <td>MRP9198</td>
+                </tr>
+                <tr>
+                    <th>MFA Status:</th>
+                    <td>Complete</td>
+                </tr>
+                <tr>
+                    <th>MFA Status Date:</th>
+                    <td>03/17/2022</td>
+                </tr>
+
+                <tr>
+                    <th>Phone Proofing Fail Date:</th>
+                    <td>03/24/2022</td>
+                </tr>
+                <tr>
+                    <th>Failure Reason/Decision Code:</th>
+                    <td>C004</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <app-user-table></app-user-table>
+
+    <div class="buttom_action_btn">
+        <button style="margin-right : 10px;">Reset Password</button>
+        <button style="margin-right : 10px;">Unlock User Account</button>
+        <button style="margin-right : 10px;">Reactivate User Account</button>
+        <button style="margin-right : 10px;">ID Proof User</button>
+        <button style="margin-right : 10px;">Restart ID Proffing</button>
+        <button style="margin-right : 10px;">Cancel</button>
     </div>
 
-    <div class="left_con">
-        <h3 class="left_heading">COBSW ID Proofing</h3>
-        <table class="left_user_sub_info">
-            <tr>
-                <th>COBSW ID Proofing Reference Number:</th>
-                <td>MRP9198</td>
-            </tr>
-            <tr>
-                <th>MFA Status:</th>
-                <td>Complete</td>
-            </tr>
-            <tr>
-                <th>MFA Status Date:</th>
-                <td>03/17/2022</td>
-            </tr>
-
-            <tr>
-                <th>Phone Proofing Fail Date:</th>
-                <td>03/24/2022</td>
-            </tr>
-            <tr>
-                <th>Failure Reason/Decision Code:</th>
-                <td>C004</td>
-            </tr>
-        </table>
-    </div>
-
-</div>
-<app-user-table></app-user-table>
-<div class="buttom_action_btn">
-    <button style="margin-right : 10px;">Reset Password</button>
-    <button style="margin-right : 10px;">Unlock User Account</button>
-    <button style="margin-right : 10px;">Reactivate User Account</button>
-    <button style="margin-right : 10px;">ID Proof User</button>
-    <button style="margin-right : 10px;">Restart ID Proffing</button>
-    <button style="margin-right : 10px;">Cancel</button>
 </div>
