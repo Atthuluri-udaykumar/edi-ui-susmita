@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+  ) { }
 
   isContinue: Boolean = false
 
@@ -18,4 +21,8 @@ export class DashboardComponent implements OnInit {
     this.isContinue = true
   }
 
+  onRedirect(routeName:String) {
+    this.router.navigate([`dashboard/${routeName}`]);
+  }
+ 
 }

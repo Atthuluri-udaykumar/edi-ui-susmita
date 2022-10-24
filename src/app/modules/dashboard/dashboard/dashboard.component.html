@@ -23,7 +23,7 @@
 
 <div *ngIf="isContinue">
 
-    <div class="container" >
+    <div class="container">
         <div class="right_con">
             <div class="user_info">
                 <h3>User information</h3>
@@ -120,10 +120,10 @@
 
     <div class="buttom_action_btn">
         <button style="margin-right : 10px;">Reset Password</button>
-        <button style="margin-right : 10px;">Unlock User Account</button>
-        <button style="margin-right : 10px;">Reactivate User Account</button>
+        <button style="margin-right : 10px;" (click)="onRedirect('unlock-user-account')">Unlock User Account</button>
+        <button style="margin-right : 10px;" (click)="onRedirect('reactive-success')">Reactivate User Account</button>
         <button style="margin-right : 10px;">ID Proof User</button>
-        <button style="margin-right : 10px;">Restart ID Proffing</button>
+        <button style="margin-right : 10px;" (click)="onRedirect('confirm-reactive')">Restart ID Proffing</button>
         <button style="margin-right : 10px;">Cancel</button>
     </div>
 

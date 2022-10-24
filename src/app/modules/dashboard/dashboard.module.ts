@@ -4,12 +4,18 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserTableComponent } from './user-table/user-table.component';
+import { ReactivateSuccessComponent } from './reactivate-success/reactivate-success.component';
+import { UnlockUserAccountComponent } from './unlock-user-account/unlock-user-account.component';
+import { ConfirmReactivateComponent } from './confirm-reactivate/confirm-reactivate.component';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    UserTableComponent
+    UserTableComponent,
+    ReactivateSuccessComponent,
+    UnlockUserAccountComponent,
+    ConfirmReactivateComponent
   ],
   imports: [
     CommonModule,
