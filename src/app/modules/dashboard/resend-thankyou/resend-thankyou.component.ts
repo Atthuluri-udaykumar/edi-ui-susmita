@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-unlock-user-account',
-  templateUrl: './unlock-user-account.component.html',
-  styleUrls: ['./unlock-user-account.component.css']
+  selector: 'app-resend-thankyou',
+  templateUrl: './resend-thankyou.component.html',
+  styleUrls: ['./resend-thankyou.component.css']
 })
-export class UnlockUserAccountComponent implements OnInit {
+export class ResendThankyouComponent implements OnInit {
 
   constructor(
     private router: Router,

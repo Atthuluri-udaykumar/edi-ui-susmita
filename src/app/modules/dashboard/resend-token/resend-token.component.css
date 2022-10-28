@@ -1,0 +1,41 @@
+.heading_color{
+    color: #310064;
+}
+
+.color_danger{
+    color: red;
+}
+
+.left_user_sub_info th {
+    text-align: left;
+    width: 20%;
+}
+
+.left_user_sub_info td {
+    text-align: left;
+    width: 20%;
+}
+
+.left_user_sub_info  table, th, td {
+    border: none !important;
+}
+
+.user_table table{
+    width: 50%;
+    margin-bottom: 10px;
+}
+
+.user_table  table, th, td {
+    border: 1px solid black ;
+    border-collapse: collapse;
+    text-align: left;
+  }
+
+  .user_table th {
+    background-color: #4a7abf;
+  }
+
+
+  .resend_form{
+      margin: 15px 0px !important;
+  }

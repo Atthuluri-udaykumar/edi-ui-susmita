@@ -7,6 +7,8 @@ import { UserTableComponent } from './user-table/user-table.component';
 import { ReactivateSuccessComponent } from './reactivate-success/reactivate-success.component';
 import { UnlockUserAccountComponent } from './unlock-user-account/unlock-user-account.component';
 import { ConfirmReactivateComponent } from './confirm-reactivate/confirm-reactivate.component';
+import { ResendTokenComponent } from './resend-token/resend-token.component';
+import { ResendThankyouComponent } from './resend-thankyou/resend-thankyou.component';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { ConfirmReactivateComponent } from './confirm-reactivate/confirm-reactiv
     UserTableComponent,
     ReactivateSuccessComponent,
     UnlockUserAccountComponent,
-    ConfirmReactivateComponent
+    ConfirmReactivateComponent,
+    ResendTokenComponent,
+    ResendThankyouComponent
   ],
   imports: [
     CommonModule,
