@@ -1,6 +1,7 @@
-<p-dialog [(visible)]="display" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '60vw'}">
-
-
+<p-dialog [(visible)]="display" draggable="true" dismissableMask="true" (onHide)="onContinue()" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '60vw'}">
+    <p-header>
+        
+    </p-header>
     <div *ngIf="infoMsg == 'id-proofing'">
         <h1 class="heading_color"> Manual ID Proofing Confirmation</h1>
         <p class="sub_text"> The individual associated to <strong>COBSW ID Proofing Reference Number</strong> has been
