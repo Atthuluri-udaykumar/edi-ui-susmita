@@ -12,7 +12,10 @@ export class DashboardComponent implements OnInit {
     private router: Router,
   ) { }
 
-  isContinue: Boolean = false
+  isContinue: Boolean = false;
+
+  isOpen: Boolean = false;
+  infoMsg: String = '';
 
   ngOnInit(): void {
   }
@@ -21,8 +24,22 @@ export class DashboardComponent implements OnInit {
     this.isContinue = true
   }
 
-  onRedirect(routeName:String) {
+  onRedirect(routeName: String) {
+
     this.router.navigate([`dashboard/${routeName}`]);
   }
- 
+
+
+  onSetOpen(data: any) {
+    this.infoMsg = data;
+    this.isOpen = true;
+  }
+
+
+  onCloseModel() {
+    this.isOpen = false;
+  }
+
+
+
 }

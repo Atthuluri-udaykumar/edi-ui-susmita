@@ -4,26 +4,27 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserTableComponent } from './user-table/user-table.component';
-import { ReactivateSuccessComponent } from './reactivate-success/reactivate-success.component';
-import { UnlockUserAccountComponent } from './unlock-user-account/unlock-user-account.component';
-import { ConfirmReactivateComponent } from './confirm-reactivate/confirm-reactivate.component';
 import { ResendTokenComponent } from './resend-token/resend-token.component';
 import { ResendThankyouComponent } from './resend-thankyou/resend-thankyou.component';
-
+import { ConfirmReactivateComponent } from './confirm-reactivate/confirm-reactivate.component';
+import { ReactivateSuccessfulComponent } from './reactivate-successful/reactivate-successful.component';
+import { DashboardModelComponent } from './dashboard-model/dashboard-model.component';
+import {DialogModule} from 'primeng-lts/dialog';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     UserTableComponent,
-    ReactivateSuccessComponent,
-    UnlockUserAccountComponent,
-    ConfirmReactivateComponent,
     ResendTokenComponent,
-    ResendThankyouComponent
+    ResendThankyouComponent,
+    ConfirmReactivateComponent,
+    ReactivateSuccessfulComponent,
+    DashboardModelComponent
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    DialogModule
   ]
 })
 export class DashboardModule { }

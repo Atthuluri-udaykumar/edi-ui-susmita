@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReactivateSuccessComponent } from './reactivate-success.component';
+import { DashboardModelComponent } from './dashboard-model.component';
 
-describe('ReactivateSuccessComponent', () => {
-  let component: ReactivateSuccessComponent;
-  let fixture: ComponentFixture<ReactivateSuccessComponent>;
+describe('DashboardModelComponent', () => {
+  let component: DashboardModelComponent;
+  let fixture: ComponentFixture<DashboardModelComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ReactivateSuccessComponent ]
+      declarations: [ DashboardModelComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ReactivateSuccessComponent);
+    fixture = TestBed.createComponent(DashboardModelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

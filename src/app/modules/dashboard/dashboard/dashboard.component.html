@@ -1,5 +1,5 @@
 <div class="top_container">
-    <h3 class="con_header">User Acces Lookup</h3>
+    <h3 class="con_header">User Access Lookup</h3>
     <p class="form_heading">Enter the user's e-mail address or user ID and select <strong>Continue</strong></p>
     <form class="con_form">
         <div>
@@ -17,7 +17,6 @@
     </form>
     <div class="form_btn">
         <button (click)="onContinue()">Continue</button>
-        <button [disabled]="isContinue">Reset</button>
     </div>
 </div>
 
@@ -26,7 +25,7 @@
     <div class="container">
         <div class="right_con">
             <div class="user_info">
-                <h3>User information</h3>
+                <h3>User Information</h3>
                 <p>Below is the individual user detailed information</p>
                 <table class="user_info_table">
                     <tr>
@@ -120,12 +119,13 @@
 
     <div class="buttom_action_btn">
         <button style="margin-right : 10px;">Reset Password</button>
-        <button style="margin-right : 10px;" (click)="onRedirect('unlock-user-account')">Unlock User Account</button>
-        <button style="margin-right : 10px;" (click)="onRedirect('reactive-success')">Reactivate User Account</button>
-        <button style="margin-right : 10px;">ID Proof User</button>
+        <button style="margin-right : 10px;" (click)="onSetOpen('unlock-user-account')">Unlock User Account</button>
+        <button style="margin-right : 10px;" (click)="onRedirect('confirm-reactivate')">Reactivate User Account</button>
+        <button style="margin-right : 10px;" (click)="onSetOpen('id-proofing')">ID Proof User</button>
+        <button style="margin-right : 10px;" (click)="onSetOpen('restart-id-proofing')"> Restart ID Proofing</button>
         <button style="margin-right : 10px;" (click)="onRedirect('resend-token')">Send Token</button>
-        <button style="margin-right : 10px;" (click)="onRedirect('confirm-reactive')">Restart ID Proffing</button>
-        <button style="margin-right : 10px;">Cancel</button>
     </div>
 
+    <app-dashboard-model *ngIf="isOpen" (onCloseModel)="onCloseModel()"  [infoMsg]="infoMsg">
+    </app-dashboard-model>
 </div>

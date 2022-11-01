@@ -1,0 +1,22 @@
+<p-dialog [(visible)]="display" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '60vw'}">
+
+
+    <div *ngIf="infoMsg == 'id-proofing'">
+        <h1 class="heading_color"> Manual ID Proofing Confirmation</h1>
+        <p class="sub_text"> The individual associated to <strong>COBSW ID Proofing Reference Number</strong> has been
+            successfully ID Proofed and their <strong>ID Proofing and MFA Status</strong> is set to <i>ID Proofed</i>.
+        </p>
+    </div>
+    <div *ngIf="infoMsg == 'restart-id-proofing'">
+        <h1 class="heading_color"> ID Proofing Restart Successful</h1>
+        <p class="sub_text"> The user's account has been successfully unblocked. </p>
+    </div>
+
+    <div *ngIf="infoMsg == 'unlock-user-account'">
+        <h1 class="heading_color">Unlock User Account Successful</h1>
+        <p>The user's account has been successfully unlocked. </p>
+    </div>
+    <ng-template pTemplate="footer">
+        <button class="usa-button" (click)="onContinue()">Continue</button>
+    </ng-template>
+</p-dialog>
