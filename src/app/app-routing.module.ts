@@ -9,6 +9,8 @@ import { ServerErrorComponent } from './modules/main/server-error/server-error.c
 import { SessionExpiredComponent } from './modules/main/session-expired/session-expired.component';
 import { VersionComponent } from './modules/main/version/version.component';
 import { SessionExceptionComponent } from './modules/main/session-exception/session-exception.component';
+import { BulletinBoardComponent } from './modules/features/bulletin-board/bulletin-board.component';
+
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
@@ -27,6 +29,7 @@ const appRoutes: Routes = [
   },
 
   // Lazy Loaded routes
+  { path: 'bulletinBoard', component: BulletinBoardComponent },
   { path: 'version', component: VersionComponent },
   { path: 'sessionException', component: SessionExceptionComponent },
   { path: 'sessionExpired', component: SessionExpiredComponent },

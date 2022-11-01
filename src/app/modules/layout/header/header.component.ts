@@ -51,6 +51,10 @@ export class HeaderComponent implements OnInit {
       label: 'User Guide', icon: 'pi pi-info-circle', command: () => this.viewUserGuide()
     };
 
+    let bulletinBoard = {
+      label: 'Bulletin Board', icon: '', routerLink: ['/bulletinBoard']
+    };
+
     this.authService.authenticated.subscribe(authenticated => {
       this.items = [];
       if (authenticated) {
@@ -63,6 +67,7 @@ export class HeaderComponent implements OnInit {
         // this.items.push(programLinks);
       }
       this.items.push(info);
+      this.items.push(bulletinBoard)
       if (authenticated) {
         this.items.push({ separator: true });
         this.current_user = this.session.getCurrentUser();

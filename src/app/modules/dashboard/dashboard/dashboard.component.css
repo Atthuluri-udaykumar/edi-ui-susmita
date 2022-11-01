@@ -6,15 +6,6 @@
     display: flex;
 }
 
-.con_header,
-.left_heading {
-    padding: 10px 0px;
-}
-
-.form_heading {
-    padding: 10px 0px;
-}
-
 .con_form {
     width: 80%;
     display: flex;
@@ -30,13 +21,16 @@
 
 .con_form input {
     border: 2px solid black;
-    padding-top: 3px;
 }
 
 .form_btn button {
     padding: 3px;
     margin-top: 10px;
     margin-right: 10px;
+}
+
+.or_class{
+    padding-top: 10px;
 }
 
 .user_info {
@@ -94,3 +88,53 @@
 .login_field {
     width: 80%;
 }
+
+.heading_color{
+    color: #4a7abf;
+}
+.sub_text{
+    color: #000000;
+}
+
+/* resend token css */
+
+.heading_color{
+    color: #4a7abf;
+}
+
+.color_danger{
+    color: red;
+}
+
+.left_user_sub_info th {
+    text-align: left;
+    width: 20%;
+}
+
+.left_user_sub_info td {
+    text-align: left;
+    width: 20%;
+}
+
+.left_user_sub_info  table, th, td {
+    border: none !important;
+}
+
+.user_table table{
+    width: 50%;
+    margin-bottom: 10px;
+}
+
+.user_table  table, th, td {
+    border: 1px solid black ;
+    border-collapse: collapse;
+    text-align: left;
+  }
+
+  .user_table th {
+    background-color: #4a7abf;
+  }
+
+  .resend_form{
+      margin: 15px 0px !important;
+  }

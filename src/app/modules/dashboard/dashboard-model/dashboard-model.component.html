@@ -17,6 +17,18 @@
         <h1 class="heading_color">Unlock User Account Successful</h1>
         <p>The user's account has been successfully unlocked. </p>
     </div>
+
+    <div *ngIf="infoMsg == 'confirm-reactivate'">
+        <h1 class="heading_color"> Reactivate Successful</h1>
+        <p class="sub_text"> Your request to Reactivate the Login id has been successfully processed.</p>    
+    </div>
+
+    <div *ngIf="infoMsg == 'resend-token'">
+        <h1 class="heading_color">Thank You</h1>
+        <p>The new account manager will recieve an email notifying them that they have been invited to become a account manager 
+            for the selected Account ID. In order to gain access they muct follow the token URL provided within the invitation email 
+            and the complete the account manager setup process. </p>   
+    </div>
     <ng-template pTemplate="footer">
         <button class="usa-button" (click)="onContinue()">Continue</button>
     </ng-template>

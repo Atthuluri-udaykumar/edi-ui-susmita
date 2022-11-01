@@ -1,0 +1,56 @@
+
+.user_info {
+    margin-top: 20px;
+}
+
+.con_form label {
+    padding-bottom: 1px;
+}
+
+.user_info_table {
+    margin-top: 10px;
+}
+
+.user_info_table td {
+    width: 40%;
+}
+
+.user_info_table th {
+    width: 30%;
+    text-align: left;
+}
+
+
+.user_sub_info {
+    margin-top: 15px;
+}
+
+.user_sub_info th {
+    text-align: left;
+    width: 30%;
+}
+
+.user_sub_info td {
+    text-align: left;
+    width: 30%;
+}
+
+
+.left_user_sub_info th {
+    text-align: left;
+    width: 20%;
+}
+
+.left_user_sub_info td {
+    text-align: left;
+    width: 20%;
+}
+
+.buttom_action_btn {
+    margin-left: 10px;
+    padding: 2px;
+}
+
+.login_field {
+    width: 80%;
+}

@@ -17,6 +17,9 @@ export class DashboardComponent implements OnInit {
   isOpen: Boolean = false;
   infoMsg: String = '';
 
+  loadPage: String = '';
+
+
   ngOnInit(): void {
   }
 
@@ -25,21 +28,20 @@ export class DashboardComponent implements OnInit {
   }
 
   onRedirect(routeName: String) {
-
-    this.router.navigate([`dashboard/${routeName}`]);
+    this.loadPage = routeName;
   }
-
 
   onSetOpen(data: any) {
     this.infoMsg = data;
     this.isOpen = true;
   }
 
-
   onCloseModel() {
     this.isOpen = false;
   }
 
-
+  onCancel(){
+    this.loadPage=''
+  }
 
 }

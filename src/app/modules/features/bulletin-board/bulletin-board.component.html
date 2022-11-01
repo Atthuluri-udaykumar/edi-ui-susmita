@@ -1,0 +1,21 @@
+<div class="main-container">
+  <h2>Bulletin Board</h2>
+  <p-multiSelect class="board-select" defaultLabel="Select Applications" [options]="applications" [(ngModel)]="selectedApplications" (ngModelChange)="onSelect()" display="chip" [filter]="false"></p-multiSelect>
+  <div style="margin: 25px 0"></div>
+  <span class="p-float-label">
+    <textarea id="message-input" class="board-message" rows="10" [(ngModel)]="newMessage" pInputTextarea></textarea>
+    <label for="message-input">Message</label>
+  </span>
+  <div class="button-row">
+    <button class="usa-button" (click)="preview()" [disabled]="!selectedApplications || !newMessage" title="Preview bulletin board message.">Preview</button>
+    <button class="usa-button bg-secondary" (click)="cancel()">Cancel</button>
+  </div>
+</div>
+
+<p-dialog class="board-preview" header="Message Preview" [(visible)]="displayPreview" [modal]="true" [style]="{width: '65vw'}" [baseZIndex]="10000">
+  <p>{{newMessage}}</p>
+  <ng-template pTemplate="footer">
+    <button class="usa-button bg-secondary" (click)="cancelPreview()">Cancel</button>
+    <button class="usa-button" (click)="submit()">Submit</button>
+  </ng-template>
+</p-dialog>

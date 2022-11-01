@@ -37,6 +37,11 @@ import {RouterService} from './services/router.service';
 import {BaseComponent} from './base.component';
 import {SideMenuService} from './services/side-menu.service';
 import {TableModule} from 'primeng-lts/table';
+import {MultiSelectModule} from 'primeng-lts/multiselect';
+import {InputTextareaModule} from 'primeng-lts/inputtextarea';
+import { BulletinBoardService } from './services/bulletin-board.service';
+import { BulletinBoardComponent } from './modules/features/bulletin-board/bulletin-board.component';
+
 
 @NgModule({
   declarations: [
@@ -50,7 +55,8 @@ import {TableModule} from 'primeng-lts/table';
     SessionExpiredComponent,
     VersionComponent,
     SessionExceptionComponent,
-    BaseComponent
+    BaseComponent,
+    BulletinBoardComponent
   ],
     imports: [
         BrowserAnimationsModule,
@@ -65,7 +71,9 @@ import {TableModule} from 'primeng-lts/table';
         SuccessDialogModule,
         CardModule,
         FormsModule,
-        TableModule
+        TableModule,
+        MultiSelectModule,
+        InputTextareaModule
     ],
   providers: [
     Constants,
@@ -81,6 +89,7 @@ import {TableModule} from 'primeng-lts/table';
     SessionService,
     CustomRenderer, // used to invoke methods on ElementRef programmatically - BlurForwarder Directive
     DatePipe,
+    BulletinBoardService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

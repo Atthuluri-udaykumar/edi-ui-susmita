@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ResendTokenComponent } from './resend-token.component';
+import { UserInformationComponent } from './user-information.component';
 
-describe('ResendTokenComponent', () => {
-  let component: ResendTokenComponent;
-  let fixture: ComponentFixture<ResendTokenComponent>;
+describe('UserInformationComponent', () => {
+  let component: UserInformationComponent;
+  let fixture: ComponentFixture<UserInformationComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ResendTokenComponent ]
+      declarations: [ UserInformationComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ResendTokenComponent);
+    fixture = TestBed.createComponent(UserInformationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
