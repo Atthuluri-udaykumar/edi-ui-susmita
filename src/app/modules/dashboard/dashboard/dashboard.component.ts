@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { RouterService } from 'src/app/services/router.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit {
 
   constructor(
-    private router: Router,
+    private routerService: RouterService
   ) { }
 
   isContinue: Boolean = false;
@@ -31,6 +32,10 @@ export class DashboardComponent implements OnInit {
     this.loadPage = routeName;
   }
 
+  onResetPassword() {
+    this.routerService.navigateTo('resetPassword', false);
+  }
+
   onSetOpen(data: any) {
     this.infoMsg = data;
     this.isOpen = true;
@@ -38,6 +43,7 @@ export class DashboardComponent implements OnInit {
 
   onCloseModel() {
     this.isOpen = false;
+    this.onCancel()
   }
 
   onCancel(){

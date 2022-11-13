@@ -1,3 +1,15 @@
+.heading_color{
+    color: #4a7abf;
+}
+.sub_text{
+    color: #000000;
+}
+
+.color_red {
+    color: red;
+}
+
+
 .user_table table{
     width: 100%;
     margin-bottom: 10px;
@@ -7,8 +19,13 @@
     border: 1px solid black;
     border-collapse: collapse;
     text-align: left;
+    padding: 5px;
   }
 
   .user_table th {
     background-color: #4a7abf;
+  }
+
+  .text-center{
+   text-align: center;
   }

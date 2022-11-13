@@ -1084,4 +1084,15 @@ input:disabled{
   filter: Alpha(Opacity=35);
 }
 
+.field {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-top: 5px;
+}
 
+.button-row {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row-reverse;
+}

@@ -1,0 +1,11 @@
+
+    td:last-child > button  {
+        float: right;
+    }
+
+    .button-row{
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }

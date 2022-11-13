@@ -9,7 +9,10 @@ import { ServerErrorComponent } from './modules/main/server-error/server-error.c
 import { SessionExpiredComponent } from './modules/main/session-expired/session-expired.component';
 import { VersionComponent } from './modules/main/version/version.component';
 import { SessionExceptionComponent } from './modules/main/session-exception/session-exception.component';
-import { BulletinBoardComponent } from './modules/features/bulletin-board/bulletin-board.component';
+import { ResetPasswordComponent } from './modules/features/reset-password/reset-password.component';
+import { EcrsUserLookupComponent } from './modules/features/ecrs-user-lookup/ecrs-user-lookup.component';
+import { SubmittersRequiringComponent } from './modules/features/submitters-requiring/submitters-requiring.component';
+import { AccountInfoComponent } from './modules/features/account-info/account-info.component';
 
 
 const appRoutes: Routes = [
@@ -27,9 +30,15 @@ const appRoutes: Routes = [
     loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule),
     canLoad: [AuthGuard]
   },
-
-  // Lazy Loaded routes
-  { path: 'bulletinBoard', component: BulletinBoardComponent },
+  { 
+    path: 'bulletinBoard', 
+    loadChildren: () => import ('./modules/features/bulletin-board/bulletin-board.module').then(m => m.BulletinBoardModule), 
+    canLoad: [AuthGuard] 
+  },
+  { path: 'resetPassword', component: ResetPasswordComponent, canActivate: [AuthGuard] },
+  { path: 'ecrsUserLookup', component: EcrsUserLookupComponent, canActivate: [AuthGuard] },
+  { path: 'submittersRequiring', component: SubmittersRequiringComponent, canActivate: [AuthGuard] },
+  { path: 'accountInfo', component: AccountInfoComponent, canActivate: [AuthGuard] },
   { path: 'version', component: VersionComponent },
   { path: 'sessionException', component: SessionExceptionComponent },
   { path: 'sessionExpired', component: SessionExpiredComponent },

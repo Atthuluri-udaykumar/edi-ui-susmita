@@ -32,7 +32,7 @@
         <app-user-table></app-user-table>
 
         <div class="buttom_action_btn">
-            <button style="margin-right : 10px;">Reset Password</button>
+            <button style="margin-right : 10px;" (click)="onResetPassword()">Reset Password</button>
             <button style="margin-right : 10px;" (click)="onSetOpen('unlock-user-account')">Unlock User Account</button>
             <button style="margin-right : 10px;" (click)="onRedirect('confirm-reactivate')">Reactivate User
                 Account</button>

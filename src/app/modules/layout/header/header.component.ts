@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, Input, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import { environment } from '../../../../environments/environment';
 import { MenuItem } from 'primeng-lts/api';
@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit {
   @ViewChild('overlay') overlay: ElementRef;
   @ViewChild('navigator') navigator: ElementRef;
 
+  @Input() authenticated: Boolean = false;
   theDate: Date = new Date();
   zone: string = '';
 
@@ -39,56 +40,93 @@ export class HeaderComponent implements OnInit {
       this.theDate = new Date();
     }, 60000);
 
-    let dashboard = {
-      label: 'DashBoard', icon: 'pi pi-fw pi-home', routerLink: ['/dashboard']
+    // let dashboard = {
+    //   label: 'DashBoard', icon: 'pi pi-fw pi-home', routerLink: ['/dashboard']
+    // };
+
+    // let dashboardactuary = {
+    //   label: 'DashBoard', icon: 'pi pi-fw pi-home', routerLink: ['/dashboard-actuary']
+    // };
+
+    // let info = {
+    //   label: 'User Guide', icon: 'pi pi-info-circle', command: () => this.viewUserGuide()
+    // };
+
+    // this.authService.authenticated.subscribe(authenticated => {
+    //   this.items = [];
+    //   if (authenticated) {
+    //     if (this.session.getCurrentUser() && (this.session.getCurrentUser().role.toString() === '4' || this.session.getCurrentUser().role.toString() === '6')) {
+    //       this.items.push(dashboardactuary);
+    //     } else {
+    //       this.items.push(dashboard);
+    //     }
+    //     this.items.push({ separator: true });
+    //     // this.items.push(programLinks);
+    //   }
+    //   this.items.push(info);
+    //   // this.items.push(bulletinBoard)
+    //   if (authenticated) {
+    //     this.items.push({ separator: true });
+    //     this.current_user = this.session.getCurrentUser();
+    //     if (this.current_user) {
+    //       this.fullName = this.current_user.userName;
+    //     }
+
+    //     let logout = {
+    //       label: `Logged in as ` + this.fullName,
+    //       icon: 'pi pi-fw pi-user',
+    //       items: [
+    //         { label: 'User Profile', icon: 'pi pi-inbox', routerLink: ['/user-profile'] },
+    //         { label: 'Change Password', icon: 'pi pi-inbox', routerLink: ['/user-profile/change-password'] },
+    //         { label: 'Security Questions', icon: 'pi pi-inbox', routerLink: ['/user-profile/security-questions'] },
+    //         { label: 'Logout', icon: 'pi pi-sign-out', command: () => this.logout() }
+    //       ]
+    //     };
+
+    //     this.items.push(logout);
+    //   }
+    // });
+  }
+
+  ngOnChanges(changes) {
+    changes.authenticated.currentValue && this.pushMenuItems();
+  }
+
+  pushMenuItems() {
+    let dashboard = {label: 'DashBoard', icon: 'pi pi-fw pi-home', routerLink: ['/dashboard']};
+    let dashboardactuary = {label: 'DashBoard', icon: 'pi pi-fw pi-home', routerLink: ['/dashboard-actuary']};
+    let info = {label: 'User Guide', icon: 'pi pi-info-circle', command: () => this.viewUserGuide()};
+    let logout = {
+      label: `Logged in as ` + this.fullName,
+      icon: 'pi pi-fw pi-user',
+      items: [
+        { label: 'User Profile', icon: 'pi pi-inbox', routerLink: ['/user-profile'] },
+        { label: 'Change Password', icon: 'pi pi-inbox', routerLink: ['/user-profile/change-password'] },
+        { label: 'Security Questions', icon: 'pi pi-inbox', routerLink: ['/user-profile/security-questions'] },
+        { label: 'Logout', icon: 'pi pi-sign-out', command: () => this.logout() }
+      ]
     };
 
-    let dashboardactuary = {
-      label: 'DashBoard', icon: 'pi pi-fw pi-home', routerLink: ['/dashboard-actuary']
-    };
+    this.items = [];
 
-    let info = {
-      label: 'User Guide', icon: 'pi pi-info-circle', command: () => this.viewUserGuide()
-    };
-
-    let bulletinBoard = {
-      label: 'Bulletin Board', icon: '', routerLink: ['/bulletinBoard']
-    };
-
-    this.authService.authenticated.subscribe(authenticated => {
-      this.items = [];
-      if (authenticated) {
-        if (this.session.getCurrentUser().role.toString() === '4' || this.session.getCurrentUser().role.toString() === '6') {
-          this.items.push(dashboardactuary);
-        } else {
-          this.items.push(dashboard);
-        }
-        this.items.push({ separator: true });
-        // this.items.push(programLinks);
+    if (this.authenticated) {
+      // if (this.session.getCurrentUser().role.toString() === '4' || this.session.getCurrentUser().role.toString() === '6') {
+      if (false) {
+        this.items.push(dashboardactuary);
+      } else {
+        this.items.push(dashboard);
       }
-      this.items.push(info);
-      this.items.push(bulletinBoard)
-      if (authenticated) {
-        this.items.push({ separator: true });
-        this.current_user = this.session.getCurrentUser();
-        if (this.current_user) {
-          this.fullName = this.current_user.userName;
-        }
-
-        let logout = {
-          label: `Logged in as ` + this.fullName,
-          icon: 'pi pi-fw pi-user',
-          items: [
-            { label: 'User Profile', icon: 'pi pi-inbox', routerLink: ['/user-profile'] },
-            { label: 'Change Password', icon: 'pi pi-inbox', routerLink: ['/user-profile/change-password'] },
-            { label: 'Security Questions', icon: 'pi pi-inbox', routerLink: ['/user-profile/security-questions'] },
-            { label: 'Logout', icon: 'pi pi-sign-out', command: () => this.logout() }
-          ]
-        };
-
-        this.items.push(logout);
+      this.items.push({ separator: true });
+    }
+    this.items.push(info);
+    if (this.authenticated) {
+      this.items.push({ separator: true });
+      this.current_user = this.session.getCurrentUser();
+      if (this.current_user) {
+        this.fullName = this.current_user.userName;
       }
-    });
+      this.items.push(logout);
+    }
   }
 
   toggle() {

@@ -1,11 +1,17 @@
 <div id="body">
-  <app-header *ngIf="!error500"></app-header>
-
-  <main class="grid-container usa-content usa-layout-docs" id="main-content">
-    <div id="content" class="usa-layout-docs__main">
-      <router-outlet (activate)="onActivate($event)"></router-outlet>
-    </div>
-  </main>
+  <app-header *ngIf="!error500" [authenticated]="authenticated"></app-header>
+<div class="main-content">
+  <div class="sidenav" [hidden]="!authenticated">
+    <p-panelMenu [model]="menuItems"></p-panelMenu>
+  </div>
+  <div class="content-view">
+    <main class="grid-container usa-content usa-layout-docs" id="main-content">
+        <div id="content" class="usa-layout-docs__main">
+          <router-outlet (activate)="onActivate($event)"></router-outlet>
+        </div>
+    </main>
+  </div>
+</div>
 
   <app-footer *ngIf="!error500"></app-footer>
 </div>

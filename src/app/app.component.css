@@ -1,1 +1,21 @@
 
+.main-content {
+    display: flex;
+    min-height: calc(100vh - 378px);
+}
+
+.sidenav {
+    width: 250px;
+}
+
+.main-container {
+    margin: 0 50px;
+}
+
+.content-view {
+    width: 100%;
+}
+
+.p-field * {
+    display: block;
+}

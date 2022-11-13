@@ -40,7 +40,16 @@ import {TableModule} from 'primeng-lts/table';
 import {MultiSelectModule} from 'primeng-lts/multiselect';
 import {InputTextareaModule} from 'primeng-lts/inputtextarea';
 import { BulletinBoardService } from './services/bulletin-board.service';
-import { BulletinBoardComponent } from './modules/features/bulletin-board/bulletin-board.component';
+import { PanelMenuModule } from 'primeng-lts/panelmenu';
+import { BrowserModule } from '@angular/platform-browser';
+import { ResetPasswordComponent } from './modules/features/reset-password/reset-password.component';
+import { InputTextModule } from 'primeng-lts/inputtext';
+import { EcrsUserLookupComponent } from './modules/features/ecrs-user-lookup/ecrs-user-lookup.component';
+import { ConfirmationService } from 'primeng-lts/api';
+import { ConfirmDialogModule } from 'primeng-lts/confirmdialog'
+import { MessageService } from 'primeng-lts/api';
+import { SubmittersRequiringComponent } from './modules/features/submitters-requiring/submitters-requiring.component';
+import { AccountInfoComponent } from './modules/features/account-info/account-info.component';
 
 
 @NgModule({
@@ -56,11 +65,15 @@ import { BulletinBoardComponent } from './modules/features/bulletin-board/bullet
     VersionComponent,
     SessionExceptionComponent,
     BaseComponent,
-    BulletinBoardComponent
+    ResetPasswordComponent,
+    EcrsUserLookupComponent,
+    SubmittersRequiringComponent,
+    AccountInfoComponent
   ],
     imports: [
         BrowserAnimationsModule,
         CommonModule,
+        BrowserModule,
         HttpClientModule,
         ReactiveFormsModule,
         GeneralModule, // print
@@ -73,7 +86,11 @@ import { BulletinBoardComponent } from './modules/features/bulletin-board/bullet
         FormsModule,
         TableModule,
         MultiSelectModule,
-        InputTextareaModule
+        InputTextareaModule,
+        PanelMenuModule,
+        InputTextModule,
+        TableModule,
+        ConfirmDialogModule,
     ],
   providers: [
     Constants,
@@ -90,6 +107,8 @@ import { BulletinBoardComponent } from './modules/features/bulletin-board/bullet
     CustomRenderer, // used to invoke methods on ElementRef programmatically - BlurForwarder Directive
     DatePipe,
     BulletinBoardService,
+    ConfirmationService,
+    MessageService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

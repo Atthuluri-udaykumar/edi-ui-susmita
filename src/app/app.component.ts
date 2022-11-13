@@ -4,12 +4,14 @@ import { LoadingSpinnerService } from './modules/shared-modules/general/loading/
 import { AuthService } from './services/auth.service';
 import { ErrorMessagesService } from './modules/shared-modules/general/error-messages/error-messages.service';
 import { NavigationEnd, Router } from '@angular/router';
-import { catchError, filter, map } from 'rxjs/operators';
+import { catchError, filter, map, tap } from 'rxjs/operators';
 import { DOCUMENT } from '@angular/common';
 import { environment } from '../environments/environment';
 import { SessionService } from './services/session.service';
 import { ApiService } from './services/api.service';
 import { Observable } from 'rxjs';
+import { MenuItem } from 'primeng-lts/api';
+import { RouterService } from './services/router.service';
 
 @Component({
   selector: 'app-root',
@@ -22,14 +24,43 @@ export class AppComponent {
   error500 = false;
   showIdleWarning = false;
   sessionRoute = false;
+  authenticated: Boolean = false;
+  menuItems: MenuItem[] = [
+    { label: 'Account Management' },
+    {
+      label: 'Change Password',
+      command: (click) => { this.navigateTo('resetPassword', true) }
+    },
+    {
+      label: 'ECRS',
+      items: [
+        {
+          label: 'User Lookup',
+          command: (click) => { this.navigateTo('ecrsUserLookup') }
+        },
+        { label: 'ECRS 2' }
+      ]
+    },
+    { label: 'Bulletin Board', routerLink: 'bulletinBoard' },
+    {
+      label: "Submitters Requiring", routerLink: "submittersRequiring"
+    },
+    {
+      label: "Account Information", routerLink: "accountInfo"
+    }
+
+  ];
 
   constructor(private authService: AuthService, private session: SessionService, private timeoutService: TimeoutService,
     private loadingSpinner: LoadingSpinnerService, private errorService: ErrorMessagesService,
     private apiService: ApiService,
+    private routerService: RouterService,
     private router: Router, @Inject(DOCUMENT) private document: any) {
 
     this.timeoutService.setTimeoutSeconds(60 * 14); // call this method if you want to override default 20 minute timeout to 5 mins
-
+    this.authService.authenticated.subscribe(auth => {
+      this.authenticated = auth;
+    });
     // loadingSpinner
     //   .onLoadingChanged
     //   .subscribe(isLoading => this.loading = isLoading);
@@ -122,6 +153,10 @@ export class AppComponent {
         console.log(e);
         return '';
       })));
+  }
+
+  navigateTo(route, state: boolean = null) {
+    this.routerService.navigateTo(route, state)
   }
 
 }
