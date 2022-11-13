@@ -20,4 +20,8 @@ export class SubmittersRequiringComponent implements OnInit {
   }
 
 
+  onAccountInfo(){
+    this.routerService.navigateTo('accountInfo', false);
+  }
+
 }

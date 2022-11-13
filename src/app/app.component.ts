@@ -44,11 +44,7 @@ export class AppComponent {
     { label: 'Bulletin Board', routerLink: 'bulletinBoard' },
     {
       label: "Submitters Requiring", routerLink: "submittersRequiring"
-    },
-    {
-      label: "Account Information", routerLink: "accountInfo"
     }
-
   ];
 
   constructor(private authService: AuthService, private session: SessionService, private timeoutService: TimeoutService,
