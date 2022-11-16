@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { RouterService } from 'src/app/services/router.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +9,7 @@ import { RouterService } from 'src/app/services/router.service';
 export class DashboardComponent implements OnInit {
 
   constructor(
-    private routerService: RouterService
+    private router: Router,
   ) { }
 
   isContinue: Boolean = false;
@@ -30,10 +29,6 @@ export class DashboardComponent implements OnInit {
 
   onRedirect(routeName: String) {
     this.loadPage = routeName;
-  }
-
-  onResetPassword() {
-    this.routerService.navigateTo('resetPassword', false);
   }
 
   onSetOpen(data: any) {

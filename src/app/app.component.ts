@@ -27,24 +27,20 @@ export class AppComponent {
   authenticated: Boolean = false;
   menuItems: MenuItem[] = [
     { label: 'Account Management' },
-    {
-      label: 'Change Password',
-      command: (click) => { this.navigateTo('resetPassword', true) }
+    { label: 'Change Password', 
+      command: (click)=> {this.navigateTo('resetPassword', true)}
     },
-    {
+    { 
       label: 'ECRS',
       items: [
-        {
-          label: 'User Lookup',
-          command: (click) => { this.navigateTo('ecrsUserLookup') }
-        },
-        { label: 'ECRS 2' }
+        {label: 'ECRS 1'},
+        {label: 'ECRS 2'}
       ]
     },
     { label: 'Bulletin Board', routerLink: 'bulletinBoard' },
     {
-      label: "Submitters Requiring", routerLink: "submittersRequiring"
-    }
+      label: " Review Submitters Requiring Manual Vetting", routerLink: "submittersRequiring"
+    },
   ];
 
   constructor(private authService: AuthService, private session: SessionService, private timeoutService: TimeoutService,
@@ -54,9 +50,9 @@ export class AppComponent {
     private router: Router, @Inject(DOCUMENT) private document: any) {
 
     this.timeoutService.setTimeoutSeconds(60 * 14); // call this method if you want to override default 20 minute timeout to 5 mins
-    this.authService.authenticated.subscribe(auth => {
-      this.authenticated = auth;
-    });
+       this.authService.authenticated.subscribe(auth => {
+        this.authenticated = auth;
+       });
     // loadingSpinner
     //   .onLoadingChanged
     //   .subscribe(isLoading => this.loading = isLoading);

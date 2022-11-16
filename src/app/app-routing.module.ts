@@ -10,9 +10,9 @@ import { SessionExpiredComponent } from './modules/main/session-expired/session-
 import { VersionComponent } from './modules/main/version/version.component';
 import { SessionExceptionComponent } from './modules/main/session-exception/session-exception.component';
 import { ResetPasswordComponent } from './modules/features/reset-password/reset-password.component';
-import { EcrsUserLookupComponent } from './modules/features/ecrs-user-lookup/ecrs-user-lookup.component';
 import { SubmittersRequiringComponent } from './modules/features/submitters-requiring/submitters-requiring.component';
 import { AccountInfoComponent } from './modules/features/account-info/account-info.component';
+import { UnlockPinComponent } from './modules/features/unlock-pin/unlock-pin.component';
 
 
 const appRoutes: Routes = [
@@ -30,17 +30,17 @@ const appRoutes: Routes = [
     loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule),
     canLoad: [AuthGuard]
   },
-  { 
-    path: 'bulletinBoard', 
-    loadChildren: () => import ('./modules/features/bulletin-board/bulletin-board.module').then(m => m.BulletinBoardModule), 
-    canLoad: [AuthGuard] 
+  {
+    path: 'bulletinBoard',
+    loadChildren: () => import('./modules/features/bulletin-board/bulletin-board.module').then(m => m.BulletinBoardModule),
+    canLoad: [AuthGuard]
   },
   { path: 'resetPassword', component: ResetPasswordComponent, canActivate: [AuthGuard] },
-  { path: 'ecrsUserLookup', component: EcrsUserLookupComponent, canActivate: [AuthGuard] },
-  { path: 'submittersRequiring', component: SubmittersRequiringComponent, canActivate: [AuthGuard] },
-  { path: 'accountInfo', component: AccountInfoComponent, canActivate: [AuthGuard] },
   { path: 'version', component: VersionComponent },
   { path: 'sessionException', component: SessionExceptionComponent },
+  { path: 'submittersRequiring', component: SubmittersRequiringComponent, canActivate: [AuthGuard] },
+  { path: 'accountInfo', component: AccountInfoComponent, canActivate: [AuthGuard] },
+  { path: 'unlockPin', component: UnlockPinComponent, canActivate: [AuthGuard] },
   { path: 'sessionExpired', component: SessionExpiredComponent },
   { path: 'serverError', component: ServerErrorComponent },
   { path: 'notFound', component: NotFoundComponent },

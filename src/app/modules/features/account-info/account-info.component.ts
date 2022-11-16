@@ -12,11 +12,22 @@ export class AccountInfoComponent implements OnInit {
     private routerService: RouterService
   ) { }
 
+  public selectedOption:String;
   ngOnInit(): void {
   }
 
   onCancel(){
-    this.routerService.navigateTo('dashboard', false);
+    this.routerService.navigateTo('submittersRequiring', false);
+  }
+
+  onSelectChange(event:any){
+  
+  }
+
+  onGo(){
+    if(this.selectedOption === 'Unlock PIN'){
+      this.routerService.navigateTo('unlockPin', false);
+    }
   }
 
 }

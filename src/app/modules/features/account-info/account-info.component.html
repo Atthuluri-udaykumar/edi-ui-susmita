@@ -1,10 +1,8 @@
 <div>
     <h3 class="heading_color">Account Information</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore consectetur voluptas impedit labore, quam iste,
-        doloribus deleniti.</p>
+    <p>The screen details all account information for the Account ID listed. Use the Actions dropdown menu to make changes to the Account.</p>
     <p class="sub_text">
-        <font><strong>INFORMATION: If the Reactivate function is used the user must login to the system with their
-                current password.</strong></font>
+        <font><strong>Note: The Registrant/Submitter receives an email that contains a PIN. If the Submitter enters the assigned PIN incorrectly three times, the PIN will be locked automatically. If the submitter provides you with the correct PIN, unlock the PIN. If the Submitter cannot state the correct PIN, reset the PIN. </strong></font>
     </p>
 
     <div>
@@ -12,10 +10,10 @@
 
             <tr>
                 <td><strong>Account Id:</strong> 29323</td>
-                <td><strong>Account Id:</strong> 29323</td>
-                <td><strong>Account Id:</strong> 29323</td>
-                <td><strong>Account Id:</strong> 29323</td>
-                <td><strong>Account Id:</strong> 29323</td>
+                <td><strong>EIN:</strong> 237129072</td>
+                <td><strong>PIN:</strong> 4321</td>
+                <td><strong>PIN Status:</strong> Unlocked</td>
+                <td><strong>Submitter Status:</strong> Active</td>
             </tr>
         </table>
         <div class="user_table">
@@ -31,47 +29,47 @@
                 <tr>
                     <td>IUOEP
                         <br />
-                        test@gamil.com
+                        jack@gamil.com
 
                         <div class="account_infoo">
                             <h4>Account/Authorization Representative (AR)</h4>
                             <table class="custom_table_2">
                                 <tr>
-                                    <td><strong>First Name:</strong> test</td>
-                                    <td><strong>MI:</strong> 29323</td>
-                                    <td><strong>Last Name:</strong> 29323</td>
+                                    <td><strong>First Name:</strong> Jack</td>
+                                    <td><strong>MI:</strong> P</td>
+                                    <td><strong>Last Name:</strong> Test</td>
                                 </tr>
                             </table>
                             <table class="custom_table_2">
                                 <tr>
-                                    <td><strong>Email:</strong> test</td>
+                                    <td><strong>Email:</strong>jack@gamil.com </td>
                                 </tr>
                             </table>
                             <table class="custom_table_2">
                                 <tr>
-                                    <td><strong>Phone:</strong> test</td>
-                                    <td><strong>ext:</strong> 29323</td>
+                                    <td><strong>Phone:</strong> 865895498</td>
+                                    <td><strong>ext:</strong> 6487</td>
                                 </tr>
                             </table>
                         </div>
                         <div class="account_infoo">
-                            <h4>Account/Authorization Representative (AR)</h4>
+                            <h4>Account Manager</h4>
                             <table class="custom_table_2">
                                 <tr>
-                                    <td><strong>First Name:</strong> test</td>
-                                    <td><strong>MI:</strong> 29323</td>
-                                    <td><strong>Last Name:</strong> 29323</td>
+                                    <td><strong>First Name:</strong> Sarah</td>
+                                    <td><strong>MI:</strong> K</td>
+                                    <td><strong>Last Name:</strong> Lopez</td>
                                 </tr>
                             </table>
                             <table class="custom_table_2">
                                 <tr>
-                                    <td><strong>Email:</strong> test</td>
+                                    <td><strong>Email:</strong> sarah769@gmail.com</td>
                                 </tr>
                             </table>
                             <table class="custom_table_2">
                                 <tr>
-                                    <td><strong>Phone:</strong> test</td>
-                                    <td><strong>ext:</strong> 29323</td>
+                                    <td><strong>Phone:</strong> 9742894545</td>
+                                    <td><strong>ext:</strong> </td>
                                 </tr>
                             </table>
                         </div>
@@ -83,13 +81,19 @@
 
                     </td>
                     <td>
-                        <select name="cars" id="cars">
-                            <option value="volvo">Select one</option>
-                            <option value="saab">Saab</option>
-                            <option value="mercedes">Mercedes</option>
-                            <option value="audi">Audi</option>
+                        <select name="option" id="option" [(ngModel)]="selectedOption" (change)="onSelectChange($event)">
+                            <option value="option">Select one</option>
+                            <option value="View Account Activity">View Account Activity</option>
+                            <option value="Regenerate/Resend Profile Report">Regenerate/Resend Profile Report</option>
+                            <option value="Remove Invalid Submitter/Registrant">Remove Invalid Submitter/Registrant</option>
+                            <option value="Vet Submitter/Registrant">Vet Submitter/Registrant</option>
+                            <option value="Grant Full WCMSAP/MSPRP/CRCP Functionality">Grant Full WCMSAP/MSPRP/CRCP Functionality</option>
+                            <option value="Reset PIN">Reset PIN</option>
+                            <option value="Unlock PIN">Unlock PIN</option>
+                            <option value="Paperless Emails">Paperless Emails</option>
+                            <option value="Go Paperless Parties">Go Paperless Parties</option>
                         </select>
-                        <button>Go</button>
+                        <button (click)="onGo()">Go</button>
                     </td>
                 </tr>
 

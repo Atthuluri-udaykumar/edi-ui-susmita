@@ -33,6 +33,14 @@ export class ResetPasswordComponent implements OnInit {
     this.showReservedWords = !this.showReservedWords;
   }
 
+  toggleSuccessModal() {
+    if (this.showSuccessModal) {
+      this.router.navigate(['dashboard']);
+    } else {
+      this.showSuccessModal = !this.showSuccessModal;
+    }
+  }
+
   disableSubmit() {
     if (this.isEDI) {
       return (!this.currentPassword || !this.newPassword1 || !this.newPassword2) ? true : false;
@@ -41,12 +49,8 @@ export class ResetPasswordComponent implements OnInit {
     }
   }
 
-  toggleSuccessModal() {
-    if (this.showSuccessModal) {
-      this.router.navigate(['dashboard']);
-    } else {
-      this.showSuccessModal = !this.showSuccessModal;
-    }
+  submit() {
+    this.showSuccessModal = true;
   }
 
   cancel() {

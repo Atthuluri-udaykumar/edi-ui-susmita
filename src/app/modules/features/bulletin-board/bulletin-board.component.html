@@ -19,10 +19,3 @@
     <button class="usa-button" (click)="submit()">Submit</button>
   </ng-template>
 </p-dialog>
-
-<p-dialog [(visible)]="showSuccessModal" class="success-modal" [modal]="true" header="Message Updated Successfully" [baseZIndex]="10000">
-  <div style="margin: 36px; font-size: 18px; max-width: 50vw;">Your bulletin board message has been saved successfully.</div>
-  <ng-template pTemplate="footer">
-    <button class="usa-button" (click)="toggleSuccessModal()">Close</button>
-  </ng-template>
-</p-dialog> 
