@@ -1,0 +1,77 @@
+<ng-container *ngIf="!userFound">
+  <h2>ECRS User Lookup</h2>
+  <div>
+    <p>From the screen you can look up a user by User ID, and be transferred to a page that provides information about the user's contractor associations.</p>
+    <p><strong>IMPORTANT:  Prior to processing a request, you must follow the <a>BCRC Secure Website Authentication Guidelines for EDI Representatives</a></strong></p>
+  </div>
+  <div class="field">
+    <label for="userId" class="block">Enter User Login ID</label>
+    <input class="usa-input" id="userId" type="text" aria-describedby="userId-help" pInputText [(ngModel)]="userId" />
+  </div>
+
+  <div class="button-row">
+    <button class="usa-button" (click)="lookupUserById()" [disabled]="!userId" title="Lookup user by Login ID.">Submit</button>
+    <button class="usa-button bg-secondary" (click)="cancel()">Cancel</button>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="userFound">
+  <h2>ECRS User Information</h2>
+  <p>The user has the authority to upload and download files for the following contractors.</p>
+  <p>Login ID:  <strong>{{ userId }}</strong></p>
+
+  <p-table [value]="contractors" [(selection)]="selectedContractors">
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width: 3em;">
+          <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+        </th>
+        <th>Contractor #</th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-item>
+      <tr>
+        <td>
+          <p-tableCheckbox [value]="item"></p-tableCheckbox>
+        </td>
+        <td>{{item.contractorId}}</td>
+        <td><button class="usa-button p-button-sm" (click)="revoke(item)" title="Revoke contractor authorization.">Revoke</button></td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <div class="button-row">
+    <div>
+      <button class="usa-button bg-secondary" (click)="cancel()">Cancel</button>
+      <button class="usa-button" (click)="revokeSelected()" [disabled]="!selectedContractors || selectedContractors.length === 0" title="Revoke all.">Revoke Selected {{selectedContractors ? '(' + selectedContractors.length + ')' : ''}}</button>
+    </div>
+    <div>
+      <button class="usa-button" (click)="showAddUser = true">Add Contractor</button>
+    </div>
+  </div>
+</ng-container>
+
+ <!-- MODALS -->
+ <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+
+ <p-dialog header="Add Contractor" [(visible)]="showAddUser" [modal]="true" [style]="{width: '400px'}" [baseZIndex]="10000">
+  <div style="margin: 10px;">
+    Please enter the contractor ID that you would like to add file upload and download authority for.
+    <input class="usa-input" autofocus id="contractorId" type="text" aria-describedby="contractorId-help" pInputText [(ngModel)]="contractorId" />
+  </div>
+  <ng-template pTemplate="footer">
+    <button class="usa-button bg-secondary" (click)="close()">Cancel</button>
+    <button class="usa-button" (click)="onAddNew()">Submit</button>
+  </ng-template>
+</p-dialog>
+
+
+<p-dialog header="Success" [(visible)]="showSuccess" [modal]="true" [style]="{width: '400px'}" [baseZIndex]="10000">
+  <div style="margin: 10px;">
+    The user no longer has file upload and download authority for the selected contractors.
+  </div>
+  <ng-template pTemplate="footer">
+    <button class="usa-button" (click)="close()">OK</button>
+  </ng-template>
+</p-dialog>

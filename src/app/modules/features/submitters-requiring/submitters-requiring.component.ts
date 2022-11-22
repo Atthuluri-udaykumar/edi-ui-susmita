@@ -11,16 +11,26 @@ export class SubmittersRequiringComponent implements OnInit {
   constructor(
     private routerService: RouterService
   ) { }
-
+  submittersData: any[] = []
   ngOnInit(): void {
+    this.submittersData = [
+
+      { 
+       submitterID:'12345ABC' ,
+       registrationDate:"",
+       accountType:"",
+       contactEmail:'test@gmail.com',
+       submitterType:''
+      },
+    ]
   }
 
-  onCancel(){
+  onCancel() {
     this.routerService.navigateTo('dashboard', false);
   }
 
 
-  onAccountInfo(){
+  onAccountInfo() {
     this.routerService.navigateTo('accountInfo', false);
   }
 

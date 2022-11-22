@@ -1583,7 +1583,7 @@ img{
   line-height:1.5;
   margin-bottom:0;
   margin-top:0;
-  max-width:68ex;
+  /* max-width:68ex; */
 }
 
 * + .usa-paragraph{
@@ -1594,11 +1594,11 @@ img{
   margin-top:1em;
 }
 
-.usa-content p,
+/* .usa-content p,
 .usa-content ul:not(.usa-accordion):not(.usa-accordion--bordered),
 .usa-content ol:not(.usa-accordion):not(.usa-accordion--bordered){
   max-width:68ex;
-}
+} */
 
 .usa-display{
   margin-bottom:0;
@@ -1650,7 +1650,7 @@ img{
   line-height:1.5;
   margin-bottom:0;
   margin-top:0;
-  max-width:68ex;
+  /* max-width:68ex; */
 }
 
 .usa-prose > * + p{

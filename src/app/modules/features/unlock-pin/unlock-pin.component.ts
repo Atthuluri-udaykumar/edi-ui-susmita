@@ -15,11 +15,11 @@ export class UnlockPinComponent implements OnInit {
   }
 
   onCancel() {
-    this.routerService.navigateTo('dashboard', false);
+    this.routerService.navigateTo('accountInfo', false);
   }
 
   onSelectChage() {
-    this.routerService.navigateTo('unlockPin', false);
+    this.routerService.navigateTo('accountInfo', false);
   }
 
 

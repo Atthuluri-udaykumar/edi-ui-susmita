@@ -27,20 +27,24 @@ export class AppComponent {
   authenticated: Boolean = false;
   menuItems: MenuItem[] = [
     { label: 'Account Management' },
-    { label: 'Change Password', 
+    { 
+      label: 'Change Password', 
       command: (click)=> {this.navigateTo('resetPassword', true)}
     },
     { 
       label: 'ECRS',
       items: [
-        {label: 'ECRS 1'},
+        {
+          label: 'User Lookup', 
+          command: (click)=> {this.navigateTo('ecrsUserLookup')}
+        },
         {label: 'ECRS 2'}
       ]
     },
     { label: 'Bulletin Board', routerLink: 'bulletinBoard' },
     {
       label: " Review Submitters Requiring Manual Vetting", routerLink: "submittersRequiring"
-    },
+    }
   ];
 
   constructor(private authService: AuthService, private session: SessionService, private timeoutService: TimeoutService,

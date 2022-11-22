@@ -1,34 +1,8 @@
-<p-dialog [(visible)]="display" draggable="true" dismissableMask="true" (onHide)="onContinue()" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '60vw'}">
+<p-dialog [(visible)]="display" modal="true" dismissableMask="true" (onHide)="onContinue()" [breakpoints]="{'960px': '50vw', '640px': '75vw'}" [style]="{width: '50vw'}">
     <p-header>
-        
+        {{selectedMessage?.header}}
     </p-header>
-    <div *ngIf="infoMsg == 'id-proofing'">
-        <h1 class="heading_color"> Manual ID Proofing Confirmation</h1>
-        <p class="sub_text"> The individual associated to <strong>COBSW ID Proofing Reference Number</strong> has been
-            successfully ID Proofed and their <strong>ID Proofing and MFA Status</strong> is set to <i>ID Proofed</i>.
-        </p>
-    </div>
-    <div *ngIf="infoMsg == 'restart-id-proofing'">
-        <h1 class="heading_color"> ID Proofing Restart Successful</h1>
-        <p class="sub_text"> The user's account has been successfully unblocked. </p>
-    </div>
-
-    <div *ngIf="infoMsg == 'unlock-user-account'">
-        <h1 class="heading_color">Unlock User Account Successful</h1>
-        <p>The user's account has been successfully unlocked. </p>
-    </div>
-
-    <div *ngIf="infoMsg == 'confirm-reactivate'">
-        <h1 class="heading_color"> Reactivate Successful</h1>
-        <p class="sub_text"> Your request to Reactivate the Login id has been successfully processed.</p>    
-    </div>
-
-    <div *ngIf="infoMsg == 'resend-token'">
-        <h1 class="heading_color">Thank You</h1>
-        <p>The new account manager will recieve an email notifying them that they have been invited to become a account manager 
-            for the selected Account ID. In order to gain access they muct follow the token URL provided within the invitation email 
-            and the complete the account manager setup process. </p>   
-    </div>
+    {{selectedMessage?.body}}
     <ng-template pTemplate="footer">
         <button class="usa-button" (click)="onContinue()">Continue</button>
     </ng-template>

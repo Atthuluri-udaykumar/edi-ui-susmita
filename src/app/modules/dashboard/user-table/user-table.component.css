@@ -3,12 +3,10 @@
     margin-bottom: 10px;
 }
 
-.user_table table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    text-align: left;
-  }
-
-  .user_table th {
+.user_table th {
     background-color: #4a7abf;
-  }
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+  border: none;
+}

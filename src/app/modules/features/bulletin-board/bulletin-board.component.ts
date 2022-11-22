@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng-lts/api';
 import { BulletinBoardService } from 'src/app/services/bulletin-board.service';
 
 @Component({
@@ -14,6 +15,8 @@ export class BulletinBoardComponent implements OnInit {
   displayPreview: boolean = false;
   selectedApplications: string[];
 
+  showSuccessModal: boolean = false;
+
   mockData = [
     {application: 'Section 111', message: 'This is a test message from Section 111'},
     {application: 'WCMSAP', message: 'This is a test message from WCMSAP'},
@@ -22,7 +25,11 @@ export class BulletinBoardComponent implements OnInit {
     {application: 'ECRS', message: 'This is a test message from ECRS'}
   ];
 
-  constructor(private router: Router, private bulletinBoardService: BulletinBoardService) {
+  constructor(
+    private router: Router, 
+    private bulletinBoardService: BulletinBoardService,
+    private messageService: MessageService
+    ) {
     this.applications = ['Section 111', 'WCMSAP', 'MSPRP', 'CRCP', 'ECRS'];
    }
 
@@ -46,19 +53,25 @@ export class BulletinBoardComponent implements OnInit {
   }
 
   submit() {
-    console.log('submitted');
     this.bulletinBoardService.submitBulletinBoardMessages(this.selectedApplications, this.newMessage).subscribe(res => {
-      console.log('response:', res);
       this.selectedApplications = [];
       this.newMessage = null;
       this.displayPreview = false;
-    }, err => {
-      console.error('error saving to bulletin board:', err)
+      this.toggleSuccessModal();
     })
+    
   }
 
   cancel() {
     this.router.navigate(['/dashboard'])
+  }
+
+  toggleSuccessModal() {
+    if (this.showSuccessModal) {
+      this.router.navigate(['dashboard']);
+    } else {
+      this.showSuccessModal = !this.showSuccessModal;
+    }
   }
 
 

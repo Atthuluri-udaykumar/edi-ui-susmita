@@ -1,5 +1,5 @@
 .top_container {
-    width: 50%;
+    width: auto;
 }
 
 .container {
@@ -7,10 +7,14 @@
 }
 
 .con_form {
-    width: 80%;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.spacer {
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 10px;
 }
 
 
@@ -23,13 +27,16 @@
     border: 2px solid black;
 }
 
-.form_btn button {
-    padding: 3px;
-    margin-top: 10px;
-    margin-right: 10px;
+.form-btn {
+    display: flex;
+    justify-content: flex-start;
 }
 
-.or_class{
+.form_btn button {
+    margin: 32px;
+}
+
+.or_class {
     padding-top: 10px;
 }
 
@@ -81,28 +88,36 @@
 }
 
 .buttom_action_btn {
-    margin-left: 10px;
-    padding: 2px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.action-button {
+    margin: 5px;
+    width: 160px;
 }
 
 .login_field {
     width: 80%;
 }
 
-.heading_color{
+.heading_color {
     color: #4a7abf;
 }
-.sub_text{
+
+.sub_text {
     color: #000000;
 }
 
 /* resend token css */
 
-.heading_color{
+.heading_color {
     color: #4a7abf;
 }
 
-.color_danger{
+.color_danger {
     color: red;
 }
 
@@ -116,25 +131,57 @@
     width: 20%;
 }
 
-.left_user_sub_info  table, th, td {
+.left_user_sub_info table,
+th,
+td {
     border: none !important;
 }
 
-.user_table table{
+.user_table table {
     width: 50%;
     margin-bottom: 10px;
 }
 
-.user_table  table, th, td {
-    border: 1px solid black ;
+.user_table table,
+th,
+td {
+    border: 1px solid black;
     border-collapse: collapse;
     text-align: left;
-  }
+}
 
-  .user_table th {
+.user_table th {
     background-color: #4a7abf;
-  }
+}
 
-  .resend_form{
-      margin: 15px 0px !important;
-  }
+.resend_form {
+    margin: 15px 0px !important;
+}
+
+.panel-wrapper {
+    margin-top: 20px;
+    margin-bottom: 20px;    
+}
+
+.user-info {
+    display: flex;
+    /* margin-bottom: 15px; */
+}
+
+.user-info-header {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+.searchForm {
+    display: flex;
+}
+
+p-divider .vertical-spacer {
+    margin: 0 20px;
+}
+
+.header-container {
+    margin-bottom: 20px;
+}

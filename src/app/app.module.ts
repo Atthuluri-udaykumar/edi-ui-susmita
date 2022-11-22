@@ -46,8 +46,13 @@ import { ResetPasswordComponent } from './modules/features/reset-password/reset-
 import { InputTextModule } from 'primeng-lts/inputtext';
 import { UnlockPinComponent } from './modules/features/unlock-pin/unlock-pin.component';
 import { AccountInfoComponent } from './modules/features/account-info/account-info.component';
-
-
+import { EcrsUserLookupComponent } from './modules/features/ecrs-user-lookup/ecrs-user-lookup.component';
+import { ConfirmationService } from 'primeng-lts/api';
+import { ConfirmDialogModule } from 'primeng-lts/confirmdialog'
+import { MessageService } from 'primeng-lts/api';
+import { SubmittersRequiringComponent } from './modules/features/submitters-requiring/submitters-requiring.component';
+import { PanelModule } from 'primeng-lts/panel'
+import { ButtonModule } from 'primeng-lts/button';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,6 +69,8 @@ import { AccountInfoComponent } from './modules/features/account-info/account-in
     ResetPasswordComponent,
     UnlockPinComponent,
     AccountInfoComponent,
+    EcrsUserLookupComponent,
+    SubmittersRequiringComponent,
   ],
     imports: [
         BrowserAnimationsModule,
@@ -83,7 +90,11 @@ import { AccountInfoComponent } from './modules/features/account-info/account-in
         MultiSelectModule,
         InputTextareaModule,
         PanelMenuModule,
-        InputTextModule
+        InputTextModule,
+        TableModule,
+        ConfirmDialogModule,
+        PanelModule,
+        ButtonModule
     ],
   providers: [
     Constants,
@@ -100,6 +111,8 @@ import { AccountInfoComponent } from './modules/features/account-info/account-in
     CustomRenderer, // used to invoke methods on ElementRef programmatically - BlurForwarder Directive
     DatePipe,
     BulletinBoardService,
+    ConfirmationService,
+    MessageService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

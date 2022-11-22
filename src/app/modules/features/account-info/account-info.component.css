@@ -60,3 +60,21 @@ td {
 .action_btn{
     margin-top: 15px;
 }
+
+.panel-wrapper {
+    margin-top: 20px;
+    margin-bottom: 20px;    
+}
+
+
+.buttom_action_btn {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.action-button {
+    margin: 5px;
+    /* width: 160px; */
+}

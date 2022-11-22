@@ -1,52 +1,21 @@
-<div class="user_table">
-    <div class="user_table">
-        <table>
-            <tr>
-                <th colspan="5"> MRA (S111) / WCSMAP / MSPRP / CRCP Access Information</th>
-            </tr>
-            <tr>
-                <th>COBSW Application</th>
-                <th>User Role</th>
-                <th colspan="3">Account Information</th>
-            </tr>
-            <tr>
-                <th></th>
-                <th></th>
-                <th>Acct #</th>
-                <th>Name</th>
-                <th>Status</th>
-
-            </tr>
-            <tr>
-                <td>Row 2, cell 1</td>
-                <td>Row 2, cell 1</td>
-                <td><a href="#"> Row 2, cell 1 </a></td>
-                <td>Row 2, cell 1</td>
-                <td colspan="2">Row 2, cell 2</td>
-            </tr>
-            <tr>
-                <td>Row 2, cell 1</td>
-                <td>Row 2, cell 1</td>
-                <td><a href="#"> Row 2, cell 1 </a></td>
-                <td>Row 2, cell 1</td>
-                <td colspan="2">Row 2, cell 2</td>
-            </tr>
-            <tr>
-                <td>Row 2, cell 1</td>
-                <td>Row 2, cell 1</td>
-                <td><a href="#"> Row 2, cell 1 </a></td>
-                <td>Row 2, cell 1</td>
-                <td colspan="2">Row 2, cell 2</td>
-            </tr>
-            <tr>
-                <td>Row 2, cell 1</td>
-                <td>Row 2, cell 1</td>
-                <td><a href="#"> Row 2, cell 1 </a></td>
-                <td>Row 2, cell 1</td>
-                <td colspan="2">Row 2, cell 2</td>
-            </tr>
-        </table>
-    </div>
-
-</div>
+<p-table [value]="accounts">
+    <ng-template pTemplate="header">
+        <tr>
+        <th>COBSW Application</th>
+        <th>User Role</th>
+        <th>Account Number</th>
+        <th>Account Name</th>
+        <th>Account Status</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-item>
+        <tr>
+        <td>{{item.application}}</td>
+        <td>{{item.role}}</td>
+        <td><a href="">{{item.accountNumber}}</a></td>
+        <td>{{item.accountName}}</td>
+        <td>{{item.accountStatus}}</td>
+        </tr>
+    </ng-template>
+</p-table>
 
