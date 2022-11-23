@@ -21,6 +21,7 @@ export class DashboardComponent implements OnInit {
   loadPage: String = '';
 
   userAccounts = [];
+  accountDetails=[];
 
   ngOnInit(): void {
     this.userAccounts = [
@@ -31,6 +32,10 @@ export class DashboardComponent implements OnInit {
       {application: 'Section 111', role: 'User', accountNumber: '12345ABC', accountName: 'Test Account 5', accountStatus: 'Inactive'},
       {application: 'MSPRC', role: 'User', accountNumber: '12345ABC', accountName: 'Test Account 6', accountStatus: 'Active'},
       {application: 'MSPRC', role: 'Admin', accountNumber: '12345ABC', accountName: 'Test Account 7', accountStatus: 'Active'}
+    ]
+
+    this.accountDetails=[
+      {accountID:'29993',companyName:'Jrd'}
     ]
   }
 

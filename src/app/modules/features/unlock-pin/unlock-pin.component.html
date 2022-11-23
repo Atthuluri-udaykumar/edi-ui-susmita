@@ -1,23 +1,29 @@
 <div>
     <h3 class="heading_color"> Unlock Pin</h3>
-    <p>The system will set the Account ID and PIN combination to a locked status after three unsuccessful attempts to enter the PIN. Change the PIN
+    <p>The system will set the Account ID and PIN combination to a locked status after three unsuccessful attempts to
+        enter the PIN. Change the PIN
         status to <strong>Unlock</strong> only if: </p>
 
     <ol>
-        <li>The Caller is the Account Manager (AM) and has been authenticated for the Account listed  based on the BCRC Secure Web Site 
-            Authentication GUidelines for the EDI Representatives and the User Information in the Web site, or the caller is an 'authorized 
+        <li>The Caller is the Account Manager (AM) and has been authenticated for the Account listed based on the BCRC
+            Secure Web Site
+            Authentication GUidelines for the EDI Representatives and the User Information in the Web site, or the
+            caller is an 'authorized
             company representative.</li>
-            <p>and</p>
+        <p>and</p>
         <li>The caller has provided the correct PIN.</li>
     </ol>
     <p class="sub_text">
-        <font><strong>Warning: If the caller can not be validated, request that the authorized Submitter/Contact for the account submit a written 
-            request adressed to the Benefits Coordination and Recovery Center on company letterhead. Notify the callernthat the request may be faxed 
-            and supply the fax number.</strong></font>
+        <font><strong>Warning: If the caller can not be validated, request that the authorized Submitter/Contact for the
+                account submit a written
+                request adressed to the Benefits Coordination and Recovery Center on company letterhead. Notify the
+                callernthat the request may be faxed
+                and supply the fax number.</strong></font>
     </p>
 
     <p class="sub_text">
-        <font><strong>If the caller can be validated, but cannot state the correct PIN, perform the Reset PIN function instead.</strong></font>
+        <font><strong>If the caller can be validated, but cannot state the correct PIN, perform the Reset PIN function
+                instead.</strong></font>
     </p>
 
 
@@ -34,25 +40,13 @@
             </tr>
         </table>
 
-        <div class="user_table">
-            <table>
-                <tr>
-                    <th>Account Contact Info</th>
-                </tr>
 
-                <!-- <tr >
-                    <td colspan="5" class="text-center">No Submitters found </td>
-                </tr> -->
-                <tr>
-                    <td style="width: 25%;">
-                        Rep Account
-                        <br /> One West Pennsylvania Ave
-                        <br /> Towson MD 21204 -
-                    </td>
-                </tr>
-
-            </table>
-        </div>
+        <p-panel header="Account Contact Info">
+            <p>Rep Account
+                <br /> One West Pennsylvania Ave
+                <br /> Towson MD 21204 -
+            </p>
+        </p-panel>
 
     </div>
 
@@ -63,7 +57,7 @@
 
 
     <div>
-        <button class="action_btn" (click)="onCancel()">Unlock Pin</button>
-        <button class="cancel_btn" (click)="onCancel()">Cancel</button>
+        <button  class="usa-button p-button-sm"  (click)="onCancel()">Unlock Pin</button>
+        <button class="usa-button p-button-sm bg-secondary" (click)="onCancel()" >Cancel</button>
     </div>
 </div>

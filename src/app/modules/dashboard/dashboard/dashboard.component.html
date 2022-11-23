@@ -87,8 +87,8 @@
     
         <p class="sub_text">Are you sure you want to reactivate the Login ID ? </p>
     
-        <button style="margin-right : 10px;" (click)="onSetOpen('confirm-reactivate')">Yes</button>
-        <button (click)="onCancel()">Cancel</button>
+        <button style="margin-right : 10px;"  class="usa-button p-button-sm" (click)="onSetOpen('confirm-reactivate')">Yes</button>
+        <button (click)="onCancel()" class="usa-button p-button-sm bg-secondary">Cancel</button>
 </div>
 
 <div *ngIf="loadPage == 'resend-token'">
@@ -117,20 +117,30 @@
         </table>
     </div>
 
+    <div class="panel-wrapper">
+        <p-panel header="Associated with this Account Manager">
 
-    <div class="user_table">
-        <h2><font size=-1>Associated with this Account Manager</font></h2>
-        <table>
-            <tr>
-                <th>Account/RRE ID</th>
-                <th>Company Name</th>
-            </tr>
-            <tr>
-                <td>60787</td>
-                <td>TESTING NGHP RESTFUL</td>
-            </tr>
-        </table>
+            <p-table [value]="accountDetails">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Account/RRE ID</th>
+                        <th>Company Name</th>
+                     
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-item>
+                    <tr>
+                       
+                        <td>{{item.accountID}}</td>
+                        <td>{{item.companyName}}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </p-panel>
     </div>
+
+
+   
 
     <div class="resend_form">
         <table>
@@ -144,8 +154,8 @@
             </tr>
         </table>
     </div>
-    <button style="margin-right : 10px;" (click)="onSetOpen('resend-token')">Yes</button>
-    <button (click)="onCancel()">Cancel</button>
+    <button style="margin-right : 10px;" class="usa-button p-button-sm"  (click)="onSetOpen('resend-token')">Yes</button>
+    <button (click)="onCancel()" class="usa-button p-button-sm bg-secondary">Cancel</button>
 </div>
 
 <app-dashboard-model *ngIf="isOpen" (onCloseModel)="onCloseModel()" [infoMsg]="infoMsg">
