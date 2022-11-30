@@ -22,7 +22,66 @@
         </table>
 
         <div class="panel-wrapper">
-            <p-panel header="Account Contact Information">
+            <h5>Account Contact Information</h5>
+            <p-accordion>
+                <p-accordionTab header="Account/Authorized Representative(AR)" [selected]="true">
+                    <p-table [value]="submittersData">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>First Name</th>
+                                <th>MI</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Ext</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-item>
+                            <tr>
+                                <td>{{item.firstName}}</td>
+                                <td>{{item.MI}}</td>
+                                <td>{{item.lastName}}</td>
+                                <td>{{item.email}}</td>
+                                <td>{{item.phone}}</td>
+                                <td>{{item.ext}}</td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </p-accordionTab>
+                <p-accordionTab header="Account Manager">
+                    <p-table [value]="submittersData">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>First Name</th>
+                                <th>MI</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Ext</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-item>
+                            <tr>
+                                <td>{{item.firstName}}</td>
+                                <td>{{item.MI}}</td>
+                                <td>{{item.lastName}}</td>
+                                <td>{{item.email}}</td>
+                                <td>{{item.phone}}</td>
+                                <td>{{item.ext}}</td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </p-accordionTab>
+                <p-accordionTab header="Go Paperless Information">
+                    <p>At vero eos et accusamus et iusto odio digniss
+                               </p>
+                </p-accordionTab>
+                <p-accordionTab header="Go Paperless">
+                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis .</p>
+                </p-accordionTab>
+            </p-accordion>
+              
+            <!-- <p-panel header="Account Contact Information">
                 <p-table [value]="submittersData">
                     <ng-template pTemplate="header">
                         <tr>
@@ -45,7 +104,8 @@
                         </tr>
                     </ng-template>
                 </p-table>
-            </p-panel>
+            </p-panel> -->
+
         </div>
     </div>
 
@@ -54,12 +114,12 @@
         <button class="usa-button action-button" style="margin-right : 10px; font-size: 14px" >Regenerate/Resend Profile Report</button>
         <button class="usa-button action-button" style="margin-right : 10px; font-size: 14px" >Remove Invalid Submitter/Registrant
             </button>
-        <button class="usa-button action-button" style="margin-right : 10px; font-size: 14px" >Vet Submitter/Registrant</button>
+        <button class="usa-button action-button" style="margin-right : 10px; font-size: 14px" (click)="onGo('vetSubmitter')" >Vet Submitter/Registrant</button>
         <button class="usa-button action-button" style="margin-right : 10px; font-size: 14px" > Grant Full WCMSAP/MSPRP/CRCP
             Functionality
             </button>
         <button class="usa-button action-button" style="margin-right : 10px; font-size: 14px" >Reset PIN</button>
-        <button class="usa-button action-button" style="margin-right : 10px; font-size: 14px" (click)="onGo()" >Unlock PIN</button>
+        <button class="usa-button action-button" style="margin-right : 10px; font-size: 14px" (click)="onGo('unlockPin')" >Unlock PIN</button>
         <button class="usa-button action-button" style="margin-right : 10px; font-size: 14px" >Paperless Emails</button>
         <button class="usa-button action-button" style="margin-right : 10px; font-size: 14px" >Go Paperless Parties</button>
     </div>

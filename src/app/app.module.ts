@@ -53,6 +53,8 @@ import { MessageService } from 'primeng-lts/api';
 import { SubmittersRequiringComponent } from './modules/features/submitters-requiring/submitters-requiring.component';
 import { PanelModule } from 'primeng-lts/panel'
 import { ButtonModule } from 'primeng-lts/button';
+import { AccordionModule } from 'primeng-lts/accordion';
+import { VetSubmitterComponent } from './modules/features/vet-submitter/vet-submitter.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,6 +73,7 @@ import { ButtonModule } from 'primeng-lts/button';
     AccountInfoComponent,
     EcrsUserLookupComponent,
     SubmittersRequiringComponent,
+    VetSubmitterComponent,
   ],
     imports: [
         BrowserAnimationsModule,
@@ -94,7 +97,8 @@ import { ButtonModule } from 'primeng-lts/button';
         TableModule,
         ConfirmDialogModule,
         PanelModule,
-        ButtonModule
+        ButtonModule,
+        AccordionModule
     ],
   providers: [
     Constants,

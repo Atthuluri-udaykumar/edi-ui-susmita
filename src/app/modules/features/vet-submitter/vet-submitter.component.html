@@ -1,0 +1,48 @@
+<div *ngIf="isVetted">
+    <h3 class="heading_color">Vetting a Submitter/Registrant</h3>
+    <p class="sub_text">
+        <font><strong>Note: The Registrant/Submitter receives an email that contains a PIN. If the Submitter enters the
+                assigned PIN incorrectly three times, the PIN will be locked automatically. If the submitter provides
+                you with the correct PIN, unlock the PIN. If the Submitter cannot state the correct PIN, reset the PIN.
+            </strong></font>
+    </p>
+    <p class="sub_text">
+        <font><strong>
+                assigned PIN incorrectly three times, the PIN will be locked automatically. If the submitter provides
+            </strong></font>
+    </p>
+    <div>
+        <table class="custom_table">
+
+            <tr>
+                <td><strong>Account Id:</strong> 29323</td>
+                <td><strong>EIN:</strong> 237129072</td>
+                <td><strong>PIN:</strong> 4321</td>
+                <td><strong>PIN Status:</strong> Unlocked</td>
+                <td><strong>Submitter Status:</strong> Active</td>
+            </tr>
+        </table>
+
+        <div class="panel-wrapper">
+                        <p-panel header="Account Contact Information">
+                MSPRP Postgres Testing <br />
+                MSP_AR@test-team.cobqa.com
+            </p-panel>
+
+        </div>
+    </div>
+
+    <div>
+        <button class="usa-button  p-button-sm" style="margin-right : 10px; font-size: 14px" (click)="onVetted()">Vetted</button>
+        <button class="usa-button p-button-sm bg-secondary" (click)="onCancel()">Cancel</button>
+    </div>
+</div>
+
+
+<div *ngIf="!isVetted">
+    <h3 class="heading_color">Submitter/Registrant Vetting Confirmation</h3>
+    <p class="sub_text">
+                assigned PIN incorrectly three times, the PIN will be locked automatically. If the submitter provides
+        </p>
+        <button class="usa-button p-button-sm bg-secondary" (click)="onCancel()">Continue</button>
+</div>

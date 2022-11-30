@@ -40,8 +40,9 @@ export class AccountInfoComponent implements OnInit {
   }
 
 
-  onGo() {
-      this.routerService.navigateTo('unlockPin', false);
+  onGo(route:String) {
+      this.routerService.navigateTo(route, false);
   }
+
 
 }
