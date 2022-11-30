@@ -1,4 +1,4 @@
-<div *ngIf="isVetted">
+<div>
     <h3 class="heading_color">Vetting a Submitter/Registrant</h3>
     <p class="sub_text">
         <font><strong>Note: The Registrant/Submitter receives an email that contains a PIN. If the Submitter enters the
@@ -39,10 +39,13 @@
 </div>
 
 
-<div *ngIf="!isVetted">
-    <h3 class="heading_color">Submitter/Registrant Vetting Confirmation</h3>
-    <p class="sub_text">
-                assigned PIN incorrectly three times, the PIN will be locked automatically. If the submitter provides
-        </p>
-        <button class="usa-button p-button-sm bg-secondary" (click)="onCancel()">Continue</button>
-</div>
+<p-dialog [(visible)]="display" modal="true" dismissableMask="true" (onHide)="onHideModel()" [breakpoints]="{'960px': '50vw', '640px': '75vw'}" [style]="{width: '50vw'}">
+    <p-header>
+        Submitter/Registrant Vetting Confirmation
+    </p-header>
+    assigned PIN incorrectly three times, the PIN will be locked automatically. If the submitter provides
+    <ng-template pTemplate="footer">
+        <button class="usa-button" (click)="onHideModel()">Continue</button>
+    </ng-template>
+</p-dialog>
+

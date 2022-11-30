@@ -10,18 +10,21 @@ export class VetSubmitterComponent implements OnInit {
   constructor(
     private routerService: RouterService
   ) { }
-  isVetted: Boolean = true;
+  
   ngOnInit(): void {
   }
 
   onCancel() {
-    this.isVetted=false
+    this.display=false
     this.routerService.navigateTo('accountInfo', false);
   }
 
- 
+  display=false;
   onVetted() {
-    this.isVetted=false
+    this.display=true
   }
 
+  onHideModel(){
+    this.display=false
+  }
 }
