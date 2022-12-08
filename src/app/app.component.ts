@@ -26,7 +26,7 @@ export class AppComponent {
   sessionRoute = false;
   authenticated: Boolean = false;
   menuItems: MenuItem[] = [
-    { label: 'Account Management' },
+    { label: 'Account Management' , command: (click)=> {this.navigateTo('accountManagement')}},
     { 
       label: 'Change Password', 
       command: (click)=> {this.navigateTo('resetPassword', true)}

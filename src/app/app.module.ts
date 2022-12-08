@@ -55,6 +55,8 @@ import { PanelModule } from 'primeng-lts/panel'
 import { ButtonModule } from 'primeng-lts/button';
 import { AccordionModule } from 'primeng-lts/accordion';
 import { VetSubmitterComponent } from './modules/features/vet-submitter/vet-submitter.component';
+import { AccountManagementComponent } from './modules/features/account-management/account-management.component';
+import { DividerModule } from 'primeng-lts/divider';
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,6 +76,7 @@ import { VetSubmitterComponent } from './modules/features/vet-submitter/vet-subm
     EcrsUserLookupComponent,
     SubmittersRequiringComponent,
     VetSubmitterComponent,
+    AccountManagementComponent,
   ],
     imports: [
         BrowserAnimationsModule,
@@ -98,7 +101,11 @@ import { VetSubmitterComponent } from './modules/features/vet-submitter/vet-subm
         ConfirmDialogModule,
         PanelModule,
         ButtonModule,
-        AccordionModule
+        AccordionModule,
+        DividerModule,
+       
+
+  
     ],
   providers: [
     Constants,

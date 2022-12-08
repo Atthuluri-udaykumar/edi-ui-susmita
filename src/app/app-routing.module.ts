@@ -15,6 +15,7 @@ import { AccountInfoComponent } from './modules/features/account-info/account-in
 import { UnlockPinComponent } from './modules/features/unlock-pin/unlock-pin.component';
 import { EcrsUserLookupComponent } from './modules/features/ecrs-user-lookup/ecrs-user-lookup.component';
 import { VetSubmitterComponent } from './modules/features/vet-submitter/vet-submitter.component';
+import { AccountManagementComponent } from './modules/features/account-management/account-management.component';
 
 
 const appRoutes: Routes = [
@@ -45,6 +46,7 @@ const appRoutes: Routes = [
   { path: 'accountInfo', component: AccountInfoComponent, canActivate: [AuthGuard] },
   { path: 'unlockPin', component: UnlockPinComponent, canActivate: [AuthGuard] },
   { path: 'vetSubmitter', component: VetSubmitterComponent, canActivate: [AuthGuard] },
+  { path: 'accountManagement', component: AccountManagementComponent, canActivate: [AuthGuard] },
   { path: 'sessionExpired', component: SessionExpiredComponent },
   { path: 'serverError', component: ServerErrorComponent },
   { path: 'notFound', component: NotFoundComponent },
