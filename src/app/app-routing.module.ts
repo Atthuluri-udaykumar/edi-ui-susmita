@@ -16,6 +16,7 @@ import { UnlockPinComponent } from './modules/features/unlock-pin/unlock-pin.com
 import { EcrsUserLookupComponent } from './modules/features/ecrs-user-lookup/ecrs-user-lookup.component';
 import { VetSubmitterComponent } from './modules/features/vet-submitter/vet-submitter.component';
 import { AccountManagementComponent } from './modules/features/account-management/account-management.component';
+import { AccountAuthorizedComponent } from './modules/features/account-authorized/account-authorized.component';
 
 
 const appRoutes: Routes = [
@@ -47,6 +48,7 @@ const appRoutes: Routes = [
   { path: 'unlockPin', component: UnlockPinComponent, canActivate: [AuthGuard] },
   { path: 'vetSubmitter', component: VetSubmitterComponent, canActivate: [AuthGuard] },
   { path: 'accountManagement', component: AccountManagementComponent, canActivate: [AuthGuard] },
+  { path: 'accountAuthorized', component: AccountAuthorizedComponent, canActivate: [AuthGuard] },
   { path: 'sessionExpired', component: SessionExpiredComponent },
   { path: 'serverError', component: ServerErrorComponent },
   { path: 'notFound', component: NotFoundComponent },

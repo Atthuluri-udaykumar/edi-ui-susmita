@@ -1,0 +1,58 @@
+.heading_color{
+    color: #4a7abf;
+}
+.sub_text{
+    color: #000000;
+}
+
+.color_red {
+    color: red;
+}
+
+.color_blue {
+    color:blue;
+}
+
+
+.user_table table{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.user_table table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: left;
+    padding: 5px;
+  }
+
+  .user_table th {
+    background-color: #4a7abf;
+  }
+
+  .text-center{
+   text-align: center;
+  }
+
+  .panel-wrapper {
+    margin-top: 20px;
+    margin-bottom: 20px;    
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+    border: none;
+  }
+
+
+.searchForm {
+    display: flex;
+    
+}
+
+p-divider .vertical-spacer {
+    margin: 0 20px;
+}
+
+.form_btn  {
+    margin: 32px;
+}

@@ -57,6 +57,7 @@ import { AccordionModule } from 'primeng-lts/accordion';
 import { VetSubmitterComponent } from './modules/features/vet-submitter/vet-submitter.component';
 import { AccountManagementComponent } from './modules/features/account-management/account-management.component';
 import { DividerModule } from 'primeng-lts/divider';
+import { AccountAuthorizedComponent } from './modules/features/account-authorized/account-authorized.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,6 +78,7 @@ import { DividerModule } from 'primeng-lts/divider';
     SubmittersRequiringComponent,
     VetSubmitterComponent,
     AccountManagementComponent,
+    AccountAuthorizedComponent,
   ],
     imports: [
         BrowserAnimationsModule,
