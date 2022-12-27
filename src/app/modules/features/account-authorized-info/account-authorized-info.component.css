@@ -1,0 +1,93 @@
+.heading_color{
+    color: #4a7abf;
+}
+.sub_text{
+    color: #000000;
+}
+
+.color_red {
+    color: red;
+}
+
+.color_blue {
+    color:blue;
+}
+
+
+.user_table table{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.user_table table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: left;
+    padding: 5px;
+  }
+
+  .user_table th {
+    background-color: #4a7abf;
+  }
+
+  .text-center{
+   text-align: center;
+  }
+
+  .panel-wrapper {
+    margin-top: 20px;
+    margin-bottom: 20px;    
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+    border: none;
+  }
+
+
+
+
+  .left_user_sub_info table,
+  th,
+  td {
+      border: none !important;
+  }
+
+  .left_user_sub_info th {
+    text-align: left;
+    width: 20%;
+}
+
+.left_user_sub_info td {
+    text-align: left;
+    width: 20%;
+}
+
+.color_danger {
+    margin: 0;
+    color: red;
+}
+
+ 
+.usa-select, .usa-range, .usa-input, .usa-textarea{
+height: 2rem;
+ }
+
+
+ .multi_inputs{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+ }
+
+ .multi_inputs input {
+    width: 100px;
+ }
+
+ .panel-wrapper {
+    margin-top: 20px;
+    margin-bottom: 20px;    
+}
+
+.underScore{
+font-size: 30px;
+}

@@ -17,6 +17,7 @@ import { EcrsUserLookupComponent } from './modules/features/ecrs-user-lookup/ecr
 import { VetSubmitterComponent } from './modules/features/vet-submitter/vet-submitter.component';
 import { AccountManagementComponent } from './modules/features/account-management/account-management.component';
 import { AccountAuthorizedComponent } from './modules/features/account-authorized/account-authorized.component';
+import { AccountAuthorizedInfoComponent } from './modules/features/account-authorized-info/account-authorized-info.component';
 
 
 const appRoutes: Routes = [
@@ -49,6 +50,7 @@ const appRoutes: Routes = [
   { path: 'vetSubmitter', component: VetSubmitterComponent, canActivate: [AuthGuard] },
   { path: 'accountManagement', component: AccountManagementComponent, canActivate: [AuthGuard] },
   { path: 'accountAuthorized', component: AccountAuthorizedComponent, canActivate: [AuthGuard] },
+  { path: 'accountAuthorizedInfo', component: AccountAuthorizedInfoComponent, canActivate: [AuthGuard] },
   { path: 'sessionExpired', component: SessionExpiredComponent },
   { path: 'serverError', component: ServerErrorComponent },
   { path: 'notFound', component: NotFoundComponent },

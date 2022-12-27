@@ -23,4 +23,8 @@ export class AccountAuthorizedComponent implements OnInit {
   onContinue(){
     this.routerService.navigateTo('accountInfo', false);
   }
+
+  onUpdate(){
+    this.routerService.navigateTo('accountAuthorizedInfo', false);
+  }
 }

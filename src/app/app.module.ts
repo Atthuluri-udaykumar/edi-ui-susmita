@@ -58,6 +58,8 @@ import { VetSubmitterComponent } from './modules/features/vet-submitter/vet-subm
 import { AccountManagementComponent } from './modules/features/account-management/account-management.component';
 import { DividerModule } from 'primeng-lts/divider';
 import { AccountAuthorizedComponent } from './modules/features/account-authorized/account-authorized.component';
+import { AccountAuthorizedInfoComponent } from './modules/features/account-authorized-info/account-authorized-info.component';
+import { DropdownModule } from 'primeng-lts/dropdown';
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,6 +81,7 @@ import { AccountAuthorizedComponent } from './modules/features/account-authorize
     VetSubmitterComponent,
     AccountManagementComponent,
     AccountAuthorizedComponent,
+    AccountAuthorizedInfoComponent,
   ],
     imports: [
         BrowserAnimationsModule,
@@ -105,7 +108,7 @@ import { AccountAuthorizedComponent } from './modules/features/account-authorize
         ButtonModule,
         AccordionModule,
         DividerModule,
-       
+       DropdownModule
 
   
     ],
