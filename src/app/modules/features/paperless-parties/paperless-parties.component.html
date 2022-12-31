@@ -1,0 +1,76 @@
+<h3 class="heading_color">Go Paperless Parties</h3>
+<p>The insurers/recovery agents listed on this page are currently paperless or were paperless for a given time. The opt-in and opt-out dates show the most recent paperless period.
+</p>
+
+<p>Click <strong>Clear</strong> to remove any sorting or filtering and restore the default display.</p>
+<div>
+  <button pButton label="Clear" class="usa-button p-button" (click)="onClear(dt1)"></button>
+</div>
+<br/>
+<div #TABLE>
+  <p-table #dt1
+        [value]="parties"
+        [columns]="scrollableCols"
+        [frozenColumns]="frozenCols"
+        [scrollable]="true" scrollHeight="280px"
+        frozenWidth="300px"
+        [paginator]="true" [(first)]="first" [rows]="rows" [totalRecords]="totalRecords"
+        [rowsPerPageOptions]="[10,25,50]" (onPage)="loadParties($event)"
+        styleClass="p-datatable-sm p-datatable-striped p-datatable-gridlines">
+    <ng-template pTemplate="colgroup" let-columns>
+      <col *ngFor="let col of columns" [style.width.px]="col.width"/>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+      <!--tr>
+        <th colspan="2"></th>
+        <th colspan="4">Insurer/RA Agent Info</th>
+        <th colspan="5">Requester's Info</th>
+      </tr-->
+      <tr>
+        <th *ngFor="let col of columns"
+          [pSortableColumn]="col.field">
+            {{col.header}}
+            <p-sortIcon [field]="col.field"></p-sortIcon>
+        </th>
+      </tr>
+      <tr>
+          <ng-container *ngFor="let col of columns">
+            <ng-container *ngIf="col.applyFilter == true">
+              <th
+                pFrozenColumn
+                [frozen]="col.frozen">
+                  <p-columnFilter
+                    [type]="col.type"
+                    [field]="col.field"
+                    pTooltip="Enter a full or partial {{col.placeholder}} to filter table data."
+                    matchMode="startsWith"
+                    [showMenu]="false">
+                  </p-columnFilter>
+              </th>
+            </ng-container>
+            <ng-container *ngIf="col.applyFilter == false">
+              <th></th>
+            </ng-container>
+          </ng-container>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr style="height:34px">
+        <td *ngFor="let col of columns"
+          [style.width.px]="col.width">
+            {{rowData[col.field]}}
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage" let-columns>
+      <tr>
+          <td [attr.colspan]="columns.length">No Parties found.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+<br />
+<div>
+  <button class="usa-button p-button-sm" (click)="onExport()">Export</button>
+  <button class="usa-button p-button-sm" (click)="onContinue()">Continue</button>
+</div>

@@ -1,0 +1,8 @@
+.replacement-panels {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.old-acct {
+  padding-right: 10px;
+}

@@ -1,0 +1,59 @@
+<ng-container *ngIf="!contractorFound">
+  <h2>ECRS Contractor Lookup</h2>
+  <div>
+    <p>
+      From the screen you can list the users that currently have Upload/Download
+      authority for a specific contractor.
+    </p>
+    <p>Please enter the Contractor ID and select <strong>Continue</strong>.</p>
+  </div>
+  <div class="field">
+    <label for="contractorId" class="block">Enter Contractor ID</label>
+    <input
+      class="usa-input"
+      id="contractorId"
+      type="text"
+      aria-describedby="contractorId-help"
+      pInputText
+      [(ngModel)]="contractorId"
+    />
+  </div>
+
+  <div class="button-row">
+    <button
+      class="usa-button"
+      (click)="lookupContractorById()"
+      [disabled]="!contractorId"
+      title="Lookup users by Contractor ID."
+    >
+      Submit
+    </button>
+    <button class="usa-button bg-secondary" (click)="cancel()">Cancel</button>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="contractorFound">
+  <h2>ECRS Contractor Information</h2>
+  <p>
+    The user has the authority to upload and download files for the following
+    contractors.
+  </p>
+  <p>
+    Contractor ID: <strong>{{ contractorId }}</strong>
+  </p>
+
+  <p-table [value]="users">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>User ID</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-item>
+      <tr>
+        <td>{{ item.userId }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <br />
+  <button class="usa-button" (click)="cancel()">Cancel</button>
+</ng-container>

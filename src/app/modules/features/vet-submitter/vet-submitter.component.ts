@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterService } from 'src/app/services/router.service';
+
 @Component({
   selector: 'app-vet-submitter',
   templateUrl: './vet-submitter.component.html',
@@ -10,10 +11,9 @@ export class VetSubmitterComponent implements OnInit {
   constructor(
     private routerService: RouterService
   ) { }
-  
+
   ngOnInit(): void {
   }
-
   onCancel() {
     this.display=false
     this.routerService.navigateTo('accountInfo', false);
@@ -26,5 +26,7 @@ export class VetSubmitterComponent implements OnInit {
 
   onHideModel(){
     this.display=false
+    this.routerService.navigateTo('accountInfo', false);
   }
+
 }

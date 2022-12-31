@@ -1,9 +1,10 @@
 <div>
-    <h3 class="heading_color"> Authorized Representative information</h3>
+    <h3 class="heading_color"> Authorized Representative Information</h3>
 
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui atque quia sit totam unde ea harum quam </p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui atque quia sit totam unde ea harum quam </p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui atque quia sit totam unde ea harum quam </p>
+    <p>Provide contact information for the Authorized Representative (AR) for the RRE ID you are requesting. </p>
+    <p>Your Authorized Representative is the individual in the RRE organization who has the legal authority 
+        to bind the organization to a contract and the terms of section 111 requirements and processing. </p>
+    <p>The AR named below cannot obtain a Login ID for the COBSW. </p>
 
 
 
@@ -19,74 +20,71 @@
                 <td><input class="usa-input" type="text" pInputText /></td>
             </tr>
             <tr>
-                <th>E-mail Address:<span class="color_danger">*</span></th>
+                <th>Job Title:<span class="color_danger">*</span></th>
                 <td><input class="usa-input" type="text" pInputText /></td>
             </tr>
 
             <tr>
-                <th>Status:<span class="color_danger">*</span></th>
+                <th>E-mail Address:<span class="color_danger">*</span></th>
                 <td><input class="usa-input" type="text" pInputText /></td>
             </tr>
         </table>
     </div>
 
     <div class="left_user_sub_info">
-        <h5>Authorized Addressesive milling address</h5>
+        <p><strong>Authorized Representative Mailing Address</strong></p>
+
         <table>
             <tr>
-                <th>First Name:<span class="color_danger">*</span></th>
+                <th>Street Line 1:<span class="color_danger">*</span></th>
                 <td><input class="usa-input" type="text" pInputText /></td>
             </tr>
             <tr>
-                <th>Last Name:<span class="color_danger">*</span></th>
+                <th>Street Line 2:<span class="color_danger"></span></th>
                 <td><input class="usa-input" type="text" pInputText /></td>
             </tr>
             <tr>
-                <th>E-mail Address:<span class="color_danger">*</span></th>
+                <th>City, State, Zip:<span class="color_danger">*</span></th>
                 <td class="multi_inputs">
-                    <input class="usa-input" type="text" pInputText /> <span class="underScore">-</span>
-                    <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name"></p-dropdown>
-                    <input class="usa-input" type="text" pInputText /> <span class="underScore">-</span>
+                    <input class="usa-input" type="text" pInputText /> <span class="underScore" style="margin-right : 3px;">,</span>
+                    <p-dropdown [options]="cities" [(ngModel)]="selectedCity" style="margin-right : 10px;" optionLabel="name"></p-dropdown>
+                    <input class="usa-input" type="text" pInputText style="margin-right : 5px;" /> <span class="underScore" style="margin-right : 5px;">-</span>
                     <input class="usa-input" type="text" pInputText />
                 </td>
             </tr>
-
-            <tr>
-                <th>Fax:<span class="color_danger">*</span></th>
-                <td>
-                    <input class="usa-input" type="text" pInputText />
-                    </td>
-                
-
-            </tr>
             <tr>
                 <th>Telephone:<span class="color_danger">*</span></th>
-                <td>
+                <td class="multi_inputs">
+                    <span class="underScore">(</span><input class="usa-input" type="text" pInputText /><span class="underScore"  style="margin-right : 5px;">)</span>
+                    <input class="usa-input" type="text" style="margin-right : 2px;" pInputText /><span class="underScore" style="margin-right : 2px;">-</span>
+                    <input class="usa-input" type="text" style="margin-right : 10px;" pInputText /><p>ext</p>
                     <input class="usa-input" type="text" pInputText />
                     </td>
 
             </tr>
             <tr>
-                <th>Fax:<span class="color_danger">*</span></th>
-                <td>
+                <th>Fax:<span class="color_danger"></span></th>
+                <td class="multi_inputs">
+                    <span class="underScore">(</span><input class="usa-input" type="text" pInputText /><span class="underScore"  style="margin-right : 5px;">)</span>
+                    <input class="usa-input" type="text" style="margin-right : 2px;" pInputText /><span class="underScore" style="margin-right : 2px;">-</span>
                     <input class="usa-input" type="text" pInputText />
                     </td>
-                
+
 
             </tr>
         </table>
     </div>
 
-
+    <p><strong>All Associated RREs for Authorized Representative First Last </strong></p>
 
     <div class="panel-wrapper">
-        <p-panel header="Associated with this Account Manager">
+        <p-panel header="">
 
             <p-table [value]="RRRDetails">
                 <ng-template pTemplate="header">
                     <tr>
-                        <th>RRE ID</th>
-                        <th>Company Name</th>
+                        <th>RRE #</th>
+                        <th>RRE Company Name</th>
 
                     </tr>
                 </ng-template>

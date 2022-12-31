@@ -1,0 +1,88 @@
+<h2>Replace Account Manager</h2>
+
+<!-- Search Form -->
+<ng-container *ngIf="!showNewAccountManager && !showReplacement">
+  <div class="radio-group">
+    <p>Select Application:</p>
+    <p-radioButton
+      name="application"
+      value="WCS"
+      label="WCS"
+      [(ngModel)]="selectedValue"
+    ></p-radioButton>
+    <p-radioButton
+      name="application"
+      value="MSPRP"
+      label="MSPRP"
+      [(ngModel)]="selectedValue"
+    ></p-radioButton>
+    <p-radioButton
+      name="application"
+      value="CRCP"
+      label="CRCP"
+      [(ngModel)]="selectedValue"
+    ></p-radioButton>
+  </div>
+  <div class="searchForm">
+    <div class="field grid-col-3">
+      <label for="loginId" class="block">Account ID</label>
+      <input
+        class="usa-input"
+        id="loginId"
+        type="text"
+        [(ngModel)]="accountId"
+        aria-describedby="loginId-help"
+        pInputText
+      />
+    </div>
+    <ng-container *ngIf="selectedValue !== 'CRCP'">
+      <p-divider layout="vertical" class="vertical-spacer">
+        <b>OR</b>
+      </p-divider>
+      <div class="field grid-col-3">
+        <label for="loginEmail" class="block">Email</label>
+        <input
+          class="usa-input"
+          id="loginEmail"
+          type="text"
+          [(ngModel)]="email"
+          aria-describedby="loginEmail-help"
+          pInputText
+        />
+      </div>
+    </ng-container>
+    <div class="form_btn">
+      <button
+        class="usa-button"
+        [disabled]="isSearchDisabled()"
+        (click)="onSearch()"
+      >
+        Search
+      </button>
+    </div>
+  </div>
+</ng-container>
+
+<!-- Results -->
+<ng-container *ngIf="showInfo">
+  <app-account-manager-info
+    [accountManager]="accountManager"
+    (onContinue)="newAccountManagerLookup($event)"
+  ></app-account-manager-info>
+</ng-container>
+
+<!-- New Account Manager -->
+<ng-container *ngIf="showNewAccountManager">
+  <app-new-account-manager
+    [newAccountManager]="newAccountManager"
+    (onContinue)="openConfirmReplacement($event)"
+  ></app-new-account-manager>
+</ng-container>
+
+<!-- Replacement Confirmation -->
+<ng-container *ngIf="showReplacement">
+  <app-confirm-account-manager-replacement
+    [accountManager]="accountManager"
+    [newAccountManager]="newAccountManager"
+  ></app-confirm-account-manager-replacement>
+</ng-container>

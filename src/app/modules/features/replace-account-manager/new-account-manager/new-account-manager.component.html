@@ -1,0 +1,65 @@
+<h4>Provide contract information for the new Account Manager</h4>
+<div class="grid-col-6 field">
+  <label for="firstName" class="block">First Name</label>
+  <input
+    class="usa-input"
+    id="firstName"
+    type="text"
+    [(ngModel)]="newAccountManager.firstName"
+    aria-describedby="firstName-help"
+    pInputText
+  />
+</div>
+<div class="grid-col-6 field">
+  <label for="lastName" class="block">Last Name</label>
+  <input
+    class="usa-input"
+    id="lastName"
+    type="text"
+    [(ngModel)]="newAccountManager.lastName"
+    aria-describedby="lastName-help"
+    pInputText
+  />
+</div>
+<div class="grid-col-6 field">
+  <label for="email" class="block">Email</label>
+  <input
+    class="usa-input"
+    id="email"
+    type="text"
+    [(ngModel)]="newAccountManager.email"
+    aria-describedby="email-help"
+    [disabled]="true"
+    pInputText
+  />
+</div>
+<div class="grid-col-6 field">
+  <label for="password1" class="block">Passphrase</label>
+  <input
+    class="usa-input"
+    id="password1"
+    type="password"
+    [(ngModel)]="password1"
+    aria-describedby="password1-help"
+    pInputText
+  />
+</div>
+<div class="grid-col-6 field">
+  <label for="password2" class="block">Re-enter Passphrase</label>
+  <input
+    class="usa-input"
+    id="password2"
+    type="password"
+    [(ngModel)]="password2"
+    aria-describedby="password2-help"
+    pInputText
+  />
+</div>
+<ng-container *ngIf="password1 && password2 && password1 !== password2">
+  <div class="grid-col-6 field" style="color: red">Passphases must match</div>
+</ng-container>
+<div class="grid-col-6 field">
+  <div class="form_btn_continue">
+    <button class="usa-button" (click)="continue()">Continue</button>
+  </div>
+</div>

@@ -1,48 +1,71 @@
-import { Component, OnInit } from '@angular/core';
-import { RouterService } from 'src/app/services/router.service';
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { RouterService } from "src/app/services/router.service";
 
 @Component({
-  selector: 'app-account-info',
-  templateUrl: './account-info.component.html',
-  styleUrls: ['./account-info.component.css']
+  selector: "app-account-info",
+  templateUrl: "./account-info.component.html",
+  styleUrls: ["./account-info.component.css"],
 })
 export class AccountInfoComponent implements OnInit {
-
-  constructor(
-    private routerService: RouterService
-  ) { }
+  constructor(private routerService: RouterService, private router: Router) {}
+  submittersData: any[] = [];
+  accountId: number;
 
   public selectedOption: String;
-  submittersData: any[] = []
+
   ngOnInit(): void {
+    this.accountId = 29323;
     this.submittersData = [
       {
-        firstName: 'Jack',
+        firstName: "Jack",
         MI: "P",
         lastName: "Test",
-        email: 'jack@gmail.com',
-        phone: '865895498',
-        ext: '6487'
+        email: "jack@gmail.com",
+        phone: "865895498",
+        ext: "64872",
       },
-      {
-        firstName: 'Sarah',
-        MI: "K",
-        lastName: "Lopez",
-        email: 'sarah769@gmail.com',
-        phone: '9742894545',
-        ext: '6487'
-      },
-    ]
+    ];
   }
 
   onCancel() {
-    this.routerService.navigateTo('submittersRequiring', false);
+    this.routerService.navigateTo("submittersRequiring", false);
+  }
+  onSelectChange(event: any) {}
+
+  onUnlockPin() {
+    this.routerService.navigateTo("unlockPin", false);
   }
 
-
-  onGo(route:String) {
-      this.routerService.navigateTo(route, false);
+  onRegenProfile() {
+    this.router.navigate(["regenProfile", this.accountId]);
   }
 
+  onAccountActivity() {
+    this.router.navigate(["accountActivity", this.accountId]);
+  }
 
+  onResetPin() {
+    this.router.navigate(["resetPin", this.accountId]);
+  }
+
+  onGrantFullFunction() {
+    this.router.navigate(["grantFullFunction", this.accountId]);
+  }
+
+  onRemoveInvalid() {
+    this.router.navigate(["removeInvalid", this.accountId]);
+  }
+
+  onPaperlessEmails() {
+    this.router.navigate(["paperlessEmails", this.accountId]);
+  }
+
+  onPaperlessParties() {
+      this.router.navigate(["paperlessParties", this.accountId]);
+  }
+
+  onGo(route: String) {
+    this.routerService.navigateTo(route, false);
+  }
 }

@@ -1,0 +1,42 @@
+<div class="panel-wrapper">
+  <p-panel header="Account Manager Information">
+    <div class="user-info">
+      <div class="grid-col-6 user-info-header">First Name</div>
+      <div class="grid-col-6">{{ accountManager.firstName }}</div>
+    </div>
+    <p-divider></p-divider>
+    <div class="user-info">
+      <div class="grid-col-6 user-info-header">Last Name</div>
+      <div class="grid-col-6">{{ accountManager.lastName }}</div>
+    </div>
+    <p-divider></p-divider>
+    <div class="user-info">
+      <div class="grid-col-6 user-info-header">Email Address</div>
+      <div class="grid-col-6">{{ accountManager.email }}</div>
+    </div>
+    <p-divider></p-divider>
+    <div class="user-info">
+      <div class="grid-col-6 user-info-header">Status</div>
+      <div class="grid-col-6">{{ accountManager.status }}</div>
+    </div>
+  </p-panel>
+
+  <div class="user-info" style="margin-top: 20px">
+    <div class="grid-col-6 email-input">
+      <label for="newEmail" class="block">Email for New Account Manager</label>
+      <input
+        class="usa-input"
+        id="newEmail"
+        type="text"
+        [(ngModel)]="newEmail"
+        aria-describedby="newEmail-help"
+        pInputText
+      />
+    </div>
+    <div class="grid-col-6">
+      <div class="form_btn_continue">
+        <button class="usa-button" (click)="continue()">Continue</button>
+      </div>
+    </div>
+  </div>
+</div>

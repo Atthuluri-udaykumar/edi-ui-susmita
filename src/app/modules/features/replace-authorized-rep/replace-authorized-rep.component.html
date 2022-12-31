@@ -1,0 +1,148 @@
+<ng-container *ngIf="!showInfo && !showReplacement">
+
+  <h3 class="heading_color">Replace Authorized Representative</h3>
+  <p>The AR named below cannot obtain a Login ID for the COBSW.</p>
+  <app-error-messages [messages]="errorMsgs"></app-error-messages>
+
+  <div>
+    <p-panel header="Contact Info:">
+        <div class="user-info">
+          <div class="grid-col-2 user-info-header">First Name</div>
+          <div class="grid-col-4">{{ authorizedRep.firstName }}</div>
+        </div>
+        <p-divider></p-divider>
+        <div class="user-info">
+          <div class="grid-col-2 user-info-header">Last Name</div>
+          <div class="grid-col-4">{{ authorizedRep.lastName }}</div>
+        </div>
+        <p-divider></p-divider>
+        <div class="user-info">
+          <div class="grid-col-2 user-info-header">Job Title</div>
+          <div class="grid-col-4">{{ authorizedRep.jobTitle }}</div>
+        </div>
+        <p-divider></p-divider>
+        <div class="user-info">
+          <div class="grid-col-2 user-info-header">Email Address</div>
+          <div>{{ authorizedRep.email }}</div>
+        </div>
+    </p-panel>
+  </div>
+  <p-accordion>
+    <p-accordionTab header="Mailing Address:" [selected]="false">
+      <div class="user-info">
+        <div class="grid-col-2 user-info-header">Street Line 1</div>
+        <div>{{ authorizedRep.address.streetLine1 }}</div>
+      </div>
+      <p-divider></p-divider>
+      <div class="user-info">
+        <div class="grid-col-2 user-info-header">Street Line 2</div>
+        <div>{{ authorizedRep.address.streetLine2 }}</div>
+      </div>
+      <p-divider></p-divider>
+      <div class="user-info">
+        <div class="grid-col-2 user-info-header">City, State, Zip</div>
+        <div class="grid-col-4">{{authorizedRep.address.city}}, {{authorizedRep.address.state}}, {{authorizedRep.address.zipcode.zip5}}-{{authorizedRep.address.zipcode.zip4}}</div>
+      </div>
+      <p-divider></p-divider>
+      <div class="user-info">
+        <div class="grid-col-2 user-info-header">Telephone</div>
+        <div class="grid-col-4">({{authorizedRep.phone | slice:0:3}}) {{authorizedRep.phone | slice:3:6}}-{{authorizedRep.phone | slice:6:10}} x{{authorizedRep.extn}}</div>
+      </div>
+      <p-divider></p-divider>
+      <div class="user-info">
+        <div class="grid-col-2 user-info-header">Fax</div>
+        <div class="grid-col-4">({{authorizedRep.fax | slice:0:3}}) {{authorizedRep.fax | slice:3:6}}-{{authorizedRep.fax | slice:6:10}}</div>
+      </div>
+    </p-accordionTab>
+    <p-accordionTab header="All Associated RREs:" [selected]="false">
+      <p-table
+        [value]="currentRreList"
+        [scrollable]="true" scrollHeight="190px"
+        [(selection)]="newRreList" dataKey="rreId"
+        styleClass="p-datatable-sm">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>RRE #</th>
+              <th>RRE Company Name</th>
+              <th>Change AR</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rreInfo>
+            <tr>
+              <td>{{ rreInfo.rreId }}</td>
+              <td>{{ rreInfo.rreCompanyName }}</td>
+              <td>
+                <p-tableCheckbox required [value]="rreInfo"></p-tableCheckbox>
+               </td>
+            </tr>
+          </ng-template>
+      </p-table>
+    </p-accordionTab>
+  </p-accordion>
+  <!--ng-container *ngIf="!newRreList || newRreList.length === 0">
+    <div class="grid-col-6 field" style="color: red">
+      No RRE IDs have been selected. Please check at least one RRE ID before clicking Continue.
+    </div>
+  </ng-container-->
+  <div>
+      <p><strong>Please check at least one RRE ID to Continue</strong></p>
+      <div class="user-info" style="margin-top: 20px">
+        <div class="grid-col-6 email-input">
+          <label for="newArEmail" class="block">Email Address for the new Authorized Representative:</label>
+          <input
+            id="newArEmail"
+            name="newArEmail"
+            required
+            #newArEmailTag="ngModel"
+            [(ngModel)]="newArEmail"
+            aria-describedby="newArEmail-help"
+            class="usa-input"
+            type="text"
+            pInputText
+          />
+
+          <ng-container *ngIf="newArEmailTag.invalid && (newArEmailTag.dirty || newArEmailTag.touched)" class="alert">
+            <div *ngIf="newArEmailTag.errors?.['required']" class="grid-col-6 field" style="color: red">
+              Please enter a valid e-mail address (i.e. UserID@domain.name).
+            </div>
+          </ng-container>
+          <ng-container *ngIf="authorizedRep.email && newArEmail && (authorizedRep.email.trim() === newArEmail.trim())">
+            <div class="grid-col-6 field" style="color: red">Replacement Authorized Representative email cannot match</div>
+          </ng-container>
+        </div>
+
+        <div class="grid-col-3">
+          <div class="form_btn_continue">
+            <button class="usa-button p-button-sm"
+              (click)="onContinue()"
+              [disabled]="(!newRreList || newRreList.length === 0) || (!newArEmail) || (authorizedRep.email && newArEmail && (authorizedRep.email.trim() === newArEmail.trim()))">Continue</button>
+            <button class="usa-button p-button-sm bg-secondary" (click)="onCancel()"> Cancel </button>
+          </div>
+        </div>
+
+      </div>
+  </div>
+</ng-container>
+
+
+<!-- Info page -->
+<ng-container *ngIf="showInfo">
+  <app-authorized-rep-info
+    [newAuthorizedRep]="newAuthorizedRep"
+    [showNewAuthorizedRep]="showNewAuthorizedRep"
+    [newArEmail]="newArEmail"
+    (onContinue)="openConfirmReplacement($event)"
+    (onCancel)="cancelShowArInfo($event)"
+  ></app-authorized-rep-info>
+</ng-container>
+
+<!-- Replacement Confirmation -->
+<ng-container *ngIf="showReplacement">
+  <app-confirm-authorized-rep-replace
+    [authorizedRep]="authorizedRep"
+    [rreList]="currentRreList"
+    [newAuthorizedRep]="newAuthorizedRep"
+    [newRreList]="newRreList"
+    (onCancel)="cancelConfirmReplacement($event)"
+  ></app-confirm-authorized-rep-replace>
+</ng-container>

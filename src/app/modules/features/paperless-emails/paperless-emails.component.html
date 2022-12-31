@@ -1,0 +1,57 @@
+<h1>Paperless Emails for Account {{ accountId }}</h1>
+<p>To search for a notification email, enter your criteria and click Search.</p>
+<p>
+  Click the email icon to view the letter notification email. The undeliverable
+  column indicates that the email was returned as undeliverable for the Account
+  Manager email address.
+</p>
+
+<div class="form-row">
+  <div class="field">
+    <label for="icon">Email From Date</label>
+    <p-calendar
+      [(ngModel)]="fromDate"
+      [showIcon]="true"
+      inputId="icon"
+    ></p-calendar>
+  </div>
+  <div class="field">
+    <label for="icon">Email To Date</label>
+    <p-calendar
+      [(ngModel)]="toDate"
+      [showIcon]="true"
+      inputId="icon"
+    ></p-calendar>
+  </div>
+  <button
+    [disabled]="!fromDate || !toDate"
+    class="usa-button"
+    (click)="search()"
+  >
+    Search
+  </button>
+</div>
+<br />
+<div *ngIf="resultsFound" class="results-table">
+  <p-table [value]="results">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Email Date</th>
+        <th>PDF</th>
+        <th>Undeliverable</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-item>
+      <tr>
+        <td>{{ item.date }}</td>
+        <td><a href="{{ item.link }}" target="_blank">Download</a></td>
+        <td>{{ item.undeliverable ? "True" : "" }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+<div>
+  <button class="usa-button p-button-sm bg-secondary" (click)="cancel()">
+    Cancel
+  </button>
+</div>

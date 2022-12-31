@@ -1,0 +1,72 @@
+h4 {
+  margin: 0;
+  padding: 0;
+}
+
+.heading_color {
+  color: #4a7abf;
+}
+
+.sub_text {
+  color: #000000;
+}
+
+.color_red {
+  color: red;
+}
+
+.searchForm {
+  display: flex;
+}
+
+p-divider .vertical-spacer {
+  margin: 0 5px;
+}
+
+.form-btn {
+  display: flex;
+  justify-content: flex-start;
+}
+.form_btn button {
+  margin: 32px;
+}
+.form_btn_continue button {
+  margin-top: 26px;
+}
+
+.radio-group {
+  display: flex;
+}
+
+p-radiobutton {
+  margin-left: 10px;
+}
+
+.replacement-panels {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.old-acct {
+  padding-right: 10px;
+}
+
+.panel-wrapper {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.user-info {
+  display: flex;
+  /* margin-bottom: 5px; */
+}
+
+.user-info-header {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 0.6;
+}
+
+.email-input {
+  padding-right: 10px;
+}

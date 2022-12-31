@@ -1,130 +1,159 @@
 <div>
-    <h3 class="heading_color">Account Information</h3>
-    <p>The screen details all account information for the Account ID listed. Use the Actions dropdown menu to make
-        changes to the Account.</p>
-    <p class="sub_text">
-        <font><strong>Note: The Registrant/Submitter receives an email that contains a PIN. If the Submitter enters the
-                assigned PIN incorrectly three times, the PIN will be locked automatically. If the submitter provides
-                you with the correct PIN, unlock the PIN. If the Submitter cannot state the correct PIN, reset the PIN.
-            </strong></font>
-    </p>
+  <h3 class="heading_color">Account Information</h3>
+  <p>
+    The screen details all account information for the Account ID listed. Use
+    the Actions dropdown menu to make changes to the Account.
+  </p>
+  <p class="sub_text">
+    <font
+      ><strong
+        >Note: The Registrant/Submitter receives an email that contains a PIN.
+        If the Submitter enters the assigned PIN incorrectly three times, the
+        PIN will be locked automatically. If the submitter provides you with the
+        correct PIN, unlock the PIN. If the Submitter cannot state the correct
+        PIN, reset the PIN.
+      </strong></font
+    >
+  </p>
 
-    <div>
-        <table class="custom_table">
-
-            <tr>
-                <td><strong>Account Id:</strong> 29323</td>
-                <td><strong>EIN:</strong> 237129072</td>
-                <td><strong>PIN:</strong> 4321</td>
-                <td><strong>PIN Status:</strong> Unlocked</td>
-                <td><strong>Submitter Status:</strong> Active</td>
-            </tr>
-        </table>
-
-        <div class="panel-wrapper">
-            <h5>Account Contact Information</h5>
-            <p-accordion>
-                <p-accordionTab header="Account/Authorized Representative(AR)" [selected]="true">
-                    <p-table [value]="submittersData">
-                        <ng-template pTemplate="header">
-                            <tr>
-                                <th>First Name</th>
-                                <th>MI</th>
-                                <th>Last Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Ext</th>
-                            </tr>
-                        </ng-template>
-                        <ng-template pTemplate="body" let-item>
-                            <tr>
-                                <td>{{item.firstName}}</td>
-                                <td>{{item.MI}}</td>
-                                <td>{{item.lastName}}</td>
-                                <td>{{item.email}}</td>
-                                <td>{{item.phone}}</td>
-                                <td>{{item.ext}}</td>
-                            </tr>
-                        </ng-template>
-                    </p-table>
-                </p-accordionTab>
-                <p-accordionTab header="Account Manager">
-                    <p-table [value]="submittersData">
-                        <ng-template pTemplate="header">
-                            <tr>
-                                <th>First Name</th>
-                                <th>MI</th>
-                                <th>Last Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Ext</th>
-                            </tr>
-                        </ng-template>
-                        <ng-template pTemplate="body" let-item>
-                            <tr>
-                                <td>{{item.firstName}}</td>
-                                <td>{{item.MI}}</td>
-                                <td>{{item.lastName}}</td>
-                                <td>{{item.email}}</td>
-                                <td>{{item.phone}}</td>
-                                <td>{{item.ext}}</td>
-                            </tr>
-                        </ng-template>
-                    </p-table>
-                </p-accordionTab>
-                <p-accordionTab header="Go Paperless Information">
-                    <p>At vero eos et accusamus et iusto odio digniss
-                               </p>
-                </p-accordionTab>
-                <p-accordionTab header="Go Paperless">
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis .</p>
-                </p-accordionTab>
-            </p-accordion>
-              
-            <!-- <p-panel header="Account Contact Information">
-                <p-table [value]="submittersData">
-                    <ng-template pTemplate="header">
-                        <tr>
-                            <th>First Name</th>
-                            <th>MI</th>
-                            <th>Last Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th>Ext</th>
-                        </tr>
-                    </ng-template>
-                    <ng-template pTemplate="body" let-item>
-                        <tr>
-                            <td>{{item.firstName}}</td>
-                            <td>{{item.MI}}</td>
-                            <td>{{item.lastName}}</td>
-                            <td>{{item.email}}</td>
-                            <td>{{item.phone}}</td>
-                            <td>{{item.ext}}</td>
-                        </tr>
-                    </ng-template>
-                </p-table>
-            </p-panel> -->
-
-        </div>
+  <div>
+    <table class="custom_table">
+      <tr>
+        <td><strong>Account Id:</strong> {{ accountId }}</td>
+        <td><strong>EIN:</strong> 237129072</td>
+        <td><strong>PIN:</strong> 4321</td>
+        <td><strong>PIN Status:</strong> Unlocked</td>
+        <td><strong>Submitter Status:</strong> Active</td>
+      </tr>
+    </table>
+    <div class="panel-wrapper">
+      <h5>Account Contact Information:</h5>
+      <p-accordion>
+        <p-accordionTab
+          header="Account/Authorized Representative(AR)"
+          [selected]="true"
+        >
+          <p-table [value]="submittersData">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>First Name</th>
+                <th>MI</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Ext</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-item>
+              <tr>
+                <td>{{ item.firstName }}</td>
+                <td>{{ item.MI }}</td>
+                <td>{{ item.lastName }}</td>
+                <td>{{ item.email }}</td>
+                <td>{{ item.phone }}</td>
+                <td>{{ item.ext }}</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </p-accordionTab>
+        <p-accordionTab header="Account Manager">
+          <p-table [value]="submittersData">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>First Name</th>
+                <th>MI</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Ext</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-item>
+              <tr>
+                <td>{{ item.firstName }}</td>
+                <td>{{ item.MI }}</td>
+                <td>{{ item.lastName }}</td>
+                <td>{{ item.email }}</td>
+                <td>{{ item.phone }}</td>
+                <td>{{ item.ext }}</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </p-accordionTab>
+        <p-accordionTab header="Go Paperless Information">
+          <p>Go Paperless: No</p>
+        </p-accordionTab>
+      </p-accordion>
     </div>
+  </div>
 
-    <div class="buttom_action_btn">
-        <button class="usa-button action-button" style="margin-right : 10px; font-size: 14px" >View Account Activity</button>
-        <button class="usa-button action-button" style="margin-right : 10px; font-size: 14px" >Regenerate/Resend Profile Report</button>
-        <button class="usa-button action-button" style="margin-right : 10px; font-size: 14px" >Remove Invalid Submitter/Registrant
-            </button>
-        <button class="usa-button action-button" style="margin-right : 10px; font-size: 14px" (click)="onGo('vetSubmitter')" >Vet Submitter/Registrant</button>
-        <button class="usa-button action-button" style="margin-right : 10px; font-size: 14px" > Grant Full WCMSAP/MSPRP/CRCP
-            Functionality
-            </button>
-        <button class="usa-button action-button" style="margin-right : 10px; font-size: 14px" >Reset PIN</button>
-        <button class="usa-button action-button" style="margin-right : 10px; font-size: 14px" (click)="onGo('unlockPin')" >Unlock PIN</button>
-        <button class="usa-button action-button" style="margin-right : 10px; font-size: 14px" >Paperless Emails</button>
-        <button class="usa-button action-button" style="margin-right : 10px; font-size: 14px" >Go Paperless Parties</button>
-    </div>
+  <div class="buttom_action_btn">
+    <button
+      class="usa-button action-button"
+      style="margin-right: 10px; font-size: 14px"
+      (click)="onAccountActivity()"
+    >
+      View Account Activity
+    </button>
+    <button
+      class="usa-button action-button"
+      style="margin-right: 10px; font-size: 14px"
+      (click)="onRegenProfile()"
+    >
+      Regenerate/Resend Profile Report
+    </button>
+    <button
+      class="usa-button action-button"
+      style="margin-right: 10px; font-size: 14px"
+      (click)="onRemoveInvalid()"
+    >
+      Remove Invalid Submitter/Registrant
+    </button>
+    <button
+      class="usa-button action-button"
+      style="margin-right: 10px; font-size: 14px"
+      (click)="onGo('vetSubmitter')"
+    >
+      Vet Submitter/Registrant
+    </button>
+    <button
+      class="usa-button action-button"
+      style="margin-right: 10px; font-size: 14px"
+      (click)="onGrantFullFunction()"
+    >
+      Grant Full WCMSAP/MSPRP/CRCP Functionality
+    </button>
+    <button
+      class="usa-button action-button"
+      style="margin-right: 10px; font-size: 14px"
+      (click)="onResetPin()"
+    >
+      Reset PIN
+    </button>
+    <button
+      class="usa-button action-button"
+      style="margin-right: 10px; font-size: 14px"
+      (click)="onUnlockPin()"
+    >
+      Unlock PIN
+    </button>
+    <button
+      class="usa-button action-button"
+      style="margin-right: 10px; font-size: 14px"
+      (click)="onPaperlessEmails()"
+    >
+      Paperless Emails
+    </button>
+    <button
+      class="usa-button action-button"
+      style="margin-right: 10px; font-size: 14px"
+      (click)="onPaperlessParties()"
+    >
+      Go Paperless Parties
+    </button>
+  </div>
 
-
-    <button class="usa-button p-button-sm bg-secondary" (click)="onCancel()">Cancel</button>
-
+  <button class="usa-button p-button-sm bg-secondary" (click)="onCancel()">
+    Cancel
+  </button>
 </div>

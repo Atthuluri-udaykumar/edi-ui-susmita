@@ -1,0 +1,76 @@
+<div>
+  <h3 class="heading_color"> Reset PIN</h3>
+  <p>The system will issue a new PIN for the corresponding Account when the Reset action is
+    selected. An email containing the new PIN will be sent to the Account Contact's email address of record.
+  </p>
+  <p>Reset the PIN only if the following criteria are met: </p>
+
+  <ol>
+      <li>The caller has been validated as the Account's Contact following the BCRC Secure Web Site Authentication
+      Guidelines for EDI Representatives and based on the User Information in the Web site.</li>
+      <p>and</p>
+      <li>The caller cannot state the correct PIN.</li>
+  </ol>
+  <p class="sub_text">
+      <font><strong>Warning: If the caller cannot be validated, request that the authorized Submitter/Contact for the account
+        submit a written request addressed to the Benefits Coordination and Recovery Center on company letterhead. Notify the caller that the request may
+        be faxed and supply the fax number.</strong></font>
+  </p>
+
+  <p class="sub_text">
+      <font><strong>If the caller is validated and states the correct PIN, use the Unlock PIN function.</strong></font>
+  </p>
+
+
+
+  <div>
+      <table class="custom_table">
+
+          <tr>
+            <td><strong>Account Id:</strong> {{accountId}} </td>
+            <td><strong>EIN:</strong> {{emp_ein}} </td>
+            <td><strong>PIN:</strong> {{emp_pin}} </td>
+            <td><strong>PIN Status:</strong> {{emp_einLockStatus}} </td>
+            <td><strong>Submitter Status:</strong> {{emp_submitterStatus}} </td>
+          </tr>
+      </table>
+
+      <p-panel header="Account Contact Info">
+          <p>{{employer.name}}
+            <br /> {{employer.email}}
+          </p>
+      </p-panel>
+
+  </div>
+
+
+  <p>Select <strong>RESET PIN</strong> to issue a new PIN. Select <strong>Cancel</strong> to return to the Account Information page.</p>
+  <p class="sub_text">
+    <font class="color_red"><strong>WARNING: Resetting the PIN will deactivate any previously issued PIN for this Account.</strong></font>
+  </p>
+
+  <div>
+      <button class="usa-button p-button-sm" (click)="onReset()">Reset PIN</button>
+      <button class="usa-button p-button-sm bg-secondary" (click)="onCancel()">Cancel</button>
+  </div>
+</div>
+
+<p-dialog header="New PIN Confirmation" [(visible)]="showSuccess" [modal]="true" [style]="{width: '65%'}" [baseZIndex]="10000">
+  <div style="margin: 10px;">
+    <p>The new PIN for Account ID: {{accountId}} is {{emp_pin}}.</p>
+
+    <p-panel header="Account Contact Info">
+      <p>{{employer.name}}
+        <br /> {{employer.email}}
+      </p>
+    </p-panel>
+
+    <p>Notify the caller that a new PIN will be issued and sent via email to the Account Contact's email address of record, and that the new PIN should be used when accessing the WCMSAP/MSPRP/CRCP Account.</p>
+    <p class="sub_text">
+      <font><strong>Do not send this PIN to the Account Contact or caller directly as it will be provided via system-generated email.</strong></font>
+    </p>
+  </div>
+  <ng-template pTemplate="footer">
+    <button class="usa-button" (click)="onContinue()">Continue</button>
+  </ng-template>
+</p-dialog>

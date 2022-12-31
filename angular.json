@@ -28,9 +28,11 @@
               "src/META-INF"
             ],
             "styles": [
+              "src/styles.css",
+              "node_modules/primeng-lts/resources/themes/bootstrap4-light-blue/theme.css",
+              "node_modules/primeng-lts/resources/primeng.min.css",
               "node_modules/primeicons/primeicons.css",
-              "src/assets/css/uswds/css/uswds.css",
-              "src/styles.css"
+              "src/assets/css/uswds/css/uswds.css"
             ],
             "scripts": [],
             "vendorChunk": true,

@@ -1,0 +1,43 @@
+<div>
+  <h3 class="heading_color">Grant Full WCMSAP/MSPRP Functionality</h3>
+  <p class="sub_text">
+    <font><strong>Note: Upon the receipt of a valid, signed Profile Report users can be granted full WCMSAP/MSPRP system functionality. Click the Grant Full Functionality button to enable full functionality for an account.</strong></font>
+  </p>
+  <div>
+    <table class="custom_table">
+      <tr>
+          <td><strong>Account Id:</strong> {{accountId}} </td>
+          <td><strong>EIN:</strong> {{emp_ein}} </td>
+          <td><strong>PIN:</strong> {{emp_pin}} </td>
+          <td><strong>PIN Status:</strong> {{emp_einLockStatus}} </td>
+          <td><strong>Submitter Status:</strong> {{emp_submitterStatus}} </td>
+      </tr>
+    </table>
+    <p-panel header="Account Contact Info">
+      <p>
+        {{employer.name}}
+        <br /> {{employer.address.streetLine1}}
+        <br /> {{employer.address.city}}&nbsp;
+        {{employer.address.state}}&nbsp;
+        {{employer.address.zipcode.zip5}} - {{employer.address.zipcode.zip4}}
+      </p>
+    </p-panel>
+  </div>
+
+  <p></p>
+  <div>
+      <button class="usa-button p-button-sm" (click)="grantFunctionality()"> Grant Full Functionality </button>
+      <button class="usa-button p-button-sm bg-secondary" (click)="onCancel()"> Cancel </button>
+  </div>
+
+</div>
+
+<!-- MODALS -->
+<p-dialog header="Grant Full WCMSAP/MSPRP Functionality Confirmation" [(visible)]="showSuccess" [modal]="true" [style]="{width: '800px'}" [baseZIndex]="10000">
+  <div style="margin: 10px;">
+    Full functionality to the WCMSAP/MSPRP application has been granted for account {{accountId}}.
+  </div>
+  <ng-template pTemplate="footer">
+    <button class="usa-button" (click)="onContinue()">Continue</button>
+  </ng-template>
+</p-dialog>

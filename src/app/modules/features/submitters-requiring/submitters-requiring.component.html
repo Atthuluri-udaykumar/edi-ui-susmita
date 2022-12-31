@@ -1,44 +1,45 @@
 <div>
     <h3 class="heading_color"> Submitters Requiring Manual Vetting</h3>
     <p class="sub_text">
-        <font><strong>NOTE: Clicking on the Submitter ID links on this screen, you will transfer to the Account
-                Inofrmation page,
-                which will display the WCMSAP/MSPRP Account contact information.</strong></font>
+        <font><strong>NOTE: Clicking on the Submitter ID links on this screen, you will transfer to the Account Inofrmation page, 
+        which will display the WCMSAP/MSPRP Account contact information.</strong></font>
     </p>
 
     <p class="sub_text"> <strong class="color_red">IMPORTANT:<span class="color_red"> Prior to processing a request,
-                you must follow the</span> <span class="color_blue"> BCRC Secure Web Site Authentication Guidelines for
-                EDI Representatives.
-            </span></strong> </p>
+         you must follow the</span> <span class="color_blue"> BCRC Secure Web Site Authentication Guidelines for EDI Representatives.
+         </span></strong> </p>
 
 
-    <div class="panel-wrapper">
-        <p-panel header="Submitters:">
-
-            <p-table [value]="submittersData">
-                <ng-template pTemplate="header">
-                    <tr>
-                        <th>Submitter ID</th>
-                        <th>Registration Date</th>
-                        <th>Account Type</th>
-                        <th>Contact E-mail</th>
-                        <th>Submitter Type</th>
-                    </tr>
-                </ng-template>
-                <ng-template pTemplate="body" let-item>
-                    <tr>
-                        <td><a (click)="onAccountInfo()">{{item.submitterID}}</a></td>
-                        <td>{{item.registrationDate}}</td>
-                        <td>{{item.accountType}}</td>
-                        <td>{{item.contactEmail}}</td>
-                        <td>{{item.submitterType}}</td>
-                    </tr>
-                </ng-template>
-            </p-table>
-        </p-panel>
+         <div class="panel-wrapper">
+            <p-panel header="Submitters:">
+    
+                <p-table [value]="submittersData">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>Submitter ID</th>
+                            <th>Registration Date</th>
+                            <th>Account Type</th>
+                            <th>Contact E-mail</th>
+                            <th>Submitter Type</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-item>
+                        <tr>
+                            <td><a (click)="onAccountInfo()">{{item.submitterID}}</a></td>
+                            <td>{{item.registrationDate}}</td>
+                            <td>{{item.accountType}}</td>
+                            <td>{{item.contactEmail}}</td>
+                            <td>{{item.submitterType}}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </p-panel>
+        </div>
+    
+    
+        <button class="usa-button p-button-sm" (click)="onCancel()" >Cancel</button>
+    
     </div>
 
 
-    <button class="usa-button p-button-sm" (click)="onCancel()" >Cancel</button>
 
-</div>

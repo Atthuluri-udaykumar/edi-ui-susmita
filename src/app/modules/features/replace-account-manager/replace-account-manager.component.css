@@ -1,0 +1,46 @@
+.searchForm {
+  display: flex;
+}
+
+p-divider .vertical-spacer {
+  margin: 0 20px;
+}
+
+.form-btn {
+  display: flex;
+  justify-content: flex-start;
+}
+.form_btn button {
+  margin: 32px;
+}
+.form_btn_continue button {
+  margin-top: 26px;
+}
+
+.radio-group {
+  display: flex;
+}
+
+p-radiobutton {
+  margin-left: 10px;
+}
+
+.panel-wrapper {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.user-info {
+  display: flex;
+  /* margin-bottom: 15px; */
+}
+
+.user-info-header {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+.email-input {
+  padding-right: 20px;
+}

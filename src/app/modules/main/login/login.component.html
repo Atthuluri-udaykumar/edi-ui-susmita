@@ -1,49 +1,63 @@
-<h2>
-  Login
-</h2>
+<h2>Login GG</h2>
 
 <app-error-messages [messages]="errorMsgs"></app-error-messages>
 
-<p class="instructions">
-  Complete the following information to log in. Select <strong>Forgot Login ID</strong> to receive an email containing your Login ID or
-  select <strong>Forgot Password</strong> to reset your Password.
-</p>
+<p class="instructions">Complete the following information to log in.</p>
 
-<p>
-  An * indicates a <span id="reqField">required field</span>.
-</p>
+<p>An * indicates a <span id="reqField">required field</span>.</p>
 
 <form [formGroup]="loginForm" (ngSubmit)="submitButton.focus(); onSubmit()">
   <fieldset class="usa-fieldset">
     <div class="row">
-      <app-rds-input type="text" maxLength="15" size="17" id="loginId" formControlName="loginId"
-                     label="* Login ID" describedBy="reqField">
+      <app-rds-input
+        type="text"
+        maxLength="15"
+        size="17"
+        id="loginId"
+        formControlName="loginId"
+        label="* Login ID"
+        describedBy="reqField"
+      >
       </app-rds-input>
     </div>
 
     <div class="row">
-      <app-rds-input type="password" maxLength="14" size="17" id="password" formControlName="password"
-                     label="* Password" autocomplete="off" describedBy="reqField">
+      <app-rds-input
+        type="password"
+        maxLength="14"
+        size="17"
+        id="password"
+        formControlName="password"
+        label="* Password"
+        autocomplete="off"
+        describedBy="reqField"
+      >
       </app-rds-input>
     </div>
-
   </fieldset>
 
-  <p class="instructions">
-    Select <strong>Login</strong> to proceed. Select <strong>Cancel</strong> to return to the RDS Program
-    Website homepage.
-  </p>
+  <p class="instructions">Select <strong>Login</strong> to proceed.</p>
 
   <div class="flex-container wrap">
-    <input class="usa-button flex-item" name="LogIn" type="submit" value="Login" id="loginButton" #submitButton/>
-    <input class="usa-button flex-item" type="button" value="Cancel" (click)="goToCob()"/>
+    <input
+      class="usa-button flex-item"
+      name="LogIn"
+      type="submit"
+      value="Login"
+      id="loginButton"
+      #submitButton
+    />
+    <input
+      class="usa-button flex-item"
+      type="button"
+      value="Clear"
+      (click)="loginForm.reset()"
+    />
   </div>
-  <p><a [routerLink]="" (click)="forgotUsername()" title="Forgot Login ID">
-    Forgot Login ID</a></p>
-  <p><a [routerLink]="" (click)="forgotPassword()" title="Forgot Password">
-    Forgot Password</a></p>
 </form>
-<br/>
+<br />
 
-<app-success-dialog [showEmailSuccess]="showEmailSuccess" [emailTypeFlow]="userAccessFlow"></app-success-dialog>
-
+<app-success-dialog
+  [showEmailSuccess]="showEmailSuccess"
+  [emailTypeFlow]="userAccessFlow"
+></app-success-dialog>

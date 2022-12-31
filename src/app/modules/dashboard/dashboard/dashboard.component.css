@@ -1,187 +1,181 @@
 .top_container {
-    width: auto;
+  width: auto;
 }
 
 .container {
-    display: flex;
+  display: flex;
 }
 
 .con_form {
-    display: flex;
-    align-items: flex-end;
+  display: flex;
+  align-items: flex-end;
 }
-
 .spacer {
-    margin-left: 25px;
-    margin-right: 25px;
-    margin-bottom: 10px;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-bottom: 10px;
 }
-
 
 .right_con,
 .left_con {
-    width: 50%;
+  width: 50%;
 }
 
 .con_form input {
-    border: 2px solid black;
+  border: 2px solid black;
 }
 
 .form-btn {
-    display: flex;
-    justify-content: flex-start;
+  display: flex;
+  justify-content: flex-start;
 }
-
 .form_btn button {
-    margin: 32px;
+  margin: 32px;
 }
 
 .or_class {
-    padding-top: 10px;
+  padding-top: 10px;
 }
 
 .user_info {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .con_form label {
-    padding-bottom: 1px;
+  padding-bottom: 1px;
 }
 
 .user_info_table {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .user_info_table td {
-    width: 40%;
+  width: 40%;
 }
 
 .user_info_table th {
-    width: 30%;
-    text-align: left;
+  width: 30%;
+  text-align: left;
 }
 
-
 .user_sub_info {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 .user_sub_info th {
-    text-align: left;
-    width: 30%;
+  text-align: left;
+  width: 30%;
 }
 
 .user_sub_info td {
-    text-align: left;
-    width: 30%;
+  text-align: left;
+  width: 30%;
 }
 
-
 .left_user_sub_info th {
-    text-align: left;
-    width: 20%;
+  text-align: left;
+  width: 20%;
 }
 
 .left_user_sub_info td {
-    text-align: left;
-    width: 20%;
+  text-align: left;
+  width: 20%;
 }
 
 .buttom_action_btn {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .action-button {
-    margin: 5px;
-    width: 160px;
+  margin: 5px;
+  width: 160px;
 }
 
 .login_field {
-    width: 80%;
+  width: 80%;
 }
 
 .heading_color {
-    color: #4a7abf;
+  color: #4a7abf;
 }
-
 .sub_text {
-    color: #000000;
+  color: #000000;
 }
 
 /* resend token css */
 
 .heading_color {
-    color: #4a7abf;
+  color: #4a7abf;
 }
 
 .color_danger {
-    color: red;
+  color: red;
 }
 
 .left_user_sub_info th {
-    text-align: left;
-    width: 20%;
+  text-align: left;
+  width: 20%;
 }
 
 .left_user_sub_info td {
-    text-align: left;
-    width: 20%;
+  text-align: left;
+  width: 20%;
 }
 
 .left_user_sub_info table,
 th,
 td {
-    border: none !important;
+  border: none !important;
 }
 
 .user_table table {
-    width: 50%;
-    margin-bottom: 10px;
+  width: 50%;
+  margin-bottom: 10px;
 }
 
 .user_table table,
 th,
 td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    text-align: left;
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: left;
 }
 
 .user_table th {
-    background-color: #4a7abf;
+  background-color: #4a7abf;
 }
 
 .resend_form {
-    margin: 15px 0px !important;
+  margin: 15px 0px !important;
 }
 
 .panel-wrapper {
-    margin-top: 20px;
-    margin-bottom: 20px;    
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .user-info {
-    display: flex;
-    /* margin-bottom: 15px; */
+  display: flex;
+  /* margin-bottom: 15px; */
 }
 
 .user-info-header {
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 1.5;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.5;
 }
 
 .searchForm {
-    display: flex;
+  display: flex;
 }
 
 p-divider .vertical-spacer {
-    margin: 0 20px;
+  margin: 0 20px;
 }
 
 .header-container {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }

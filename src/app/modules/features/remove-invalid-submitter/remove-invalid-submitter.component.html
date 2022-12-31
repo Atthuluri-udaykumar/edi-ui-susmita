@@ -1,0 +1,59 @@
+<h1>Remove Invalid Submitter/Registrant</h1>
+<p>
+  This feature is used when a submitter or registrant cannot be manually vetted
+  or upon request when a submitter accidentally registers for wrong account
+  type.
+</p>
+<p-panel header="Account Information">
+  <div class="account-info">
+    <div class="grid-col-2">
+      <div class="account-info-header">Account ID</div>
+      <div>137836</div>
+    </div>
+    <div class="grid-col-2">
+      <div class="account-info-header">EIN</div>
+      <div>654787522</div>
+    </div>
+    <div class="grid-col-2">
+      <div class="account-info-header">PIN</div>
+      <div>12345</div>
+    </div>
+    <div class="grid-col-2">
+      <div class="account-info-header">PIN Status</div>
+      <div>Unlocked</div>
+    </div>
+    <div class="grid-col-4">
+      <div class="account-info-header">Submitter Status</div>
+      <div>Initial Registration</div>
+    </div>
+  </div>
+  <p-divider></p-divider>
+  <div class="account-info">
+    <div class="grid-col-12">
+      <div class="account-info-header">Contact Information</div>
+      <div>Delete WCMSAP Account</div>
+      <div>One West Pennsylvania Ave.</div>
+      <div>Toswon, MD 21204</div>
+    </div>
+  </div>
+</p-panel>
+<br />
+<div class="button-row">
+  <button class="usa-button bg-secondary" (click)="onCancel()">Cancel</button>
+  <button class="usa-button" (click)="onRemove()">Remove</button>
+</div>
+
+<p-dialog
+  [(visible)]="showSuccessModal"
+  class="success-modal"
+  [modal]="true"
+  header="Success"
+  [baseZIndex]="10000"
+>
+  <div style="margin: 36px; font-size: 18px; max-width: 50vw">
+    Invalid submitter/registrant has been removed.
+  </div>
+  <ng-template pTemplate="footer">
+    <button class="usa-button" (click)="toggleSuccessModal()">Close</button>
+  </ng-template>
+</p-dialog>

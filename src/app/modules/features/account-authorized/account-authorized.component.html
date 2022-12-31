@@ -1,25 +1,28 @@
 <div>
     <h3 class="heading_color"> Change Authorized Representative Query</h3>
- 
 
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui atque quia sit totam unde ea harum quam in,
-        recusandae delectus, illo cum </p>
+
+    <p>From this screen, you can update personal information for an existing Authorized Representative or replace an existing Authorized Representative
+        with a different person. You have the option to query by RRE ID or user E-mail Address for the Authorized Representative you wish to change
+        or replace.
+    </p>
 
     <p class="sub_text">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui atque quia sit totam unde ea harum quam in,
-        recusandae delectus, illo cum </p>
+    <p>To change the Authorized Representative, enter either the RRE ID or the E-mail address of the Authorized Representative you wish to
+        change and select the appropriate link.
+    </p>
 
     <p class="sub_text"> <strong class="color_red">IMPORTANT:<span class="color_red"> Prior to processing a request,
-                you must follow the</span> <span class="color_blue"> BCRC Secure Web Site Authentication Guidelines for
-                EDI Representatives.
+                you must follow the</span> <span class="color_blue"> COBSW Authentication Guidelines <span class="color_red">to verify
+                the authority of the Requester for each EIN submitted or associated with this request. </span>
             </span></strong> </p>
 
 
 
     <div class="searchForm">
         <div class="field grid-col-3">
-            <label for="loginEmail" class="block">RRE ID</label>
-            <input class="usa-input" id="loginEmail" type="text" aria-describedby="loginEmail-help" pInputText />
+            <label for="rreId" class="block">RRE ID</label>
+            <input class="usa-input" id="rreId" type="text" aria-describedby="loginEmail-help" pInputText [(ngModel)]="rreId"/>
         </div>
         <p-divider layout="vertical" class="vertical-spacer">
             <b>OR</b>
@@ -33,18 +36,18 @@
 
 
 
-    <p>Lorem ipsum dolor sit amet consectetur <strong> adipisicing </strong> elit. Qui atque quia </p>
-    <p>Lorem ipsum dolor sit amet consectetur <strong> adipisicing </strong> elit. Qui atque quia </p>
+    <p>To update personal information for an existing Authorized Representative select the  <strong> Update </strong> button. </p>
+    <p>To replace an existing Authorized Representative for one or more RRE's select the <strong> Replace  </strong> button. </p>
 
-
-    <p class="sub_text color_red">
-        <font><strong>NOTE: Clicking on the Submitter ID links on this screen, you will transfer to the Account
-                Inofrmation page,
-                which will display the WCMSAP/MSPRP Account contact information.</strong></font>
-    </p>
 
     <button style="margin-right : 10px;" class="usa-button p-button-sm" (click)="onUpdate()">Update</button>
-    <button style="margin-right : 10px;" class="usa-button p-button-sm" (click)="onContinue()">Replace</button>
+    <button style="margin-right : 10px;" class="usa-button p-button-sm" (click)="onReplace()">Replace</button>
     <button (click)="onCancel()" class="usa-button p-button-sm bg-secondary">Cancel</button>
+
+    <p class="sub_text color_red">
+        <font><strong>NOTE: If the value is entered in the RRE field AND the E-mail field, the query to process the RRE will be processed.
+            To process the E-mail query only enter a value in the E-mail field.
+        </strong></font>
+    </p>
 
 </div>

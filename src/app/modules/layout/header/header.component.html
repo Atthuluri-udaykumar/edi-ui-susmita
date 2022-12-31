@@ -3,39 +3,71 @@
     <header class="usa-banner__header">
       <div class="usa-banner__inner">
         <div class="grid-col-auto">
-          <img class="usa-banner__header-flag" src="assets/css/uswds/img/us_flag_small.png" alt="U.S. flag">
+          <img
+            class="usa-banner__header-flag"
+            src="assets/css/uswds/img/us_flag_small.png"
+            alt="U.S. flag"
+          />
         </div>
         <div class="grid-col-fill tablet:grid-col-auto">
-          <p class="usa-banner__header-text">An official website of the United States government</p>
-          <p class="usa-banner__header-action" aria-hidden="true">Here’s how you know</p>
+          <p class="usa-banner__header-text">
+            An official website of the United States government
+          </p>
+          <p class="usa-banner__header-action" aria-hidden="true">
+            Here’s how you know
+          </p>
         </div>
-        <a [routerLink]="" class="usa-accordion__button usa-banner__button" aria-expanded="false"
-          aria-controls="gov-banner" aria-describedby="gov-ban-link-desc" (click)="toggle()" #headerButton>Here's how
-          you know</a>
-        <span id="gov-ban-link-desc" style="display: none;">Select to open and read</span>
+        <a
+          [routerLink]=""
+          class="usa-accordion__button usa-banner__button"
+          aria-expanded="false"
+          aria-controls="gov-banner"
+          aria-describedby="gov-ban-link-desc"
+          (click)="toggle()"
+          #headerButton
+          >Here's how you know</a
+        >
+        <span id="gov-ban-link-desc" style="display: none"
+          >Select to open and read</span
+        >
       </div>
     </header>
-    <div class="usa-banner__content usa-accordion__content" id="gov-banner" aria-hidden="true" #headerArea>
+    <div
+      class="usa-banner__content usa-accordion__content"
+      id="gov-banner"
+      aria-hidden="true"
+      #headerArea
+    >
       <div class="grid-row grid-gap-lg">
         <div class="usa-banner__guidance tablet:grid-col-6">
-          <img class="usa-banner__icon usa-media-block__img" src="assets/css/uswds/img/icon-dot-gov.svg" alt="Dot gov">
+          <img
+            class="usa-banner__icon usa-media-block__img"
+            src="assets/css/uswds/img/icon-dot-gov.svg"
+            alt="Dot gov"
+          />
           <div class="usa-media-block__body">
             <p>
               <strong>The .gov means it’s official.</strong>
-              <br>
-              Federal government websites often end in .gov or .mil. Before sharing sensitive information, make sure
-              you're on a federal government site.
+              <br />
+              Federal government websites often end in .gov or .mil. Before
+              sharing sensitive information, make sure you're on a federal
+              government site.
             </p>
           </div>
         </div>
         <div class="usa-banner__guidance tablet:grid-col-6">
-          <img class="usa-banner__icon usa-media-block__img" src="assets/css/uswds/img/icon-https.svg" alt="Https icon">
+          <img
+            class="usa-banner__icon usa-media-block__img"
+            src="assets/css/uswds/img/icon-https.svg"
+            alt="Https icon"
+          />
           <div class="usa-media-block__body">
             <p>
               <strong>The site is secure.</strong>
-              <br>
-              The <strong>https://</strong> ensures that you are connecting to the official website and that any
-              information you provide is encrypted and transmitted securely.
+              <br />
+              The <strong>https://</strong> ensures that you are connecting to
+              the official website and that any information you provide is
+              encrypted and transmitted securely.
             </p>
           </div>
         </div>
@@ -47,9 +79,13 @@
   <div class="usa-navbar site-header-navbar">
     <div class="usa-logo site-logo" id="basic-logo">
       <em class="usa-logo__text">
-        <a [href]="environmentUrl+'/edi'" title="EDI Website banner" aria-label="EDI Website banner"
-          (click)="logout()">
-          <span class="edi-word-logo">EDI</span> Representative
+        <a
+          [href]="environmentUrl + '/edi'"
+          title="EDI Website banner"
+          aria-label="EDI Website banner"
+          (click)="logout()"
+        >
+          <span class="edi-word-logo">EDI</span> Application
         </a>
       </em>
     </div>
@@ -62,25 +98,24 @@
     <nav role="navigation" class="usa-nav rds-nav" #navigator appFloat>
       <div class="usa-nav__inner">
         <button class="usa-nav__close" (click)="menuClose()">
-          <img src="assets/css/uswds/img/close.svg" alt="close">
+          <img src="assets/css/uswds/img/close.svg" alt="close" />
         </button>
         <div class="rds-usa-nav">
-          <p-menubar [model]="items">
-          </p-menubar>
+          <p-menubar [model]="items"> </p-menubar>
           <div class="rds-usa-icons-nav">
             <ul class="usa-nav__primary usa-accordion">
               <li class="usa-nav__primary-item">
                 <app-print></app-print>
               </li>
-              <li class="usa-nav__primary-item rds-li-head">{{theDate| momentDate:'MMMM d, y - h:mm a'}} {{zone}}</li>
+              <li class="usa-nav__primary-item rds-li-head">
+                {{ theDate | momentDate : "MMMM d, y - h:mm a" }} {{ zone }}
+              </li>
             </ul>
           </div>
         </div>
         <div class="usa-nav__secondary">
-          <ul class="usa-list usa-list--unstyled usa-nav__secondary-links">
-          </ul>
+          <ul class="usa-list usa-list--unstyled usa-nav__secondary-links"></ul>
         </div>
-
       </div>
     </nav>
   </div>

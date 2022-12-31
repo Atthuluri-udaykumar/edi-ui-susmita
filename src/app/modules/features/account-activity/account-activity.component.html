@@ -1,0 +1,29 @@
+<h1>Account Activity</h1>
+<p-panel header="Account ID: 29323">
+  <p>
+    This screen contains account activity details for the Account ID listed
+    above.
+  </p>
+  <p>
+    Please report any discrepencies to the Benefits Coordination and Recovery
+    Center.
+  </p>
+  <p-table [value]="activity">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Activity Date</th>
+        <th>Description</th>
+        <th>User</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-item>
+      <tr>
+        <td>{{ item.activityDate }}</td>
+        <td>{{ item.description }}</td>
+        <td>{{ item.userId }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-panel>
+<br />
+<button class="usa-button" (click)="onContinue()">Continue</button>
