@@ -2,105 +2,115 @@
     <h3 class="heading_color"> Authorized Representative Information</h3>
 
     <p>Provide contact information for the Authorized Representative (AR) for the RRE ID you are requesting. </p>
-    <p>Your Authorized Representative is the individual in the RRE organization who has the legal authority 
+    <p>Your Authorized Representative is the individual in the RRE organization who has the legal authority
         to bind the organization to a contract and the terms of section 111 requirements and processing. </p>
     <p>The AR named below cannot obtain a Login ID for the COBSW. </p>
 
+    <p>An <span class="color_red">*</span> indicates a <span class="color_red" id="reqField">required field</span>.</p>
 
 
-    <p class="color_danger">*Required</p>
-    <div class="left_user_sub_info">
-        <table>
-            <tr>
-                <th>First Name:<span class="color_danger">*</span></th>
-                <td><input class="usa-input" type="text" pInputText /></td>
-            </tr>
-            <tr>
-                <th>Last Name:<span class="color_danger">*</span></th>
-                <td><input class="usa-input" type="text" pInputText /></td>
-            </tr>
-            <tr>
-                <th>Job Title:<span class="color_danger">*</span></th>
-                <td><input class="usa-input" type="text" pInputText /></td>
-            </tr>
+    <p-accordion>
+        <p-accordionTab header="Contact Information:" [selected]="false">
+            <div class="grid-col-6 field">
+                <label for="firstName" class="block">First Name <span class="color_red">*</span></label>
+                <input required id="firstName" name="firstName" aria-describedby="firstName-help" class="usa-input"
+                    type="text" pInputText />
 
-            <tr>
-                <th>E-mail Address:<span class="color_danger">*</span></th>
-                <td><input class="usa-input" type="text" pInputText /></td>
-            </tr>
-        </table>
+            </div>
+            <div class="grid-col-6 field">
+                <label for="lastName">Last Name <span class="color_red">*</span></label>
+                <input required id="lastName" name="lastName" aria-describedby="lastName-help" class="usa-input"
+                    type="text" pInputText />
+
+            </div>
+            <div class="grid-col-6 field">
+                <label for="jobTitle">Job Title <span class="color_red">*</span></label>
+                <input required id="jobTitle" name="jobTitle" aria-describedby="jobTitle-help" class="usa-input"
+                    type="text" pInputText />
+
+            </div>
+
+        </p-accordionTab>
+        <p-accordionTab header="Mailing Address:" [selected]="false">
+            <div class="grid-col-6 field">
+                <label for="streetLine1" class="block">Street Line 1 <span class="color_red">*</span></label>
+                <input required id="streetLine1" name="streetLine1" aria-describedby="streetLine1-help"
+                    class="usa-input" type="text" pInputText />
+
+            </div>
+            <div class="grid-col-6 field">
+                <label for="streetLine2" class="block">Street Line 2</label>
+                <input required id="streetLine2" name="streetLine2" aria-describedby="streetLine2-help"
+                    class="usa-input" type="text" pInputText />
+            </div>
+
+            <div class="grid-col-12 field">
+                <label for="city" class="block">City, State, Zipcode <span class="color_red">*</span></label>
+                <div class="multi_inputs">
+
+                    <input required id="city" name="city" aria-describedby="city-help" class="usa-input" type="text"
+                        pInputText />
+                    <span class="underScore" style="margin-right : 3px;">,</span>
+
+                    <input required id="state" name="state" aria-describedby="state-help" class="usa-input" type="text"
+                        pInputText />
+                    <span class="underScore" style="margin-right : 3px;">,</span>
+
+                    <p-inputMask required id="zipcode" name="zipcode" mask="99999-?9999" aria-describedby="zipcode-help"
+                        placeholder="99999-?9999">
+                    </p-inputMask>
+                </div>
+
+            </div>
+            <div class="grid-col-6 field">
+                <label for="phone" class="block">Phone<span class="color_red">*</span></label>
+                <div class="multi_inputs">
+                    <p-inputMask required id="phone" name="phone" mask="(999) 999-9999? x99999"
+                        placeholder="(999) 999-9999? x99999">
+                    </p-inputMask>
+                </div>
+
+            </div>
+
+            <div class="grid-col-6 field">
+                <label for="fax" class="block">Fax<span class="color_red">*</span></label>
+                <div class="multi_inputs">
+                    <p-inputMask required id="fax" name="fax" mask="(999) 999-9999" placeholder="(999) 999-9999">
+                    </p-inputMask>
+                </div>
+
+            </div>
+
+        </p-accordionTab>
+        <p-accordionTab header="Associated RREs">
+            <div class="replacement-panels">
+                <div class="grid-col-12 old-acct">
+                    <p-panel header="Current">
+                        <p-table [value]="rreList" [scrollable]="true" scrollHeight="190px" styleClass="p-datatable-sm">
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th>RRE #</th>
+                                    <th>RRE Company Name</th>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-item>
+                                <tr>
+                                    <td>{{ item.rreId }}</td>
+                                    <td>{{ item.rreCompanyName }}</td>
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                    </p-panel>
+                </div>
+            </div>
+
+        </p-accordionTab>
+    </p-accordion>
+
+    <div class="action_btn">
+
+        <button style="margin-right : 10px;" class="usa-button p-button-sm" (click)="onContinue()">Continue</button>
+        <button (click)="onCancel()" class="usa-button p-button-sm bg-secondary">Cancel</button>
     </div>
-
-    <div class="left_user_sub_info">
-        <p><strong>Authorized Representative Mailing Address</strong></p>
-
-        <table>
-            <tr>
-                <th>Street Line 1:<span class="color_danger">*</span></th>
-                <td><input class="usa-input" type="text" pInputText /></td>
-            </tr>
-            <tr>
-                <th>Street Line 2:<span class="color_danger"></span></th>
-                <td><input class="usa-input" type="text" pInputText /></td>
-            </tr>
-            <tr>
-                <th>City, State, Zip:<span class="color_danger">*</span></th>
-                <td class="multi_inputs">
-                    <input class="usa-input" type="text" pInputText /> <span class="underScore" style="margin-right : 3px;">,</span>
-                    <p-dropdown [options]="cities" [(ngModel)]="selectedCity" style="margin-right : 10px;" optionLabel="name"></p-dropdown>
-                    <input class="usa-input" type="text" pInputText style="margin-right : 5px;" /> <span class="underScore" style="margin-right : 5px;">-</span>
-                    <input class="usa-input" type="text" pInputText />
-                </td>
-            </tr>
-            <tr>
-                <th>Telephone:<span class="color_danger">*</span></th>
-                <td class="multi_inputs">
-                    <span class="underScore">(</span><input class="usa-input" type="text" pInputText /><span class="underScore"  style="margin-right : 5px;">)</span>
-                    <input class="usa-input" type="text" style="margin-right : 2px;" pInputText /><span class="underScore" style="margin-right : 2px;">-</span>
-                    <input class="usa-input" type="text" style="margin-right : 10px;" pInputText /><p>ext</p>
-                    <input class="usa-input" type="text" pInputText />
-                    </td>
-
-            </tr>
-            <tr>
-                <th>Fax:<span class="color_danger"></span></th>
-                <td class="multi_inputs">
-                    <span class="underScore">(</span><input class="usa-input" type="text" pInputText /><span class="underScore"  style="margin-right : 5px;">)</span>
-                    <input class="usa-input" type="text" style="margin-right : 2px;" pInputText /><span class="underScore" style="margin-right : 2px;">-</span>
-                    <input class="usa-input" type="text" pInputText />
-                    </td>
-
-
-            </tr>
-        </table>
-    </div>
-
-    <p><strong>All Associated RREs for Authorized Representative First Last </strong></p>
-
-    <div class="panel-wrapper">
-        <p-panel header="">
-
-            <p-table [value]="RRRDetails">
-                <ng-template pTemplate="header">
-                    <tr>
-                        <th>RRE #</th>
-                        <th>RRE Company Name</th>
-
-                    </tr>
-                </ng-template>
-                <ng-template pTemplate="body" let-item>
-                    <tr>
-
-                        <td>{{item.RRRID}}</td>
-                        <td>{{item.RRRcompanyName}}</td>
-                    </tr>
-                </ng-template>
-            </p-table>
-        </p-panel>
-    </div>
-
-
-    <button style="margin-right : 10px;" class="usa-button p-button-sm" (click)="onContinue()">Continue</button>
-    <button (click)="onCancel()" class="usa-button p-button-sm bg-secondary">Cancel</button>
 
 </div>

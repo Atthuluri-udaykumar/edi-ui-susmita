@@ -10,7 +10,7 @@ export class AccountAuthorizedInfoComponent implements OnInit {
   constructor(
     private routerService: RouterService
   ) { }
-  RRRDetails=[];
+  rreList=[];
 
   cities: City[];
 
@@ -18,12 +18,32 @@ export class AccountAuthorizedInfoComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.RRRDetails=[
-      {RRRID:'49993',RRRcompanyName:'GHP B2BI Mailbox Test 2'},
-      {RRRID:'44875',RRRcompanyName:'GHP B2BI Mailbox Test 3'},
-      {RRRID:'45843',RRRcompanyName:'GHP B2BI Mailbox Test 4'}
-    ]
-
+    this.rreList=[
+      {
+        rreCompanyName: "GHP B2BI Mailbox Test 2",
+        rreId: 61186,
+      },
+      {
+        rreCompanyName: "GHP B2BI Mailbox Test 3",
+        rreId: 61188,
+      },
+      {
+        rreCompanyName: "GHP B2BI Mailbox Test 4",
+        rreId: 61190,
+      },
+      {
+        rreCompanyName: "GHP B2BI Mailbox Test 5",
+        rreId: 61204,
+      },
+      {
+        rreCompanyName: "GHP B2BI Mailbox Test 6",
+        rreId: 61206,
+      },
+      {
+        rreCompanyName: "GHP B2BI Mailbox Test 7",
+        rreId: 61208,
+      }
+    ];
 
     this.cities = [
       {name: 'Select', code: ''},
