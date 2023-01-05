@@ -33,7 +33,7 @@ export class AccountAuthorizedComponent implements OnInit {
     this.routerService.navigateTo('accountAuthorizedInfo', false);
   }
   onReplace(){
-    this.router.navigate(["replaceAuthorizedRep", this.rreId]);
+    this.router.navigate(["replaceAuthorizedRep", this.rreId ||"0"]);
   }
 
 }

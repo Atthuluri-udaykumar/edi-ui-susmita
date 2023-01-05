@@ -11,7 +11,7 @@
           <label for="firstName" class="block">First Name <span class="color_red">*</span></label>
           <input
             required
-            #firstName="ngModel"
+            #firstNameTag="ngModel"
             id="firstName"
             name="firstName"
             [(ngModel)]="authorizedRep.firstName"
@@ -20,15 +20,17 @@
             type="text"
             pInputText
           />
-          <div class="alert alert-danger" *ngIf="(firstName.touched || firstName.dirty) && firstName.invalid">
-            <div *ngIf="firstName.errors.required"><span class="color_red">First Name is required.</span></div>
-          </div>
+          <ng-container *ngIf="(firstNameTag.touched || firstNameTag.dirty) && firstNameTag.invalid">
+            <div *ngIf="firstNameTag.errors?.['required']" class="grid-col-6 field" style="color: red">
+              First Name is required
+            </div>
+          </ng-container>
         </div>
         <div class="grid-col-6 field">
           <label for="lastName">Last Name <span class="color_red">*</span></label>
           <input
             required
-            #lastName="ngModel"
+            #lastNameTag="ngModel"
             id="lastName"
             name="lastName"
             [(ngModel)]="authorizedRep.lastName"
@@ -37,15 +39,17 @@
             type="text"
             pInputText
           />
-          <div class="alert alert-danger" *ngIf="(lastName.touched || lastName.dirty) && lastName.invalid">
-            <div *ngIf="lastName.errors.required"><span class="color_red">Last Name is required.</span></div>
-          </div>
+          <ng-container *ngIf="(lastNameTag.touched || lastNameTag.dirty) && lastNameTag.invalid">
+            <div *ngIf="lastNameTag.errors?.['required']" class="grid-col-6 field" style="color: red">
+              Last Name is required.
+            </div>
+          </ng-container>
         </div>
         <div class="grid-col-6 field">
           <label for="jobTitle">Job Title <span class="color_red">*</span></label>
           <input
             required
-            #jobTitle="ngModel"
+            #jobTitleTag="ngModel"
             id="jobTitle"
             name="jobTitle"
             [(ngModel)]="authorizedRep.jobTitle"
@@ -54,9 +58,11 @@
             type="text"
             pInputText
           />
-          <div class="alert alert-danger" *ngIf="(jobTitle.touched || jobTitle.dirty) && jobTitle.invalid">
-            <div *ngIf="jobTitle.errors.required"><span class="color_red">Job Title is required.</span></div>
-          </div>
+          <ng-container *ngIf="(jobTitleTag.touched || jobTitleTag.dirty) && jobTitleTag.invalid">
+            <div *ngIf="jobTitleTag.errors?.['required']" class="grid-col-6 field" style="color: red">
+              Job Title is required.
+            </div>
+          </ng-container>
         </div>
         <br/>
         <div class="user-info">
@@ -69,7 +75,7 @@
           <label for="streetLine1" class="block">Street Line 1 <span class="color_red">*</span></label>
           <input
             required
-            #streetLine1="ngModel"
+            #streetLine1Tag="ngModel"
             id="streetLine1"
             name="streetLine1"
             [(ngModel)]="authorizedRep.address.streetLine1"
@@ -78,9 +84,11 @@
             type="text"
             pInputText
           />
-          <div class="alert alert-danger" *ngIf="(streetLine1.touched || streetLine1.dirty) && streetLine1.invalid">
-            <div *ngIf="streetLine1.errors.required"><span class="color_red">Street Line 1 is required.</span></div>
-          </div>
+          <ng-container *ngIf="(streetLine1Tag.touched || streetLine1Tag.dirty) && streetLine1Tag.invalid">
+            <div *ngIf="streetLine1Tag.errors?.['required']" class="grid-col-6 field" style="color: red">
+              Street Line 1 is required.
+            </div>
+          </ng-container>
         </div>
         <div class="grid-col-6 field">
           <label for="streetLine2" class="block">Street Line 2</label>
@@ -103,7 +111,7 @@
 
             <input
               required
-              #city="ngModel"
+              #cityTag="ngModel"
               id="city"
               name="city"
               [(ngModel)]="authorizedRep.address.city"
@@ -113,23 +121,24 @@
               pInputText
             />
             <span class="underScore" style="margin-right : 3px;">,</span>
-
-            <input
+            <p-dropdown
               required
-              #state="ngModel"
+              #stateTag="ngModel"
               id="state"
               name="state"
+              [options]="stateList.states"
               [(ngModel)]="authorizedRep.address.state"
+              placeholder="Select a State"
+              optionLabel="name"
+              optionValue="code"
               aria-describedby="state-help"
-              class="usa-input"
-              type="text"
-              pInputText
-            />
+              >
+            </p-dropdown>
             <span class="underScore" style="margin-right : 3px;">,</span>
 
             <p-inputMask
               required
-              #zipcode="ngModel"
+              #zipcodeTag="ngModel"
               id="zipcode"
               name="zipcode"
               mask="99999-?9999"
@@ -138,14 +147,20 @@
               placeholder="99999-?9999">
             </p-inputMask>
           </div>
-          <ng-container *ngIf="(city.touched || city.dirty) && city.invalid">
-            <div class="alert alert-danger" *ngIf="city.errors.required"><span class="color_red">City is required.</span></div>
+          <ng-container *ngIf="(cityTag.touched || cityTag.dirty) && cityTag.invalid">
+            <div *ngIf="cityTag.errors?.['required']" class="grid-col-6 field" style="color: red">
+              City is required.
+            </div>
           </ng-container>
-          <ng-container *ngIf="(state.touched || state.dirty) && state.invalid">
-            <div class="alert alert-danger" *ngIf="state.errors.required"><span class="color_red">State is required.</span></div>
+          <ng-container *ngIf="(stateTag.touched || stateTag.dirty) && stateTag.invalid">
+            <div *ngIf="stateTag.errors?.['required']" class="grid-col-6 field" style="color: red">
+              State is required.
+            </div>
           </ng-container>
-          <ng-container *ngIf="(zipcode.touched || zipcode.dirty)&& zipcode.invalid">
-            <div class="alert alert-danger" *ngIf="zipcode.errors.required"><span class="color_red">Zipcode is required.</span></div>
+          <ng-container *ngIf="(zipcodeTag.touched || zipcodeTag.dirty) && zipcodeTag.invalid">
+            <div *ngIf="zipcodeTag.errors?.['required']" class="grid-col-6 field" style="color: red">
+              Zipcode is required.
+            </div>
           </ng-container>
         </div>
         <div class="grid-col-6 field">
@@ -153,7 +168,7 @@
           <div  class="multi_inputs">
             <p-inputMask
               required
-              #phone="ngModel"
+              #phoneTag="ngModel"
               id="phone"
               name="phone"
               mask="(999) 999-9999? x99999"
@@ -161,9 +176,11 @@
               placeholder="(999) 999-9999? x99999">
             </p-inputMask>
           </div>
-          <div class="alert alert-danger" *ngIf="(phone.touched || phone.dirty) && phone.invalid">
-            <div *ngIf="phone.errors.required"><span class="color_red">Phone is required.</span></div>
-          </div>
+          <ng-container *ngIf="(phoneTag.touched || phoneTag.dirty) && phoneTag.invalid">
+            <div *ngIf="phoneTag.errors?.['required']" class="grid-col-6 field" style="color: red">
+              Phone is required.
+            </div>
+          </ng-container>
         </div>
 
         <div class="grid-col-6 field">
@@ -171,7 +188,7 @@
           <div  class="multi_inputs">
             <p-inputMask
               required
-              #fax="ngModel"
+              #faxTag="ngModel"
               id="fax"
               name="fax"
               mask="(999) 999-9999"
@@ -179,9 +196,11 @@
               placeholder="(999) 999-9999">
             </p-inputMask>
           </div>
-          <div class="alert alert-danger" *ngIf="(fax.touched || fax.dirty) && fax.invalid">
-            <div *ngIf="fax.errors.required"><span class="color_red">Fax is required.</span></div>
-          </div>
+          <ng-container *ngIf="(faxTag.touched || faxTag.dirty) && faxTag.invalid">
+            <div *ngIf="faxTag.errors?.['required']" class="grid-col-6 field" style="color: red">
+              Fax is required.
+            </div>
+          </ng-container>
         </div>
 
       </p-panel>

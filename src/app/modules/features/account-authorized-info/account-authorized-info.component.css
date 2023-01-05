@@ -45,6 +45,7 @@
 
 
 
+
   .left_user_sub_info table,
   th,
   td {
@@ -89,7 +90,12 @@ height: 2rem;
 
 .underScore{
 font-size: 30px;
+
 }
+
 .action_btn{
     margin-top: 10px;
 }
+
+
+

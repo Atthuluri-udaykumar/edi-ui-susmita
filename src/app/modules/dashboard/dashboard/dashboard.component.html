@@ -1,158 +1,241 @@
-<div *ngIf="!loadPage"> 
-    <div class="top_container">
-        <div class="header-container">
-            <h2 class="con_header">User Access Lookup</h2>
-            <p class="form_heading">Enter the user's Email Address or Login ID and click <strong>Search</strong></p>
-        </div>
-        <div class="searchForm">
-            <div class="field grid-col-3">
-                <label for="loginEmail" class="block">Email</label>
-                <input class="usa-input" id="loginEmail" type="text" aria-describedby="loginEmail-help" pInputText />
-            </div>
-            <p-divider layout="vertical" class="vertical-spacer">
-                <b>OR</b>
-            </p-divider>
-            <div class="field grid-col-3">
-                <label for="loginId" class="block">Login ID</label>
-                <input class="usa-input" id="loginId" type="password" aria-describedby="loginId-help" pInputText />
-            </div>
-            <div class="form_btn">
-                <button class="usa-button" (click)="onContinue()">Search</button>
-            </div>
-        </div>
+<div *ngIf="!loadPage">
+  <div class="top_container">
+    <div class="header-container">
+      <h2 class="con_header">User Access Lookup</h2>
+      <p class="form_heading">
+        Enter the user's Email Address or Login ID and click
+        <strong>Search</strong>
+      </p>
     </div>
-
-    <div *ngIf="isContinue">
-        <!-- user info  -->
-        <div class="panel-wrapper">
-            <p-panel header="User Information">
-                <app-user-information></app-user-information>
-            </p-panel>
-        </div>
-        <!-- COBSW ID Proofing -->
-        <div class="panel-wrapper">
-            <p-panel header="COBSW ID Proofing">
-                <div class="user-info">
-                    <div class="grid-col-6 user-info-header">COBSW ID Proofing Reference Number</div>
-                    <div class="grid-col-6">MRP9198</div>
-                </div>
-                <p-divider></p-divider>
-                <div class="user-info">
-                    <div class="grid-col-6 user-info-header">MFA Status</div>
-                    <div class="grid-col-6">Complete</div>
-                </div>
-                <p-divider></p-divider>
-                <div class="user-info">
-                    <div class="grid-col-6 user-info-header">MFA Status Date</div>
-                    <div class="grid-col-6">03/17/2022</div>
-                </div>
-                <p-divider></p-divider>
-                <div class="user-info">
-                    <div class="grid-col-6 user-info-header">Phone Proofing Fail Date</div>
-                    <div class="grid-col-6">03/24/2022</div>
-                </div>
-                <p-divider></p-divider>
-                <div class="user-info">
-                    <div class="grid-col-6 user-info-header">Failure Reason/Decision Code</div>
-                    <div class="grid-col-6">C004</div>
-                </div>
-            </p-panel>
-        </div>
-        <!--user table  -->
-        <div class="panel-wrapper">
-            <p-panel header="MRA (S111) / WCSMAP / MSPRP / CRCP Access Information">
-                <app-user-table [accounts]="userAccounts"></app-user-table>
-            </p-panel>
-        </div>
-
-        <div class="buttom_action_btn">
-            <button class="usa-button action-button" style="margin-right : 10px; font-size: 14px" (click)="onResetPassword()">Reset Password</button>
-            <button class="usa-button action-button" style="margin-right : 10px; font-size: 14px" (click)="onSetOpen('unlock-user-account')">Unlock Account</button>
-            <button class="usa-button action-button" style="margin-right : 10px; font-size: 14px" (click)="onRedirect('confirm-reactivate')">Reactivate
-                Account</button>
-            <button class="usa-button action-button" style="margin-right : 10px; font-size: 14px" (click)="onSetOpen('id-proofing')">ID Proof User</button>
-            <button class="usa-button action-button" style="margin-right : 10px; font-size: 14px" (click)="onSetOpen('restart-id-proofing')"> Restart ID
-                Proofing</button>
-            <button class="usa-button action-button" style="margin-right : 10px; font-size: 14px" (click)="onRedirect('resend-token')">Send Token</button>
-        </div>
-
+    <div class="searchForm">
+      <div class="field grid-col-3">
+        <label for="loginEmail" class="block">Email</label>
+        <input
+          class="usa-input"
+          id="loginEmail"
+          type="text"
+          aria-describedby="loginEmail-help"
+          pInputText
+        />
+      </div>
+      <p-divider layout="vertical" class="vertical-spacer">
+        <b>OR</b>
+      </p-divider>
+      <div class="field grid-col-3">
+        <label for="loginId" class="block">Login ID</label>
+        <input
+          class="usa-input"
+          id="loginId"
+          type="password"
+          aria-describedby="loginId-help"
+          pInputText
+        />
+      </div>
+      <div class="form_btn">
+        <button class="usa-button" (click)="onContinue()">Search</button>
+      </div>
     </div>
+  </div>
+
+  <div *ngIf="isContinue">
+    <!-- user info  -->
+    <p-accordion [multiple]="true">
+      <div class="panel-wrapper">
+        <p-accordionTab header="User Information" [selected]="true">
+          <app-user-information></app-user-information>
+        </p-accordionTab>
+      </div>
+      <!-- COBSW ID Proofing -->
+      <div class="panel-wrapper">
+        <p-accordionTab header="COBSW ID Proofing">
+          <div class="user-info">
+            <div class="grid-col-6 user-info-header">
+              COBSW ID Proofing Reference Number
+            </div>
+            <div class="grid-col-6">MRP9198</div>
+          </div>
+          <p-divider></p-divider>
+          <div class="user-info">
+            <div class="grid-col-6 user-info-header">MFA Status</div>
+            <div class="grid-col-6">Complete</div>
+          </div>
+          <p-divider></p-divider>
+          <div class="user-info">
+            <div class="grid-col-6 user-info-header">MFA Status Date</div>
+            <div class="grid-col-6">03/17/2022</div>
+          </div>
+          <p-divider></p-divider>
+          <div class="user-info">
+            <div class="grid-col-6 user-info-header">
+              Phone Proofing Fail Date
+            </div>
+            <div class="grid-col-6">03/24/2022</div>
+          </div>
+          <p-divider></p-divider>
+          <div class="user-info">
+            <div class="grid-col-6 user-info-header">
+              Failure Reason/Decision Code
+            </div>
+            <div class="grid-col-6">C004</div>
+          </div>
+        </p-accordionTab>
+      </div>
+      <!--user table  -->
+      <div class="panel-wrapper">
+        <p-accordionTab
+          header="MRA (S111) / WCSMAP / MSPRP / CRCP Access Information"
+        >
+          <app-user-table [accounts]="userAccounts"></app-user-table>
+        </p-accordionTab>
+      </div>
+    </p-accordion>
+    <div class="buttom_action_btn">
+      <button
+        class="usa-button action-button"
+        style="margin-right: 10px; font-size: 14px"
+        (click)="onResetPassword()"
+      >
+        Reset Password
+      </button>
+      <button
+        class="usa-button action-button"
+        style="margin-right: 10px; font-size: 14px"
+        (click)="onSetOpen('unlock-user-account')"
+      >
+        Unlock Account
+      </button>
+      <button
+        class="usa-button action-button"
+        style="margin-right: 10px; font-size: 14px"
+        (click)="onRedirect('confirm-reactivate')"
+      >
+        Reactivate Account
+      </button>
+      <button
+        class="usa-button action-button"
+        style="margin-right: 10px; font-size: 14px"
+        (click)="onSetOpen('id-proofing')"
+      >
+        ID Proof User
+      </button>
+      <button
+        class="usa-button action-button"
+        style="margin-right: 10px; font-size: 14px"
+        (click)="onSetOpen('restart-id-proofing')"
+      >
+        Restart ID Proofing
+      </button>
+      <button
+        class="usa-button action-button"
+        style="margin-right: 10px; font-size: 14px"
+        (click)="onRedirect('resend-token')"
+      >
+        Send Token
+      </button>
+    </div>
+  </div>
 </div>
 
 <div *ngIf="loadPage == 'confirm-reactivate'">
-        <h1 class="heading_color"> Confirm Reactivate Login ID</h1>
-        <p class="sub_text"><font color= #0d0f7c><strong>INFORMATION: If the Reactivate function is used the user must login to the system with their 
-            current password. If the user does not know their current password, the Reset function should be used instead. The Reset
-            function will allow you to set a temporary password to be used at the next login attempt. </strong></font></p>
-    
-        <p class="sub_text">Are you sure you want to reactivate the Login ID ? </p>
-    
-        <button style="margin-right : 10px;" class="usa-button p-button-sm"  (click)="onSetOpen('confirm-reactivate')">Yes</button>
-        <button (click)="onCancel()" class="usa-button p-button-sm bg-secondary">Cancel</button>
+  <h1 class="heading_color">Confirm Reactivate Login ID</h1>
+  <p class="sub_text">
+    <font color="#0d0f7c"
+      ><strong
+        >INFORMATION: If the Reactivate function is used the user must login to
+        the system with their current password. If the user does not know their
+        current password, the Reset function should be used instead. The Reset
+        function will allow you to set a temporary password to be used at the
+        next login attempt.
+      </strong></font
+    >
+  </p>
+
+  <p class="sub_text">Are you sure you want to reactivate the Login ID ?</p>
+
+  <button
+    style="margin-right: 10px"
+    class="usa-button p-button-sm"
+    (click)="onSetOpen('confirm-reactivate')"
+  >
+    Yes
+  </button>
+  <button (click)="onCancel()" class="usa-button p-button-sm bg-secondary">
+    Cancel
+  </button>
 </div>
 
 <div *ngIf="loadPage == 'resend-token'">
-    <h1 class="heading_color">Resend Token URL Email</h1>
-    <p class="color_danger">*Required</p>
+  <h1 class="heading_color">Resend Token URL Email</h1>
+  <p class="color_danger">*Required</p>
 
-    <div class="left_user_sub_info">
-        <table>
-            <tr>
-                <th>First Name:</th>
-                <td>Jack</td>
-            </tr>
-            <tr>
-                <th>Last Name:</th>
-                <td>Test</td>
-            </tr>
-            <tr>
-                <th>E-mail Address:</th>
-                <td>test@gamil.com</td>
-            </tr>
+  <div class="left_user_sub_info">
+    <table>
+      <tr>
+        <th>First Name:</th>
+        <td>Jack</td>
+      </tr>
+      <tr>
+        <th>Last Name:</th>
+        <td>Test</td>
+      </tr>
+      <tr>
+        <th>E-mail Address:</th>
+        <td>test@gamil.com</td>
+      </tr>
 
-            <tr>
-                <th>Status:</th>
-                <td>Pending</td>
-            </tr>
-        </table>
-    </div>
+      <tr>
+        <th>Status:</th>
+        <td>Pending</td>
+      </tr>
+    </table>
+  </div>
 
-    <div class="panel-wrapper">
-        <p-panel header="Associated with this Account Manager">
-            <p-table [value]="accountDetails">
-                <ng-template pTemplate="header">
-                    <tr>
-                        <th>Account/RRE ID</th>
-                        <th>Company Name</th>
+  <div class="panel-wrapper">
+    <p-panel header="Associated with this Account Manager">
+      <p-table [value]="accountDetails">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Account/RRE ID</th>
+            <th>Company Name</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-item>
+          <tr>
+            <td>{{ item.accountID }}</td>
+            <td>{{ item.companyName }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-panel>
+  </div>
 
-                    </tr>
-                </ng-template>
-                <ng-template pTemplate="body" let-item>
-                    <tr>
-
-                        <td>{{item.accountID}}</td>
-                        <td>{{item.companyName}}</td>
-                    </tr>
-                </ng-template>
-            </p-table>
-        </p-panel>
-    </div>
-
-    <div class="resend_form">
-        <table>
-            <tr>
-                <th>Pass Phrase:<span class="color_danger">*</span></th>
-                <td><input type="text" /></td>
-            </tr>
-            <tr>
-                <th>Re-enter Pass Phrase:<span class="color_danger">*</span></th>
-                <td><input type="text" /></td>
-            </tr>
-        </table>
-    </div>
-    <button style="margin-right : 10px;" class="usa-button p-button-sm"  (click)="onSetOpen('resend-token')">Yes</button>
-    <button (click)="onCancel()" class="usa-button p-button-sm bg-secondary">Cancel</button>
+  <div class="resend_form">
+    <table>
+      <tr>
+        <th>Pass Phrase:<span class="color_danger">*</span></th>
+        <td><input type="text" /></td>
+      </tr>
+      <tr>
+        <th>Re-enter Pass Phrase:<span class="color_danger">*</span></th>
+        <td><input type="text" /></td>
+      </tr>
+    </table>
+  </div>
+  <button
+    style="margin-right: 10px"
+    class="usa-button p-button-sm"
+    (click)="onSetOpen('resend-token')"
+  >
+    Yes
+  </button>
+  <button (click)="onCancel()" class="usa-button p-button-sm bg-secondary">
+    Cancel
+  </button>
 </div>
 
-<app-dashboard-model *ngIf="isOpen" (onCloseModel)="onCloseModel()" [infoMsg]="infoMsg">
+<app-dashboard-model
+  *ngIf="isOpen"
+  (onCloseModel)="onCloseModel()"
+  [infoMsg]="infoMsg"
+>
 </app-dashboard-model>

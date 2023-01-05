@@ -27,7 +27,6 @@
         </div>
     </p-panel>
   </div>
-  
   <p-accordion>
     <p-accordionTab header="Mailing Address:" [selected]="false">
       <div class="user-info">
@@ -55,6 +54,7 @@
         <div class="grid-col-4">({{authorizedRep.fax | slice:0:3}}) {{authorizedRep.fax | slice:3:6}}-{{authorizedRep.fax | slice:6:10}}</div>
       </div>
     </p-accordionTab>
+    <p><strong>Please check at least one RRE ID to Continue</strong></p>
     <p-accordionTab header="All Associated RREs:" [selected]="false">
       <p-table
         [value]="currentRreList"
@@ -86,7 +86,6 @@
     </div>
   </ng-container-->
   <div>
-      <p><strong>Please check at least one RRE ID to Continue</strong></p>
       <div class="user-info" style="margin-top: 20px">
         <div class="grid-col-6 email-input">
           <label for="newArEmail" class="block">Email Address for the new Authorized Representative:</label>
@@ -99,11 +98,12 @@
             aria-describedby="newArEmail-help"
             class="usa-input"
             type="text"
+            email="true"
+            [pattern]="emailPattern"
             pInputText
           />
-
           <ng-container *ngIf="newArEmailTag.invalid && (newArEmailTag.dirty || newArEmailTag.touched)" class="alert">
-            <div *ngIf="newArEmailTag.errors?.['required']" class="grid-col-6 field" style="color: red">
+            <div *ngIf="newArEmailTag.errors?.['required'] || newArEmailTag.errors?.['pattern']" class="grid-col-6 field" style="color: red">
               Please enter a valid e-mail address (i.e. UserID@domain.name).
             </div>
           </ng-container>

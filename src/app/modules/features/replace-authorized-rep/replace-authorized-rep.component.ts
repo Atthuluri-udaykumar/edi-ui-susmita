@@ -28,7 +28,7 @@ export class ReplaceAuthorizedRepComponent implements OnInit {
   currentRreList: Representative[]= [];
   newRreList: Representative[] = [];
   newArEmail: string = '';
-
+  emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
 
   errorMsgs: Error[];
 
@@ -109,7 +109,7 @@ export class ReplaceAuthorizedRepComponent implements OnInit {
         take user to AR Info entry page where they will enter all required data
         this.showNewAuthorizedRep = true;
     */
-    if(this.newArEmail === 'new'){ //mimic a non-existing AR email for which user has to enter new data inside info page
+    if(this.newArEmail === 'abc@def.com'){ //mimic a non-existing AR email for which user has to enter new data inside info page
       this.showNewAuthorizedRep = true;
     } else { //
       this.showNewAuthorizedRep = false;

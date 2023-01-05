@@ -71,9 +71,15 @@ p-radiobutton {
   padding-right: 10px;
 }
 
-p-inputMask{
-  margin-top: 10px;
+p-inputMask {
+  margin-top: 9px;
+  margin-bottom: 1px;
   line-height: 0.6;
+}
+p-dropdown {
+  margin-top: 9px;
+  margin-bottom: 1px;
+  line-height: 0.9;
 }
 
 .usa-select, .usa-range, .usa-input, .usa-textarea{

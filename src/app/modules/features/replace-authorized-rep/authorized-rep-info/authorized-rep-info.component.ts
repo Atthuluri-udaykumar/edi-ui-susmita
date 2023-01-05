@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { clone, cloneDeep } from "lodash"
 import { Address } from "src/app/model/address.model";
 import { Representative } from "src/app/model/representative.interface";
+import { StateList } from "src/app/model/state-list.model";
 import { ZipCode } from "src/app/model/zipcode.model";
 
 @Component({
@@ -21,10 +22,12 @@ export class AuthorizedRepInfoComponent implements OnInit {
 
   zip10: string; //format in 99999-9999
   phoneExtn: string; //format in (999)999-9999 extn 9999
-
+  stateList: StateList;
   constructor() {}
 
   ngOnInit() {
+    this.stateList = new StateList();
+
     if(this.showNewAuthorizedRep){
       this.authorizedRep = {
         rreId: 0,

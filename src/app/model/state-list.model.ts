@@ -1,52 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { RouterService } from 'src/app/services/router.service';
-@Component({
-  selector: 'app-account-authorized-info',
-  templateUrl: './account-authorized-info.component.html',
-  styleUrls: ['./account-authorized-info.component.css']
-})
-export class AccountAuthorizedInfoComponent implements OnInit {
+interface State {
+  name: string,
+  code: string
+}
 
-  constructor(
-    private routerService: RouterService
-  ) { }
-  rreList=[];
+export class StateList {
+  states: State[];
 
-  cities: City[];
-
-    selectedCity: City;
-
-  ngOnInit(): void {
-
-    this.rreList=[
-      {
-        rreCompanyName: "GHP B2BI Mailbox Test 2",
-        rreId: 61186,
-      },
-      {
-        rreCompanyName: "GHP B2BI Mailbox Test 3",
-        rreId: 61188,
-      },
-      {
-        rreCompanyName: "GHP B2BI Mailbox Test 4",
-        rreId: 61190,
-      },
-      {
-        rreCompanyName: "GHP B2BI Mailbox Test 5",
-        rreId: 61204,
-      },
-      {
-        rreCompanyName: "GHP B2BI Mailbox Test 6",
-        rreId: 61206,
-      },
-      {
-        rreCompanyName: "GHP B2BI Mailbox Test 7",
-        rreId: 61208,
-      }
-    ];
-
-
-    this.cities = [
+  constructor() {
+    this.states = [
       {name: 'Select', code: ''},
       {name: 'Alabama', code: 'AL'},
       {name: 'Alaska', code: 'AK'},
@@ -99,20 +60,6 @@ export class AccountAuthorizedInfoComponent implements OnInit {
       {name: 'West Virginia', code: 'WV'},
       {name: 'Wisconsin', code: 'WI'},
       {name: 'Wyoming', code: 'WY'},
-  ];
-  }
-
-  onCancel() {
-    this.routerService.navigateTo('accountAuthorized', false);
-  }
-
-  onContinue(){
-    this.routerService.navigateTo('accountInfo', false);
+    ];
   }
 }
-
-  interface City {
-    name: string,
-    code: string
-  }
-
