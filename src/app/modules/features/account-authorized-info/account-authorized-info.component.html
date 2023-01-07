@@ -9,34 +9,34 @@
     <p>An <span class="color_red">*</span> indicates a <span class="color_red" id="reqField">required field</span>.</p>
 
 
+    <p-panel header="Contact Information:">
+        <div class="grid-col-6 field">
+            <label for="firstName" class="block">First Name: <span class="color_red">*</span></label>
+            <input required id="firstName" name="firstName" aria-describedby="firstName-help" class="usa-input"
+                type="text" pInputText />
+
+        </div>
+        <div class="grid-col-6 field">
+            <label for="lastName">Last Name: <span class="color_red">*</span></label>
+            <input required id="lastName" name="lastName" aria-describedby="lastName-help" class="usa-input"
+                type="text" pInputText />
+
+        </div>
+        <div class="grid-col-6 field">
+            <label for="jobTitle">Job Title: <span class="color_red">*</span></label>
+            <input required id="jobTitle" name="jobTitle" aria-describedby="jobTitle-help" class="usa-input"
+                type="text" pInputText />
+
+        </div>
+        <div class="grid-col-6 field">
+            <label for="e-mailAddress">E-mail Address: <span class="color_red">*</span></label>
+            <input required id="e-mailAddress" name="e-mailAddress" aria-describedby="e-mailAddress-help" class="usa-input"
+                type="text" pInputText  [(ngModel)]="authorizedData.emailId"/>
+
+        </div>
+
+    </p-panel>
     <p-accordion>
-        <p-accordionTab header="Contact Information:" [selected]="false">
-            <div class="grid-col-6 field">
-                <label for="firstName" class="block">First Name: <span class="color_red">*</span></label>
-                <input required id="firstName" name="firstName" aria-describedby="firstName-help" class="usa-input"
-                    type="text" pInputText />
-
-            </div>
-            <div class="grid-col-6 field">
-                <label for="lastName">Last Name: <span class="color_red">*</span></label>
-                <input required id="lastName" name="lastName" aria-describedby="lastName-help" class="usa-input"
-                    type="text" pInputText />
-
-            </div>
-            <div class="grid-col-6 field">
-                <label for="jobTitle">Job Title: <span class="color_red">*</span></label>
-                <input required id="jobTitle" name="jobTitle" aria-describedby="jobTitle-help" class="usa-input"
-                    type="text" pInputText />
-
-            </div>
-            <div class="grid-col-6 field">
-                <label for="e-mailAddress">E-mail Address: <span class="color_red">*</span></label>
-                <input required id="e-mailAddress" name="e-mailAddress" aria-describedby="e-mailAddress-help" class="usa-input"
-                    type="text" pInputText />
-
-            </div>
-
-        </p-accordionTab>
         <p-accordionTab header="Mailing Address:" [selected]="false">
             <div class="grid-col-6 field">
                 <label for="streetLine1" class="block">Street Line 1: <span class="color_red">*</span></label>

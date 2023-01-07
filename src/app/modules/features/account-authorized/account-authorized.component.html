@@ -22,14 +22,14 @@
     <div class="searchForm">
         <div class="field grid-col-3">
             <label for="rreId" class="block">RRE ID</label>
-            <input class="usa-input" id="rreId" type="text" aria-describedby="loginEmail-help" pInputText [(ngModel)]="rreId"/>
+            <input class="usa-input" id="rreId" type="text" aria-describedby="loginEmail-help" pInputText [(ngModel)]="authorizedData.rreId"/>
         </div>
         <p-divider layout="vertical" class="vertical-spacer">
             <b>OR</b>
         </p-divider>
         <div class="field grid-col-3">
             <label for="loginId" class="block">E-Mail Address</label>
-            <input class="usa-input" id="loginId" type="password" aria-describedby="loginId-help" pInputText />
+            <input class="usa-input" id="loginId" type="password" aria-describedby="loginId-help" pInputText  [(ngModel)]="authorizedData.emailId"/>
         </div>
 
     </div>

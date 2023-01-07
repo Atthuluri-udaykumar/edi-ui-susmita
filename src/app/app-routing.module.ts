@@ -28,6 +28,7 @@ import { PaperlessEmailsComponent } from "./modules/features/paperless-emails/pa
 import { PaperlessPartiesComponent } from "./modules/features/paperless-parties/paperless-parties.component";
 import { ReplaceAccountManagerComponent } from "./modules/features/replace-account-manager/replace-account-manager.component";
 import { ReplaceAuthorizedRepComponent } from "./modules/features/replace-authorized-rep/replace-authorized-rep.component";
+import { AccountAuthorizedPreviewComponent } from "./modules/features/account-authorized-info/account-authorized-preview/account-authorized-preview.component";
 
 const appRoutes: Routes = [
   { path: "", component: LoginWarningComponent },
@@ -100,6 +101,11 @@ const appRoutes: Routes = [
     canActivate: [AuthGuard],
   },
   {
+    path: "accountInfoPreview",
+    component: AccountAuthorizedPreviewComponent,
+    canActivate: [AuthGuard],
+  },
+  {
     path: "accountActivity/:id",
     component: AccountActivityComponent,
     canActivate: [AuthGuard],
@@ -145,7 +151,7 @@ const appRoutes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-     path: 'accountAuthorizedInfo',
+     path: 'accountAuthorizedInfo/:id',
      component: AccountAuthorizedInfoComponent,
      canActivate: [AuthGuard],
   },

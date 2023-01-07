@@ -81,6 +81,7 @@ import { ReplaceAuthorizedRepComponent } from "./modules/features/replace-author
 import { AuthorizedRepInfoComponent } from "./modules/features/replace-authorized-rep/authorized-rep-info/authorized-rep-info.component";
 import { ConfirmAuthorizedRepReplaceComponent } from "./modules/features/replace-authorized-rep/confirm-authorized-rep-replace/confirm-authorized-rep-replace.component";
 import {InputMaskModule} from 'primeng-lts/inputmask';
+import { AccountAuthorizedPreviewComponent } from './modules/features/account-authorized-info/account-authorized-preview/account-authorized-preview.component';
 
 @NgModule({
   declarations: [
@@ -120,6 +121,7 @@ import {InputMaskModule} from 'primeng-lts/inputmask';
     ReplaceAuthorizedRepComponent,
     AuthorizedRepInfoComponent,
     ConfirmAuthorizedRepReplaceComponent,
+    AccountAuthorizedPreviewComponent,
   ],
   imports: [
     BrowserAnimationsModule,

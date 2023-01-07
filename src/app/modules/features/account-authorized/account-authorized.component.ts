@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Route, Router } from "@angular/router";
+import { Router } from "@angular/router";
 
 import { RouterService } from 'src/app/services/router.service';
 
@@ -15,7 +15,11 @@ export class AccountAuthorizedComponent implements OnInit {
     private routerService: RouterService,
     private router: Router
   ) { }
-  city:any;
+  city: any;
+  authorizedData: any={
+    rreId:'',
+    emailId:''
+  }
 
   ngOnInit(): void {
   }
@@ -24,16 +28,16 @@ export class AccountAuthorizedComponent implements OnInit {
     this.routerService.navigateTo('dashboard', false);
   }
 
-  onContinue(){
+  onContinue() {
     this.routerService.navigateTo('accountInfo', false);
   }
 
 
-  onUpdate(){
-    this.routerService.navigateTo('accountAuthorizedInfo', false);
+  onUpdate() {
+    this.router.navigate(["accountAuthorizedInfo", JSON.stringify(this.authorizedData)]);
   }
-  onReplace(){
-    this.router.navigate(["replaceAuthorizedRep", this.rreId ||"0"]);
+  onReplace() {
+    this.router.navigate(["replaceAuthorizedRep", this.rreId || "0"]);
   }
 
 }
