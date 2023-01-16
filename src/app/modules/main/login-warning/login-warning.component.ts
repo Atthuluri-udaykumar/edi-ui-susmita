@@ -4,7 +4,6 @@ import { AuthService } from "../../../services/auth.service";
 import { SessionService } from "../../../services/session.service";
 import { Title } from "@angular/platform-browser";
 import { AuthorizationService } from "../../../services/authorization.service";
-
 @Component({
   selector: "app-login-warning",
   templateUrl: "./login-warning.component.html",
@@ -27,10 +26,8 @@ export class LoginWarningComponent implements OnInit {
     this.router.navigate(["/login"]);
   }
 
-  // async decline() {
-  //   // do session.logout always before authService.logout
-  //   await this.session.logout(false);
-  //   this.authService.logout();
-  //   this.router.navigate(["/login"]);
-  // }
+  decline(){
+    window.open("https://www.cms.gov/", "_blank");
+  }
+  
 }

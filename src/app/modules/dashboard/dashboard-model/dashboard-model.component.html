@@ -1,9 +1,9 @@
-<p-dialog [(visible)]="display" modal="true" dismissableMask="true" (onHide)="onContinue()" [breakpoints]="{'960px': '50vw', '640px': '75vw'}" [style]="{width: '50vw'}">
+<p-dialog [(visible)]="display" modal="true" dismissableMask="true" [closable]="false" (onHide)="onContinue()" [breakpoints]="{'960px': '50vw', '640px': '75vw'}" [style]="{width: '50vw'}">
     <p-header>
         {{selectedMessage?.header}}
     </p-header>
     {{selectedMessage?.body}}
     <ng-template pTemplate="footer">
-        <button class="usa-button" (click)="onContinue()">Continue</button>
+        <button class="usa-button" (click)="onContinue()">Ok</button>
     </ng-template>
 </p-dialog>
