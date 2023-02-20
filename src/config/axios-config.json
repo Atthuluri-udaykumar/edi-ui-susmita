@@ -1,0 +1,25 @@
+
+{
+    "config": {
+        "local":{
+            "baseURL": "http://localhost:8080/", 
+            "timeout": 2000,  
+            "headers": { "x-api-key": "local" }
+         },
+        "dev":{
+            "baseURL": "http://internal-dsc-d-alb-xx-lb-1442700066.us-east-1.elb.amazonaws.com:8080/", 
+            "timeout": 2000,  
+            "headers": { "x-api-key": "local" }
+        },
+        "imp":{
+            "baseURL": "", 
+            "timeout": 1000,  
+            "headers": { "x-api-key": "local" }
+        },
+        "pro":{
+            "baseURL": "", 
+            "timeout": 1000,  
+            "headers": { "x-api-key": "local" }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+
+{
+    "db": {
+        "dev":{
+            "user": "UI_COBREDSA", 
+            "password": "w3LcoBD3!v20221026",  
+            "connectString": "dsc-d-mra-rds-v01.cvnz9uoaucqe.us-east-1.rds.amazonaws.com:1521/DCOBMRA1",
+            "poolMin": 10,
+            "poolMax": 10,
+            "poolIncrement": 0
+        },
+        "imp":{
+            "user": "", 
+            "password": "",  
+            "connectString": "",
+            "poolMin": 10,
+            "poolMax": 10,
+            "poolIncrement": 0
+        },
+        "pro":{
+            "user": "", 
+            "password": "",  
+            "connectString": "",
+            "poolMin": 10,
+            "poolMax": 10,
+            "poolIncrement": 0
+        }
+    }
+}

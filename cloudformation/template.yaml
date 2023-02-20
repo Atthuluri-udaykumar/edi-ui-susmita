@@ -1,0 +1,198 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Description: |
+  This template creates a Service.
+Parameters:
+  Cluster:
+    Description: Name of the cluster
+    Type: AWS::SSM::Parameter::Value<String>
+
+  ContainerPort:
+    Description: Load Balancer and Target Group Port
+    Type: Number
+    Default: 8080
+
+  Count:
+    Description: Desired count of tasks
+    Type: String
+    Default: 1
+
+  Layer:
+    Description: Subnet Layer
+    Type: String
+    AllowedValues: [al, dl]
+    
+  ListenerArn:
+    Description: The ARN of the listener
+    Type: AWS::SSM::Parameter::Value<String>
+        
+  Path:
+    Description: Context path
+    Type: String
+    Default: bulletinboards
+
+  Priority:
+    Description: Listener rule priority
+    Type: String
+    Default: 1000
+
+  ServiceName:
+    Description: Name of the service
+    Type: String
+
+  Vpc:
+    Description: Name of VPC
+    Type: String
+    AllowedValues: [devops, dev, imp, pro]
+    
+  VpcId:
+    Description: VPC ID
+    Type: AWS::SSM::Parameter::Value<String>
+ 
+  SubnetIds:
+    Description: Choose which subnets this ECS cluster should be deployed to
+    Type: AWS::SSM::Parameter::Value<List<String>>
+    Default: "/dev/al/subnets"
+
+  FargateSecurityGroup:
+    Description: Select the Security Group to use for the ECS cluster hosts
+    Type: AWS::SSM::Parameter::Value<String>
+    Default: "/dev/ecs/al/fg-security-groups"
+
+  AppContainerPort:
+    Description: Container Port
+    Type: String
+    Default: 8080
+
+  AppImageVersion:
+    Description: Application image
+    Type: String
+    Default: 7
+
+  Cpu:
+    Description: Number of vCPUs
+    Type: String
+    Default: 1024
+    AllowedValues: [256, 512, 1024, 2048, 4096]
+
+  Memory:
+    Description: Allocated Memory
+    Type: String
+    Default: 2048
+    AllowedValues: [512,
+      1024,
+      2048, 3072, 4096, 5120, 6144, 7168, 8192,
+      9216, 10240, 11264, 12288, 13312, 14336, 15360, 16384,
+      17408, 18432, 19456, 20480, 21504, 22528, 23552, 24576, 25600, 26624, 27648, 28672, 29696, 30720]
+
+  Registry:
+    Description: ECR
+    Type: AWS::SSM::Parameter::Value<String>
+    Default: "/mspsc/ecr"
+
+  TaskRoleArn:
+    Description: Task Role ARN
+    Type: AWS::SSM::Parameter::Value<String>
+    Default: "/mspsc/ecr"
+
+Mappings:
+  Base:
+    vpc:
+      devops: o
+      dev: d
+      imp: i
+      pro: p
+    layer:
+      al: a
+      dl: d
+    role:
+      dev: "arn:aws:iam::116915543549:role/dev.ecs-task.role"
+      imp: "arn:aws:iam::116915543549:role/imp.ecs-task.role"
+      pro: "arn:aws:iam::116915543549:role/pro.ecs-task.role"
+      
+Resources:
+  TargetGroup:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties:
+      HealthCheckIntervalSeconds: 60
+      HealthCheckPath: !Sub "${Path}/version"
+      HealthCheckProtocol: HTTP
+      #HealthCheckTimeoutSeconds: 30
+      HealthyThresholdCount: 2
+      #Matcher:
+        #HttpCode: "200"
+      Name: !Join [ -, [ !Join [ '', [ !FindInMap [ Base, vpc, !Ref Vpc ], sc ] ], !FindInMap [ Base, layer, !Ref Layer ], !Ref ServiceName, fg, tg]]
+      Port: !Ref ContainerPort
+      TargetType: ip
+      Protocol: HTTP
+      TargetGroupAttributes:
+        - Key: deregistration_delay.timeout_seconds
+          Value: "60"
+      UnhealthyThresholdCount: 5
+      VpcId: !Ref VpcId
+  
+  ListenerAction:
+    Type: AWS::ElasticLoadBalancingV2::ListenerRule
+    DependsOn: TargetGroup
+    Properties:
+      Actions:
+        - Type: forward
+          TargetGroupArn: !Ref TargetGroup
+      Conditions:
+        - Field: path-pattern
+          PathPatternConfig:
+            Values:
+              - !Sub "${Path}/*"
+      ListenerArn: !Ref ListenerArn
+      Priority: !Ref Priority
+  TaskDefinition:
+    Type: AWS::ECS::TaskDefinition
+    Properties:
+      ContainerDefinitions:
+        - Name: !Ref ServiceName
+          Environment:
+            - Name: "DEPLOY_ENV"
+              Value: !Sub "${Vpc}"
+            - Name: "DEPLOY_PORT"
+              Value: "8080"
+          Image: !Sub "${Registry}/${ServiceName}:${AppImageVersion}"
+          LogConfiguration:
+            LogDriver: awslogs
+            Options:
+              awslogs-region: !Ref AWS::Region
+              awslogs-group: !Sub "/ecs/${Vpc}/app/${ServiceName}"
+              awslogs-stream-prefix: ecs
+          PortMappings:
+            - ContainerPort: !Ref AppContainerPort
+              Protocol: tcp
+      Cpu: !Ref Cpu
+      ExecutionRoleArn: arn:aws:iam::116915543549:role/ECSTaskExecutionRole
+      Family: !Join ["-", [!Ref ServiceName, !Ref Vpc]]
+      Memory: !Ref Memory
+      NetworkMode: awsvpc
+      RequiresCompatibilities:
+        - FARGATE
+      TaskRoleArn: !FindInMap [ Base, role, !Ref Vpc ]  
+  EcsService:
+    Type: "AWS::ECS::Service"
+    DependsOn: ListenerAction
+    Properties:
+      Cluster: !Ref Cluster
+      DeploymentConfiguration: # https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeploymentConfiguration.html
+        MaximumPercent: 200
+        MinimumHealthyPercent: 100
+      DesiredCount: !Ref Count
+      LaunchType: FARGATE
+      HealthCheckGracePeriodSeconds: 600
+      LoadBalancers:
+        - TargetGroupArn: !Ref TargetGroup
+          ContainerName: !Ref ServiceName
+          ContainerPort: !Ref ContainerPort
+      NetworkConfiguration:
+        AwsvpcConfiguration:
+          Subnets: !Ref SubnetIds
+          SecurityGroups:
+            - !Ref FargateSecurityGroup
+      PlatformVersion: 1.4.0
+      ServiceName: !Ref ServiceName
+      TaskDefinition: !Ref TaskDefinition
